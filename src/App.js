@@ -8,8 +8,14 @@ export const tokenState = atom({
   default: null
 })
 
+export const userIdState = atom({
+  key: 'userId',
+  default: null
+})
+
 function App() {
   const [token, setToken] = useRecoilState(tokenState)
+  const [userId, setUserId] = useRecoilState(userIdState)
 
   if (token === null) {
     return (
