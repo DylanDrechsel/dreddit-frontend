@@ -1,6 +1,7 @@
 import './App.css';
 import { atom, useRecoilState } from 'recoil';
 import LandingPage from './LandingPage/LandingPage'
+import Home from './Home/Home'
 
 export const tokenState = atom({
   key: 'token',
@@ -10,11 +11,19 @@ export const tokenState = atom({
 function App() {
   const [token, setToken] = useRecoilState(tokenState)
 
-  return (
-    <div className="App">
+  if (token === null) {
+    return (
+      <div className="App">
         <LandingPage />
-    </div>
-  );
+      </div>
+    );
+  } else if (token != null) {
+    return (
+			<div className='App'>
+				<Home />
+			</div>
+		);
+  }
 }
 
 export default App;
