@@ -13,9 +13,13 @@ export const userIdState = atom({
   default: null
 })
 
+export const userNameState = atom({
+  key: 'userName',
+  default: null
+})
+
 function App() {
   const [token, setToken] = useRecoilState(tokenState)
-  const [userId, setUserId] = useRecoilState(userIdState)
 
   if (token === null) {
     return (

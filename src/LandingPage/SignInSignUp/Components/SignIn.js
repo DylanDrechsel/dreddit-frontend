@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { tokenState, userIdState } from '../../../App';
+import { tokenState, userIdState, userNameState } from '../../../App';
 import { useRecoilState } from 'recoil';
 import { Form, Button } from 'react-bootstrap'
 import axios from 'axios'
@@ -7,6 +7,7 @@ import axios from 'axios'
 const SignIn = () => {
     const [token, setToken] = useRecoilState(tokenState);
     const [userId, setUserId] = useRecoilState(userIdState)
+    const [userName, setUserName] = useRecoilState(userNameState)
     const [userData, setUserData] = useState({
 		email: null,
 		password: null,
@@ -31,6 +32,7 @@ const SignIn = () => {
         })
         .then(({ data }) => {
             setUserId(data.id)
+            setUserName(data.username)
             setToken(data.signedJwt)
         })
     }
