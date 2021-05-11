@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { tokenState } from '../../../App';
+import { tokenState, userIdState } from '../../../App';
 import { useRecoilState } from 'recoil';
 import { Form, Button } from 'react-bootstrap'
 import axios from 'axios'
 
 const SignIn = () => {
     const [token, setToken] = useRecoilState(tokenState);
+    const [userId, setUserId] = useRecoilState(userIdState)
     const [userData, setUserData] = useState({
 		email: null,
 		password: null,
@@ -29,17 +30,15 @@ const SignIn = () => {
             data: userData
         })
         .then(({ data }) => {
+            setUserId(data.id)
             setToken(data.signedJwt)
         })
     }
 
-    console.log(userData)
-    console.log(token)
-
     return (
 			<div className='SignIn'>
 				<h2>
-					<b>Sign In</b>
+					<b>Log In</b>
 				</h2>
 				<Form>
 					<Form.Group controlId='email' onChange={handleInput}>
@@ -59,7 +58,7 @@ const SignIn = () => {
 					</Form.Group>
 
 					<Button variant='primary' type='submit' onClick={handleLogin}>
-						Submit
+						Log In!
 					</Button>
 				</Form>
 			</div>
