@@ -1,23 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
+import { atom, useRecoilState } from 'recoil';
+import LandingPage from './LandingPage/LandingPage'
+
+export const tokenState = atom({
+  key: 'token',
+  default: null
+})
 
 function App() {
+  const [token, setToken] = useRecoilState(tokenState)
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <LandingPage />
     </div>
   );
 }
