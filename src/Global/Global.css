@@ -1,12 +1,16 @@
 .Navbar {
-    max-height: 5vh !important;
-    z-index: 0;
-    /* overflow: hidden !important; */
+    /* position: relative; */
+    /* top: 10vh !important; */
+    max-height: 6vh !important;
+    min-height: 6vh !important;
+    z-index: 0 !important;
+    /* height: 10vh !important; */
+    overflow: hidden !important;
 }
 
 .Welcome {
     color: white;
-    overflow: hidden !important;
+    /* overflow: hidden !important; */
 }
 
 .WelcomeAnimation {
@@ -23,15 +27,57 @@
 
 .Welcome0 {
     color: white;
-    font-size: 100px;
-    position: relative;
-    top: 5vh;
-    right: 5vw
+    font-size: 72px;
+    position: absolute;
+    top: -2vh;
+    right: 65vw;
+    z-index: 1 !important;
 }
 
 .Welcome1 {
     color: white;
-    font-size: 100px;
-    position: relative;
-    top: -17.1vh;
+    font-size: 72px;
+    position: absolute;
+    top: -2vh;
+    right: 60vw
+}
+
+.Welcome2 {
+    color: white;
+    font-size: 72px;
+    position: absolute;
+    top: -2vh;
+    right: 55vw
+}
+
+.Welcome3 {
+    color: white;
+    font-size: 72px;
+    position: absolute;
+    top: -2vh;
+    right: 50vw
+}
+
+.Welcome4 {
+    color: white;
+    font-size: 72px;
+    position: absolute;
+    top: -2vh;
+    right: 45vw
+}
+
+.Welcome5 {
+    color: white;
+    font-size: 72px;
+    position: absolute;
+    top: -2vh;
+    right: 40vw
+}
+
+.Welcome6 {
+    color: white;
+    font-size: 72px;
+    position: absolute;
+    top: -2vh;
+    right: 35vw
 }
