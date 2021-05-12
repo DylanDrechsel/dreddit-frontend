@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 
 const animation = {
@@ -11,7 +11,7 @@ const animation = {
 		},
 	},
 	showTest: (i) => ({
-		x: [i-100, i-2000],
+		// x: [i, i-2000],
         opacity: 1,
 		transition: {
 			duration: 2,
@@ -27,17 +27,31 @@ const Welcome = () => {
     let classname = 'Welcome'
     let count = 0
 
+    const controls = useAnimation()
+
+    const sequence = async () => {
+			await controls.start({ x: -1000 });
+			await controls.start({ x: 0 });
+            return await controls.start({ x: -1600 })
+		};
+
+    useEffect(() => {
+        setTimeout(() => {
+			sequence();
+        }, 5000)
+		}, []);
+
      const welcomeText = spots.map(() => {
 				return (
-					<motion.div
-						variants={animation}
-						/* initial='hidden' */ animate='showTest'>
+					<motion.div variants={animation} initial='hidden' animate='showTest' >
 						{welcome.map((letter, i) => {
-                            classname = `Welcome${count}`
-                            count += 1
+							classname = `Welcome${count}`;
+							count += 1;
 							return (
-								<motion.h1 className={classname} variants={animation} custom={i}>
-									{letter}
+								<motion.h1 variants={animation} custom={i}>
+									<motion.h1 className={classname} animate={controls}>
+										{letter}
+									</motion.h1>
 								</motion.h1>
 							);
 						})}
