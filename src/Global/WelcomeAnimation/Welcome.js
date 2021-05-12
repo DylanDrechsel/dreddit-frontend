@@ -29,37 +29,37 @@ const Welcome = () => {
 
     const sequenceW = async () => {
 			await animateW.start({ x: '-30vw', transition: { duration: 2 }});
-			return await animateW.start({ x: '80vw', transition: { delay: 0.8, type: "spring" } });
+			return await animateW.start({ x: '80vw', opacity: [1,0,0,0,0,0], transition: { delay: 0.8, type: "spring" } });
 		};
 
     const sequenceE = async () => {
 			await animateE.start({ x: '-33vw', transition: { duration: 1.85, delay: .1 } });
-			return await animateE.start({ x: '75vw', transition: { delay: 0.75, type: "spring" } });
+			return await animateE.start({ x: '75vw', opacity: [1,0,0,0,0,0], transition: { delay: 0.75, type: "spring" } });
 		};
 
     const sequenceL = async () => {
 			await animateL.start({ x: '-36vw', transition: { duration: 1.7, delay: .2, stiffness: 2000 } });
-			return await animateL.start({ x: '70vw', transition: { delay: 0.7, type: "spring" } });
+			return await animateL.start({ x: '70vw', opacity: [1,0,0,0,0,0], transition: { delay: 0.7, type: "spring" } });
 		};
 
     const sequenceC = async () => {
 			await animateC.start({ x: '-39vw', transition: { duration: 1.55, delay: .3 } });
-			return await animateC.start({ x: '70vw', transition: { delay: 0.65, type: "spring" } });
+			return await animateC.start({ x: '70vw', opacity: [1,0,0,0,0,0], transition: { delay: 0.65, type: "spring" } });
 		};
 
     const sequenceO = async () => {
 			await animateO.start({ x: '-41vw', transition: { duration: 1.40, delay: .4 } });
-			return await animateO.start({ x: '70vw', transition: { delay: 0.6, type: "spring" } });
+			return await animateO.start({ x: '70vw', opacity: [1,0,0,0,0,0], transition: { delay: 0.6, type: "spring" } });
 		};
 
     const sequenceM = async () => {
 			await animateM.start({ x: '-42.5vw', transition: { duration: 1.25, delay: .5 } });
-			return await animateM.start({ x: '50vw', transition: { delay: .55, type: "spring" }});
+			return await animateM.start({ x: '50vw', opacity: [1,0,0,0,0,0], transition: { delay: .55, type: "spring" }});
 		};
 
         const sequenceFinalE = async () => {
 			await animateFinalE.start({ x: '-45.8vw', transition: { duration: 1.1, delay: .6 } });
-			return await animateFinalE.start({ x: '50vw', transition: { delay: .5, type: "spring" }});
+			return await animateFinalE.start({ x: '50vw', opacity: [1,0,0,0,0,0], transition: { delay: .5, type: "spring" }});
 		};
 
     useEffect(() => {
