@@ -24,7 +24,6 @@ const Home = () => {
     return (
         <div>
             <Navbar />
-            <h1>Signed In</h1>
         </div>
     );
 };
