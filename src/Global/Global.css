@@ -1,5 +1,6 @@
 .Navbar {
     max-height: 5vh !important;
+    z-index: 0;
     /* overflow: hidden !important; */
 }
 
@@ -25,4 +26,12 @@
     font-size: 100px;
     position: relative;
     top: 5vh;
+    right: 5vw
+}
+
+.Welcome1 {
+    color: white;
+    font-size: 100px;
+    position: relative;
+    top: -17.1vh;
 }
