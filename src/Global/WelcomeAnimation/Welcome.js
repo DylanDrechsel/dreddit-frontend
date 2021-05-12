@@ -24,16 +24,26 @@ const animation = {
 const Welcome = () => {
     const welcome = ['W', 'E', 'L', 'C', 'O', 'M', 'E']
     const spots = [1]
+    let classname = 'Welcome'
+    let count = 0
 
-    const welcomeText = spots.map(() => {
-        return (
-					<motion.div variants={animation} /* initial='hidden' */ animate='showTest'>
+     const welcomeText = spots.map(() => {
+				return (
+					<motion.div
+						variants={animation}
+						/* initial='hidden' */ animate='showTest'>
 						{welcome.map((letter, i) => {
-							return <motion.h1 variants={animation} custom={i}>{letter}</motion.h1>;
+                            classname = `Welcome${count}`
+                            count += 1
+							return (
+								<motion.h1 className={classname} variants={animation} custom={i}>
+									{letter}
+								</motion.h1>
+							);
 						})}
 					</motion.div>
 				);
-    })
+			});
 
     return (
         <div className="Welcome">
