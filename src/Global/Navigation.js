@@ -40,31 +40,48 @@ const Navigation = () => {
 
     return (
 			<div className='Navbar'>
-				<Navbar expand='lg' fixed='top' style={{ backgroundColor: '#201E1D' }}>
+				<Navbar
+					expand='lg'
+					/* fixed='top' */ style={{ backgroundColor: '#201E1D' }}>
 					<Navbar.Toggle aria-controls='navbarScroll' />
 					<Navbar.Collapse id='navbarScroll'>
 						<Nav
 							className='mr-auto my-2 my-lg-0'
-							style={{ minHeight: '5vh', maxHeight: '5vh'}}
 							navbarScroll>
-							<Nav.Link href='#action1' style={{ color: 'white' }}>
+							<Nav.Link
+								href='#action1'
+								style={{
+									color: 'white',
+									position: 'relative',
+									bottom: '72vh',
+								}}>
 								<b>Home</b>
 							</Nav.Link>
-							<Nav.Link href='#action2' style={{ color: 'white' }}>
+							<Nav.Link
+								href='#action2'
+								style={{
+									color: 'white',
+									position: 'relative',
+									bottom: '72vh',
+								}}>
 								<b>Link</b>
 							</Nav.Link>
 						</Nav>
 
-
-						<Navbar.Brand href='#' style={{ color: 'white' }}>
+						<Navbar.Brand
+							href='#'
+							style={{
+								color: 'white',
+								position: 'relative',
+								bottom: '71vh',
+								left: '5vw',
+							}}>
 							{' '}
 							{userName}
 						</Navbar.Brand>
 					</Navbar.Collapse>
+					<Welcome />
 				</Navbar>
-				
-				<Welcome />
-
 			</div>
 		);
 };

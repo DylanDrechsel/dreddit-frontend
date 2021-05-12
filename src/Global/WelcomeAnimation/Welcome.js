@@ -49,8 +49,8 @@ const Welcome = () => {
 							count += 1;
 							return (
 								<motion.h1 variants={animation} custom={i}>
-									<motion.h1 className={classname} animate={controls}>
-										{letter}
+									<motion.h1 className={classname} /* animate={controls} */>
+										<b>{letter}</b>
 									</motion.h1>
 								</motion.h1>
 							);
