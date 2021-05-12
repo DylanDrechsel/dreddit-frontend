@@ -4,6 +4,7 @@ import { Nav, NavDropdown, Form, FormControl, Button, Navbar } from 'react-boots
 import { userIdState, tokenState, userNameState } from '../App';
 import { useRecoilState } from 'recoil';
 import { motion, useAnimation } from 'framer-motion'
+import Welcome from './WelcomeAnimation/Welcome'
 
 const animation = {
 	fadeIn: {
@@ -54,22 +55,11 @@ const Navigation = () => {
 							</Nav.Link>
 						</Nav>
 
+						<Welcome />
+
 						<Navbar.Brand href='#' style={{ color: 'white' }}>
 							{' '}
-							<motion.div
-								
-								animate={controls}>
-								<motion.h1>
-									<motion.span
-										variants={animation}
-										animate='getBig'
-										initial={{}}
-										style={{ fontSize: '24px' }}>
-										Welcome
-									</motion.span>
-								</motion.h1>
-								<motion.b>{userName}</motion.b>
-							</motion.div>
+							{userName}
 						</Navbar.Brand>
 					</Navbar.Collapse>
 				</Navbar>
