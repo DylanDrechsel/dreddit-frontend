@@ -13,18 +13,6 @@
     /* overflow: hidden !important; */
 }
 
-.WelcomeAnimation {
-    color: white;
-    /* display: inline; */
-    font-size: 100px;
-    padding-left: 1vw;
-    padding-right: 1vw;
-    position: relative;
-    top: 3vh;
-    overflow: hidden;
-    /* max-width: 5vw !important; */
-}
-
 .Welcome0 {
     color: white;
     font-size: 72px;
