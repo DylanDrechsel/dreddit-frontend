@@ -16,8 +16,7 @@ const Navigation = () => {
     const sequence = async () => {
 			await controls.start({ opacity: 1, scale: 2.5, transition: { duration: 2, delay: 6 } });
 			await controls.start({ scale: 1.5 });
-			return await controls.start({ scale: 1, x: 0, y: '-.2vh', transition: { duration: .05 }});
-            
+			return await controls.start({ scale: 1, x: 0, y: '-.2vh', opacity: [0, 0, 0, 0, 0, 1], transition: { duration: .05, delay: .2 }});        
 		};
 
     useEffect(() => {
