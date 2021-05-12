@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import './Global.css'
-import { Nav, NavDropdown, Form, FormControl, Button, Navbar } from 'react-bootstrap'
+import { Nav, NavDropdown, Form, FormControl, Button, Navbar, Row } from 'react-bootstrap'
 import { userIdState, tokenState, userNameState } from '../App';
 import { useRecoilState } from 'recoil';
 import { motion, useAnimation } from 'framer-motion'
@@ -45,7 +45,7 @@ const Navigation = () => {
 					<Navbar.Collapse id='navbarScroll'>
 						<Nav
 							className='mr-auto my-2 my-lg-0'
-							style={{ minHeight: '5vh' }}
+							style={{ minHeight: '5vh', maxHeight: '5vh'}}
 							navbarScroll>
 							<Nav.Link href='#action1' style={{ color: 'white' }}>
 								<b>Home</b>
@@ -55,7 +55,6 @@ const Navigation = () => {
 							</Nav.Link>
 						</Nav>
 
-						<Welcome />
 
 						<Navbar.Brand href='#' style={{ color: 'white' }}>
 							{' '}
@@ -63,6 +62,9 @@ const Navigation = () => {
 						</Navbar.Brand>
 					</Navbar.Collapse>
 				</Navbar>
+				
+				<Welcome />
+
 			</div>
 		);
 };

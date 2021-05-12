@@ -1,7 +1,28 @@
 .Navbar {
-    background-color: red !important
+    max-height: 5vh !important;
+    /* overflow: hidden !important; */
 }
 
 .Welcome {
     color: white;
+    overflow: hidden !important;
+}
+
+.WelcomeAnimation {
+    color: white;
+    /* display: inline; */
+    font-size: 100px;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    position: relative;
+    top: 3vh;
+    overflow: hidden;
+    /* max-width: 5vw !important; */
+}
+
+.Welcome0 {
+    color: white;
+    font-size: 100px;
+    position: relative;
+    top: 5vh;
 }

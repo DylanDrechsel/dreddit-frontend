@@ -3,6 +3,7 @@ import { userIdState, tokenState, userNameState } from '../App'
 import { useRecoilState } from 'recoil'
 import axios from 'axios'
 import Navbar from '../Global/Navigation'
+import Welcome from '../Global/WelcomeAnimation/Welcome'
 
 const Home = () => {
     const [userId, setUserId] = useRecoilState(userIdState);
@@ -24,6 +25,7 @@ const Home = () => {
     return (
         <div>
             <Navbar />
+            {/* <Welcome /> */}
         </div>
     );
 };
