@@ -16,7 +16,7 @@ const Navigation = () => {
     const sequence = async () => {
 			await controls.start({ opacity: 1, scale: 2.5, textShadow: '3px 3px 20px #e6498e', transition: { duration: 2, delay: 6 } });
 			await controls.start({ scale: 1.5, textShadow: '0px 0px 0px #e6498e', transition: { duration: .1 }});
-			return await controls.start({ scale: 1, x: 0, y: '-.2vh', opacity: [0, 0, 1], transition: { duration: .05, delay: .2 }});        
+			return await controls.start({ scale: 1, x: 0, y: '-.2vh', textShadow: '16px 22px 11px rgba(230,73,142,0.8)', opacity: [0, 0, 1], transition: { duration: .05, delay: .2 }});        
 		};
 
     useEffect(() => {
