@@ -16,3 +16,7 @@
     left: 2.5vw;
     border-radius: 5%;
 }
+
+.CardTitle {
+    font-size: 36px;
+}
