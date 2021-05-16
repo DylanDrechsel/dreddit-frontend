@@ -18,5 +18,12 @@
 }
 
 .CardTitle {
-    font-size: 36px;
+    font-size: 24px;
+    position: relative;
+}
+
+.CardCaregory {
+    font-size: 14px;
+    position: relative;
+    right: 14vw;
 }
