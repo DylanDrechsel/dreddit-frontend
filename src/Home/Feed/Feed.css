@@ -1,0 +1,18 @@
+.Feed {
+    background-color: #201E1D;
+    height: 89vh;
+    width: 40vw;
+    margin-top: 5vh;
+    position: relative;
+    left: 30vw
+}
+
+.Card {
+    width: 35vw;
+    height: 50vh;
+    background-color: white;
+    position: relative;
+    top: 2vh;
+    left: 2.5vw;
+    border-radius: 5%;
+}
