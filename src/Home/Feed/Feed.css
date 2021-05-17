@@ -70,3 +70,11 @@
 .CommentButton:hover {
     background-color: #CECCCA;
 }
+
+.CommentImage {
+    position: relative;
+    width: 1.5vw;
+    height: 2vh;
+    bottom: .25vh;
+    right: 3vw
+}
