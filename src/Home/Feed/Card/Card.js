@@ -29,21 +29,29 @@ const Card = () => {
     }, [])
 
     if (haveData) {
-        // console.log(postData.posts[0].createdAt)
+        console.log(postData.posts)
+        
     }
+
 
     if (haveData) {
         return (
-                <div className='Card'>
-                    <Row>
-                        <Category category={postData.posts[0].category} />
-                        <PostedBy username={postData.posts[0].author.username} />
-                        <TimeSincePost time={postData.posts[0].createdAt}/>
-                    </Row>
-
-                    <Title title={postData.posts[0].title} />
-                    <PostImage path={postData.posts[0].image[0].path}/>
-                </div>
+            <div>
+                {postData.posts.map((post) => {
+                    return (
+                        <div className='Card'>
+                            <Row>
+                                <Category category={post.category} />
+                                <PostedBy username={post.author.username} />
+                                <TimeSincePost time={post.createdAt}/>
+                            </Row>
+        
+                            <Title title={post.title} />
+                            <PostImage path={post.image[0].path}/>
+                        </div>
+                    )
+                })}
+            </div>
             );
     } else {
         return (
