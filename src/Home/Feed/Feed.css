@@ -1,16 +1,16 @@
 .Feed {
     background-color: #201E1D;
     height: 89vh;
-    width: 40vw;
+    width: 45vw;
     margin-top: 5vh;
     position: relative;
-    left: 30vw
+    left: 27.5vw
 }
 
 .Card {
-    width: 35vw;
+    width: 40vw;
     height: auto;
-    background-color: white;
+    background-color: #E8EBED;
     position: relative;
     top: 2vh;
     left: 2.5vw;
@@ -46,7 +46,7 @@
 }
 
 .PostImage {
-    max-width: 34vw !important;
+    max-width: 35vw !important;
     max-height: 35vh !important;
 }
 
@@ -55,4 +55,18 @@
     position: relative;
     left: 3vw;
     top: .1vh;
+}
+
+.CommentButton {
+    position: relative;
+    max-width: 8vw;
+    min-width: 8vw;
+    min-height: 2.5vh;
+    max-height: 2.5vh;
+    bottom: 1vh;
+    left: 2.4vw;
+}
+
+.CommentButton:hover {
+    background-color: #CECCCA;
 }
