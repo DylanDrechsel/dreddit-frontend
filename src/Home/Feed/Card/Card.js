@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { tokenState } from '../../../App';
 import { useRecoilState } from 'recoil';
+import { Row, Col } from 'react-bootstrap'
 import axios from 'axios'
 import Title from './Components/Title'
 import Category from './Components/Category'
+import PostedBy from './Components/PostedBy'
+import PostImage from './Components/PostImage'
+import TimeSincePost from './Components/TimeSincePost'
 
 
 const Card = () => {
@@ -25,14 +29,20 @@ const Card = () => {
     }, [])
 
     if (haveData) {
-        console.log(postData.posts[0].author.username)
+        // console.log(postData.posts[0].createdAt)
     }
 
     if (haveData) {
         return (
                 <div className='Card'>
-                    <Category category={postData.posts[0].category} />
+                    <Row>
+                        <Category category={postData.posts[0].category} />
+                        <PostedBy username={postData.posts[0].author.username} />
+                        <TimeSincePost time={postData.posts[0].createdAt}/>
+                    </Row>
+
                     <Title title={postData.posts[0].title} />
+                    <PostImage path={postData.posts[0].image[0].path}/>
                 </div>
             );
     } else {
