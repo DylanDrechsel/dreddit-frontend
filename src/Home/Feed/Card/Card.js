@@ -8,6 +8,7 @@ import Category from './Components/Category'
 import PostedBy from './Components/PostedBy'
 import PostImage from './Components/PostImage'
 import TimeSincePost from './Components/TimeSincePost'
+import CommentButton from './Components/CommentButton'
 
 
 const Card = () => {
@@ -48,6 +49,8 @@ const Card = () => {
         
                             <Title title={post.title} />
                             <PostImage path={post.image[0].path}/>
+                            <CommentButton />
+                            
                         </div>
                     )
                 })}
