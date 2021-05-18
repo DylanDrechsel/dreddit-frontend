@@ -94,7 +94,8 @@
     bottom: .1vh;
     left: .725vw; */
     border-radius: 20% 0% 0% 20%;
-    overflow: hidden
+    overflow: hidden;
+    align-items: center;
 }
 
 .UpvoteImage {
@@ -116,4 +117,10 @@
 .MainCardColumn {
     padding-right: 0 !important;
     padding-left: 0 !important;
+}
+
+.DownvoteIcon {
+    transform: scaleX(-1);
+    position: relative;
+    top: 10vh !important;
 }

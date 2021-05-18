@@ -60,7 +60,6 @@ const Card = () => {
 
                                         {!post.image ? null : <PostImage path={post.image.path}/>}
                                         
-
                                         <Row>
                                             <CommentButton comments={post.comments}/>
                                         </Row>

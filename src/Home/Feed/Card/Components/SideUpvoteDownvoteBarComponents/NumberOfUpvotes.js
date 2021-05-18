@@ -10,7 +10,7 @@ const NumberOfUpvotes = ({ upvoteCount }) => {
     } else {
         return (
             <div>
-                <b>-{upvoteCount}</b>
+                <b>{upvoteCount}</b>
             </div>
         )
     }

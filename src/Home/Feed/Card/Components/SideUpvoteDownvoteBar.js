@@ -2,6 +2,7 @@ import React from 'react';
 import { userIdState } from '../../../../App';
 import { useRecoilState } from 'recoil';
 import Upvote from './SideUpvoteDownvoteBarComponents/Upvote'
+import Downvote from './SideUpvoteDownvoteBarComponents/Downvote'
 import NumberOfUpvotes from './SideUpvoteDownvoteBarComponents/NumberOfUpvotes'
 
 const SideUpvoteDownvoteBar = ({ likes }) => {
@@ -31,6 +32,7 @@ const SideUpvoteDownvoteBar = ({ likes }) => {
         <div className="SideUpvoteDownvoteBar">
             <Upvote typeOfLike={typeOfLike}/>
             <NumberOfUpvotes upvoteCount={upvoteCount}/>
+            <Downvote typeOfLike={typeOfLike}/>
         </div>
     );
 };
