@@ -31,8 +31,7 @@ const Card = () => {
     }, [])
 
     if (haveData) {
-        // console.log(postData.posts[0])
-        
+        console.log(postData.posts[1])
     }
 
 
@@ -59,7 +58,8 @@ const Card = () => {
                                             <Title title={post.title} />
                                         </Row>
 
-                                        <PostImage path={post.image[0].path}/>
+                                        {!post.image ? null : <PostImage path={post.image.path}/>}
+                                        
 
                                         <Row>
                                             <CommentButton comments={post.comments}/>
