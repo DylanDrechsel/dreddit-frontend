@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { tokenState } from '../../../App';
 import { useRecoilState } from 'recoil';
-import { Row, Col } from 'react-bootstrap'
+import { Row, Col, Container } from 'react-bootstrap'
 import axios from 'axios'
 import Title from './Components/Title'
 import Category from './Components/Category'
@@ -42,25 +42,31 @@ const Card = () => {
                 {postData.posts.map((post) => {
                     return (
                         <div className='Card'>
-                            <Row>
-                                <SideUpvoteDownvoteBar likes={post.likes}/>
-                                <Category category={post.category} />
-                                <PostedBy username={post.author.username} />
-                                <TimeSincePost time={post.createdAt}/>
-                            </Row>
+                            <Container>
+                                <Row>
+                                    <Col xs={1} className='SideColumn'>
+                                        <SideUpvoteDownvoteBar likes={post.likes}/>
+                                    </Col>
 
-                            <Row className="justify-content-md-center">
-                                <Title title={post.title} />
-                            </Row>
+                                    <Col xs={11} className='MainCardColumn'>
+                                        <Row>
+                                            <Category category={post.category} />
+                                            <PostedBy username={post.author.username} />
+                                            <TimeSincePost time={post.createdAt}/>
+                                        </Row>
 
-                            <PostImage path={post.image[0].path}/>
+                                        <Row className="justify-content-md-center">
+                                            <Title title={post.title} />
+                                        </Row>
 
-                            <Row>
-                                <CommentButton comments={post.comments}/>
-                            </Row>
-        
+                                        <PostImage path={post.image[0].path}/>
 
-                            
+                                        <Row>
+                                            <CommentButton comments={post.comments}/>
+                                        </Row>
+                                    </Col>
+                                </Row>
+                            </Container>
                         </div>
                     )
                 })}

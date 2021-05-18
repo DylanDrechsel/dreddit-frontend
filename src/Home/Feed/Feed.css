@@ -15,7 +15,7 @@
     top: 2vh;
     left: 2.5vw;
     border-radius: 2%;
-    border-style: solid;
+    /* border-style: solid; */
     border-width: 1.5px;
     border-color: rgb(158, 158, 158);
     margin-bottom: 2vh;
@@ -87,13 +87,14 @@
 }
 
 .SideUpvoteDownvoteBar {
-    height: auto;
+    height: 10vh;
     width: 2.5vw;
-    background-color: gray;
-    position: relative;
+    /* background-color: gray; */
+    /* position: relative;
     bottom: .1vh;
-    left: .725vw;
-    border-radius: 20% 0% 0% 20%
+    left: .725vw; */
+    border-radius: 20% 0% 0% 20%;
+    overflow: hidden
 }
 
 .UpvoteImage {
@@ -101,4 +102,18 @@
     width: 1.5vw;
     position: relative;
     top: .5vh
+}
+
+.SideColumn {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+    background-color: gray;
+    /* border-style: solid; */
+    border-color: rgb(158, 158, 158);
+    /* border-radius: 20% 0% 0% 20%; */
+}
+
+.MainCardColumn {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
 }
