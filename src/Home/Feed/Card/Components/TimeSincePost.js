@@ -1,7 +1,6 @@
 import React from 'react';
 
 const TimeSincePost = ({ time }) => {
-    console.log(time);
     const todaysDateUTC = new Date().toISOString();
     let createdYear = []
     let createdMonth = []
@@ -55,7 +54,7 @@ const TimeSincePost = ({ time }) => {
 	const tDate = new Date(`${todaysDate}`);
 	const diffTimeMilliseconds = Math.abs(tDate - cDate);
 	const diffcreatedDays = Math.ceil(diffTimeMilliseconds / (1000 * 60 * 60 * 24));
-    console.log(diffcreatedDays)
+    // console.log(diffcreatedDays)
 
     return (
 			<div className='Time'>
