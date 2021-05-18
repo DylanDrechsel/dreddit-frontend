@@ -1,10 +1,22 @@
 import React from 'react';
-import jsdas from '../CardImages/speech-bubble.png'
+import CommentImage from '../CardImages/comment.png'
+import { Row } from 'react-bootstrap'
 
-const CommentButton = () => {
+const CommentButton = ({ comments }) => {
+    let commentCount = 0
+    
+    
+    for (let i = 0; i < comments.length; i++) {
+        commentCount += 1
+    }
+
+
     return (
         <div className="CommentButton">
-            <img src={jsdas}  /* width="1vw" height="1vh" */ className="CommentImage"/>
+            <Row>
+                <img src={CommentImage} className="CommentImage"/>
+                <p className="CommentCount">{commentCount} Comments</p>
+            </Row>
         </div>
     );
 };

@@ -9,6 +9,7 @@ import PostedBy from './Components/PostedBy'
 import PostImage from './Components/PostImage'
 import TimeSincePost from './Components/TimeSincePost'
 import CommentButton from './Components/CommentButton'
+import SideUpvoteDownvoteBar from './Components/SideUpvoteDownvoteBar'
 
 
 const Card = () => {
@@ -30,7 +31,7 @@ const Card = () => {
     }, [])
 
     if (haveData) {
-        console.log(postData.posts)
+        // console.log(postData.posts[0])
         
     }
 
@@ -42,14 +43,23 @@ const Card = () => {
                     return (
                         <div className='Card'>
                             <Row>
+                                <SideUpvoteDownvoteBar likes={post.likes}/>
                                 <Category category={post.category} />
                                 <PostedBy username={post.author.username} />
                                 <TimeSincePost time={post.createdAt}/>
                             </Row>
-        
-                            <Title title={post.title} />
+
+                            <Row className="justify-content-md-center">
+                                <Title title={post.title} />
+                            </Row>
+
                             <PostImage path={post.image[0].path}/>
-                            <CommentButton />
+
+                            <Row>
+                                <CommentButton comments={post.comments}/>
+                            </Row>
+        
+
                             
                         </div>
                     )
