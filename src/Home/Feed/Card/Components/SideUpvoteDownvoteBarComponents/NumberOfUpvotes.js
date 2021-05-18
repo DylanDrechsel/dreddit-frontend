@@ -3,14 +3,14 @@ import React from 'react';
 const NumberOfUpvotes = ({ upvoteCount }) => {
     if (upvoteCount >= 0) {
         return (
-            <div>
+            <div className="UpvoteCount">
                 <b>{upvoteCount}</b>
             </div>
         );
     } else {
         return (
-            <div>
-                <b>-{upvoteCount}</b>
+            <div className="UpvoteCount">
+                <b>{upvoteCount}</b>
             </div>
         )
     }

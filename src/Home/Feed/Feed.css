@@ -1,5 +1,5 @@
 .Feed {
-    background-color: #201E1D;
+    /* background-color: black; */
     height: 89vh;
     width: 45vw;
     margin-top: 5vh;
@@ -8,16 +8,17 @@
 }
 
 .Card {
+    color: white;
     width: 40vw;
     height: auto;
-    background-color: #E8EBED;
+    background-color: #201E1D;
     position: relative;
     top: 2vh;
     left: 2.5vw;
-    border-radius: 2%;
-    /* border-style: solid; */
-    border-width: 1.5px;
-    border-color: rgb(158, 158, 158);
+    border-radius: 1%;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(87, 87, 87);
     margin-bottom: 2vh;
 }
 
@@ -63,12 +64,12 @@
     min-width: 6vw;
     min-height: 2.5vh;
     max-height: 2.5vh;
-    bottom: 1vh;
-    left: 2.4vw;
+    bottom: .5vh;
+    left: 1.55vw;
 }
 
 .CommentButton:hover {
-    background-color: #CECCCA;
+    background-color: #383838;
 }
 
 .CommentImage {
@@ -76,44 +77,52 @@
     width: .75vw;
     height: 1.5vh;
     top: .5vh;
-    left: 1.75vw;
+    left: 1vw;
 }
 
 .CommentCount {
     font-size: 12px;
     position: relative;
-    left: 2vw;
+    left: 1.5vw;
     top: .5vh;
 }
 
 .SideUpvoteDownvoteBar {
-    height: 10vh;
+    height: auto;
     width: 2.5vw;
     /* background-color: gray; */
     /* position: relative;
     bottom: .1vh;
     left: .725vw; */
     border-radius: 20% 0% 0% 20%;
-    overflow: hidden
-}
-
-.UpvoteImage {
-    height: 2.5vh;
-    width: 1.5vw;
+    overflow: hidden;
+    align-items: center;
     position: relative;
-    top: .5vh
+    left: .3vw;
+    top: 1vh
 }
 
 .SideColumn {
     padding-right: 0 !important;
     padding-left: 0 !important;
-    background-color: gray;
+    background-color: rgba(128, 128, 128, 0.185);
     /* border-style: solid; */
     border-color: rgb(158, 158, 158);
     /* border-radius: 20% 0% 0% 20%; */
+    border-top-left-radius: .2vw;
+    border-bottom-left-radius: .2vw;
 }
 
 .MainCardColumn {
     padding-right: 0 !important;
     padding-left: 0 !important;
+}
+
+.UpvoteCount {
+    font-size: 12px
+}
+
+.PostInformation {
+    position: relative;
+    right: 1.5vw;
 }

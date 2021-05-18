@@ -36,7 +36,9 @@ const Navigation = () => {
 								style={{
 									color: 'white',
 								}}>
-								<motion.h5 animate={{ opacity: 1, transition: { delay: 6 }}} initial={{ opacity: 0 }}>
+								<motion.h5
+									animate={{ opacity: 1, transition: { delay: 6 } }}
+									initial={{ opacity: 0 }}>
 									<b>Home</b>
 								</motion.h5>
 							</Nav.Link>
@@ -45,7 +47,9 @@ const Navigation = () => {
 								style={{
 									color: 'white',
 								}}>
-								<motion.h5 animate={{ opacity: 1, transition: { delay: 6 }}} initial={{ opacity: 0 }}>
+								<motion.h5
+									animate={{ opacity: 1, transition: { delay: 6 } }}
+									initial={{ opacity: 0 }}>
 									<b>Link</b>
 								</motion.h5>
 							</Nav.Link>
@@ -58,7 +62,9 @@ const Navigation = () => {
 								left: '5vw',
 							}}>
 							{' '}
-							<motion.h3 initial={{ x: '-45vw', y : '-.5vh', opacity: 0 }} animate={controls}>
+							<motion.h3
+								initial={{ x: '-45vw', y: '-.5vh', opacity: 0 }}
+								animate={controls}>
 								<b>{userName}</b>
 							</motion.h3>
 						</Navbar.Brand>
