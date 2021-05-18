@@ -48,7 +48,7 @@ const Card = () => {
                                     </Col>
 
                                     <Col xs={11} className='MainCardColumn'>
-                                        <Row>
+                                        <Row className='PostInformation'>
                                             <Category category={post.category} />
                                             <PostedBy username={post.author.username} />
                                             <TimeSincePost time={post.createdAt}/>
