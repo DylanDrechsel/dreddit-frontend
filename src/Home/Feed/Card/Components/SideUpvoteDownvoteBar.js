@@ -29,23 +29,30 @@ const SideUpvoteDownvoteBar = ({ likes }) => {
     console.log(typeOfLike)
     console.log(upvoteCount)
 
+    const handleUpvote = (event) => {
+        event.preventDefault()
+        console.log('hit')
+    }
+
     return (
-        <div className="SideUpvoteDownvoteBar">
-            <Col>
-                <Row>
-                    <Upvote typeOfLike={typeOfLike}/>
-                </Row>
+			<div className='SideUpvoteDownvoteBar'>
+				<Col>
+					<Row>
+						
+							<Upvote typeOfLike={typeOfLike} handleUpvote={handleUpvote}>
+								<div className='UpvoteDiv' onClick={(event) => handleUpvote(event)}></div>
+							</Upvote>
+						
+					</Row>
 
-                
-                <NumberOfUpvotes upvoteCount={upvoteCount}/>
-                
+					<NumberOfUpvotes upvoteCount={upvoteCount} />
 
-                <Row>
-                    <Downvote typeOfLike={typeOfLike}/>
-                </Row>
-            </Col>
-        </div>
-    );
+					<Row>
+						<Downvote typeOfLike={typeOfLike} />
+					</Row>
+				</Col>
+			</div>
+		);
 };
 
 export default SideUpvoteDownvoteBar;
