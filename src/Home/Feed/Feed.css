@@ -31,13 +31,13 @@
 .CardCaregory {
     font-size: 14px;
     position: relative;
-    left: 3vw;
+    left: 1.5vw;
 }
 
 .CardPostedBy {
     font-size: 12px;
     position: relative;
-    left: 3.1vw;
+    left: 1.75vw;
     top: .3vh
 }
 
@@ -54,7 +54,7 @@
 .Time {
     font-size: 12px;
     position: relative;
-    left: 3.5vw;
+    left: 2.5vw;
     top: .1vh;
 }
 
@@ -98,7 +98,7 @@
     /* overflow: hidden; */
     align-items: center;
     position: relative;
-    left: .3vw;
+    left: .35vw;
     top: 1vh
 }
 
@@ -131,9 +131,9 @@
     border-top-right-radius: 2vw;
     border-top-left-radius: 2vw;
     width: 1vw;
-    height: 4vh;
+    height: 3vh;
     position: relative;
-    left: .8vw;
+    /* left: .8vw; */
     /* background-color: red */
 }
 

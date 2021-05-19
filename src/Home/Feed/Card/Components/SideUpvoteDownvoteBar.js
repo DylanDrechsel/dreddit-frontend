@@ -6,19 +6,26 @@ import Downvote from './SideUpvoteDownvoteBarComponents/Downvote'
 import NumberOfUpvotes from './SideUpvoteDownvoteBarComponents/NumberOfUpvotes'
 import { Col, Row } from 'react-bootstrap'
 
-const SideUpvoteDownvoteBar = ({ likes }) => {
+
+const SideUpvoteDownvoteBar = ({ likes, postId }) => {
     const [userId] = useRecoilState(userIdState);
     let typeOfLike = "none"
     let upvoteCount = 0
+    let likeValue = null
+    let likeId = null
 
     console.log(likes)
 
     for (let i = 0; i < likes.length; i++) {
         if (likes[i].authorId === userId && likes[i].value === 1) {
             typeOfLike = "upvoted"
+            likeValue = 1
+            likeId = likes[i].id
         }
         else if (likes[i].authorId === userId && likes[i].value === -1) {
             typeOfLike = "downvoted"
+            likeValue= - 1
+            likeId = likes[i].id;
         }
     }
 
@@ -27,22 +34,15 @@ const SideUpvoteDownvoteBar = ({ likes }) => {
     }
 
     console.log(typeOfLike)
-    console.log(upvoteCount)
+    // console.log(upvoteCount)
 
-    const handleUpvote = (event) => {
-        event.preventDefault()
-        console.log('hit')
-    }
+    
 
     return (
 			<div className='SideUpvoteDownvoteBar'>
 				<Col>
-					<Row>
-						
-							<Upvote typeOfLike={typeOfLike} handleUpvote={handleUpvote}>
-								<div className='UpvoteDiv' onClick={(event) => handleUpvote(event)}></div>
-							</Upvote>
-						
+					<Row>	
+						<Upvote typeOfLike={typeOfLike} initialLikeValue={likeValue} postId={postId} likeId={likeId} /* handleUpvote={handleUpvote} */ />
 					</Row>
 
 					<NumberOfUpvotes upvoteCount={upvoteCount} />
