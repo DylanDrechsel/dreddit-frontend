@@ -19,7 +19,7 @@ const Upvote = ({ typeOfLike, initialLikeValue, postId, likeId }) => {
 			? setLiked({ liked: 'upvoteTrue' })
 			: (likedValue === -1
 					? setLiked({ liked: false })
-					: setLiked({ liked: 'UpvoteRemoved' }));
+					: setLiked({ liked: 'upvoteRemoved' }));
 		console.log('hit on change in likeValue')
 	}, [likedValue], [liked])
 	
