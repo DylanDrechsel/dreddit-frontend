@@ -44,7 +44,7 @@ const Card = () => {
                             <Container>
                                 <Row>
                                     <Col xs={1} className='SideColumn'>
-                                        <SideUpvoteDownvoteBar likes={post.likes}/>
+                                        <SideUpvoteDownvoteBar likes={post.likes} postId={post.id}/>
                                     </Col>
 
                                     <Col xs={11} className='MainCardColumn'>

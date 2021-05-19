@@ -1,12 +1,75 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { tokenState } from '../../../../../App';
+import { useRecoilState } from 'recoil';
 
 
-const Upvote = ({ typeOfLike, handleUpvote }) => {
-    if (typeOfLike == "upvoted") {
+
+const Upvote = ({ typeOfLike, initialLikeValue, postId, likeId }) => {
+	const [token] = useRecoilState(tokenState);
+	const [liked, setLiked] = useState({
+		liked: null
+	})
+	const [likedValue, setLikedValue] = useState(initialLikeValue)
+
+	useEffect(() => {
+		likedValue === 1
+			? setLiked({ liked: true })
+			: (likedValue === -1
+					? setLiked({ liked: false })
+					: setLiked({ liked: null }));
+		console.log('hit on change in likeValue')
+	}, [likedValue], [])
+	
+	console.log(`postId: ${postId}`);
+	console.log(`likeId: ${likeId}`)
+
+	const handleUpvote = (event) => {
+		event.preventDefault();
+		console.log(`hit remove upvote ${postId}`);
+
+		axios({
+			url: `http://localhost:4000/likes/${likeId}`,
+			method: 'PUT',
+			data: liked,
+			headers: {
+				Authorization: `Bearer ${token}`,
+			},
+		})
+		.then(({ data }) => {
+			console.log(data)
+		})
+	};
+
+	const handleCreateUpvote = (event) => {
+		event.preventDefault()
+		console.log(`hit create ${postId}`)
+
+		axios({
+			url: `http://localhost:4000/likes/create/${postId}`,
+			method: 'POST',
+			// data: liked,
+			headers: {
+				Authorization: `Bearer ${token}`,
+			},
+		})
+		.then(({ data }) => {
+			setLikedValue(data.like.value);
+			console.log(data)
+		})
+	}
+
+	console.log(liked)
+
+	useEffect(() => {
+		
+	})
+	
+    if (/* typeOfLike == "upvoted" */ liked.liked === 'true') {
         return (
-					<div className='UpvoteDiv' onClick={(event) => handleUpvote(event)}>
+					<div className='UpvoteDiv' onClick={liked.liked == true ? (event) => handleUpvote(event) : null}>
 						<svg
-							className='UpvoteIcon'
+							// className='UpvoteIcon'
 							xmlns='http://www.w3.org/2000/svg'
 							width='2.5vw'
 							height='2.5vh'
@@ -23,9 +86,9 @@ const Upvote = ({ typeOfLike, handleUpvote }) => {
 				);
     } else {
         return (
-					<div className='UpvoteDiv'>
+					<div className='UpvoteDiv' onClick={(event) => handleCreateUpvote(event)}>
 						<svg
-							className='UpvoteIcon'
+							// className='UpvoteIcon'
 							xmlns='http://www.w3.org/2000/svg'
 							width='2.5vw'
 							height='2.5vh'
