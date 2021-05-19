@@ -1,10 +1,12 @@
 import React from 'react';
 
-const Upvote = ({ typeOfLike }) => {
+
+const Upvote = ({ typeOfLike, handleUpvote }) => {
     if (typeOfLike == "upvoted") {
         return (
-					<div>
+					<div className='UpvoteDiv' onClick={(event) => handleUpvote(event)}>
 						<svg
+							className='UpvoteIcon'
 							xmlns='http://www.w3.org/2000/svg'
 							width='2.5vw'
 							height='2.5vh'
@@ -21,8 +23,9 @@ const Upvote = ({ typeOfLike }) => {
 				);
     } else {
         return (
-					<div>
+					<div className='UpvoteDiv'>
 						<svg
+							className='UpvoteIcon'
 							xmlns='http://www.w3.org/2000/svg'
 							width='2.5vw'
 							height='2.5vh'

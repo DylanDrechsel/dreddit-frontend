@@ -95,7 +95,7 @@
     bottom: .1vh;
     left: .725vw; */
     border-radius: 20% 0% 0% 20%;
-    overflow: hidden;
+    /* overflow: hidden; */
     align-items: center;
     position: relative;
     left: .3vw;
@@ -124,5 +124,20 @@
 
 .PostInformation {
     position: relative;
-    right: 1.5vw;
+    /* right: 1.5vw; */
+}
+
+.UpvoteDiv {
+    border-top-right-radius: 2vw;
+    border-top-left-radius: 2vw;
+    width: 1vw;
+    height: 4vh;
+    position: relative;
+    left: .8vw;
+    /* background-color: red */
+}
+
+.UpvoteIcon {
+    position: relative;
+    left: -.8vw !important;
 }
