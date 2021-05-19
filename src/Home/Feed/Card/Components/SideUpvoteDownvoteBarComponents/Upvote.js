@@ -11,6 +11,7 @@ const Upvote = ({ typeOfLike, initialLikeValue, postId, likeId }) => {
 		liked: null
 	})
 	const [likedValue, setLikedValue] = useState(initialLikeValue)
+	const [likeType, setLikeType] = useState(typeOfLike)
 
 	useEffect(() => {
 		likedValue === 1
@@ -24,7 +25,7 @@ const Upvote = ({ typeOfLike, initialLikeValue, postId, likeId }) => {
 	console.log(`postId: ${postId}`);
 	console.log(`likeId: ${likeId}`)
 
-	const handleUpvote = (event) => {
+	const handleRemoveUpvote = (event) => {
 		event.preventDefault();
 		console.log(`hit remove upvote ${postId}`);
 
@@ -55,19 +56,17 @@ const Upvote = ({ typeOfLike, initialLikeValue, postId, likeId }) => {
 		})
 		.then(({ data }) => {
 			setLikedValue(data.like.value);
+			setLikeType('upvoted')
 			console.log(data)
 		})
 	}
 
 	console.log(liked)
+	console.log(likeType)
 
-	useEffect(() => {
-		
-	})
-	
-    if (/* typeOfLike == "upvoted" */ liked.liked === 'true') {
+    if (likeType == "upvoted" || liked.liked == 'true') {
         return (
-					<div className='UpvoteDiv' onClick={liked.liked == true ? (event) => handleUpvote(event) : null}>
+					<div className='UpvoteDiv' onClick={liked.liked == true ? (event) => handleRemoveUpvote(event) : null}>
 						<svg
 							// className='UpvoteIcon'
 							xmlns='http://www.w3.org/2000/svg'
