@@ -27,6 +27,11 @@ const SideUpvoteDownvoteBar = ({ likes, postId }) => {
             likeValue= - 1
             likeId = likes[i].id;
         }
+        else {
+            typeOfLike = 'upvoteRemoved';
+            likeValue= 0
+            likeId = likes[i].id;
+        }
     }
 
     for (let i = 0; i < likes.length; i++) {
