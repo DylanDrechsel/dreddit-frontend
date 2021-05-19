@@ -12,25 +12,26 @@ const Upvote = ({ typeOfLike, initialLikeValue, postId, likeId }) => {
 	})
 	const [likedValue, setLikedValue] = useState(initialLikeValue)
 	const [likeType, setLikeType] = useState(typeOfLike)
+	const [currentLikeId, setCurrentLikeId] = useState(likeId)
 
 	useEffect(() => {
 		likedValue === 1
-			? setLiked({ liked: true })
+			? setLiked({ liked: 'upvoteTrue' })
 			: (likedValue === -1
 					? setLiked({ liked: false })
 					: setLiked({ liked: null }));
 		console.log('hit on change in likeValue')
-	}, [likedValue], [])
+	}, [likedValue], [liked])
 	
 	console.log(`postId: ${postId}`);
-	console.log(`likeId: ${likeId}`)
+	console.log(`currentLikeId: ${currentLikeId}`)
 
 	const handleRemoveUpvote = (event) => {
 		event.preventDefault();
 		console.log(`hit remove upvote ${postId}`);
 
 		axios({
-			url: `http://localhost:4000/likes/${likeId}`,
+			url: `http://localhost:4000/likes/${currentLikeId}`,
 			method: 'PUT',
 			data: liked,
 			headers: {
@@ -38,6 +39,8 @@ const Upvote = ({ typeOfLike, initialLikeValue, postId, likeId }) => {
 			},
 		})
 		.then(({ data }) => {
+			setLikedValue(data.like.value);
+			setLikeType(null)
 			console.log(data)
 		})
 	};
@@ -57,16 +60,18 @@ const Upvote = ({ typeOfLike, initialLikeValue, postId, likeId }) => {
 		.then(({ data }) => {
 			setLikedValue(data.like.value);
 			setLikeType('upvoted')
+			setCurrentLikeId(data.like.id);
 			console.log(data)
 		})
 	}
 
 	console.log(liked)
 	console.log(likeType)
+	console.log(likedValue)
 
-    if (likeType == "upvoted" || liked.liked == 'true') {
+    if (likeType == "upvoted") {
         return (
-					<div className='UpvoteDiv' onClick={liked.liked == true ? (event) => handleRemoveUpvote(event) : null}>
+					<div className='UpvoteDiv' onClick={liked.liked == 'upvoteTrue' ? (event) => handleRemoveUpvote(event) : null}>
 						<svg
 							// className='UpvoteIcon'
 							xmlns='http://www.w3.org/2000/svg'
