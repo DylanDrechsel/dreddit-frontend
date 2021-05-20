@@ -11,22 +11,15 @@ const Upvote = ({ typeOfLike, initialLikeValue, postId, likeId }) => {
 		liked: null
 	})
 	const [likedValue, setLikedValue] = useState(null)
-	const [likeType, setLikeType] = useState(null)
+	// const [likeType, setLikeType] = useState(null)
 	const [currentLikeId, setCurrentLikeId] = useState(null)
 
-	// useEffect(() => {
-	// 	setLikedValue(initialLikeValue);
-	// 	setCurrentLikeId(likeId);
-	// }, [])
-
-	
-	
 	useEffect(() => {
-		if (likedValue === null && currentLikeId === null || likeType === null) {
+		if (likedValue === null && currentLikeId === null /* || likeType === null */) {
 			console.log(initialLikeValue, '-------------------------')
 			setLikedValue(initialLikeValue);
 			setCurrentLikeId(likeId)
-			setLikeType(typeOfLike)
+			/* setLikeType(typeOfLike) */
 		}
 
 		likedValue === 1
@@ -35,11 +28,11 @@ const Upvote = ({ typeOfLike, initialLikeValue, postId, likeId }) => {
 					? setLiked({ liked: false })
 					: likedValue === 0 ? setLiked({ liked: 'upvoteRemoved' }) : setLiked({ liked: 'none'})
 		console.log('hit on change in likeValue')
-	}, [initialLikeValue, likedValue, typeOfLike, likeType])
+	}, [initialLikeValue, likedValue, typeOfLike/* , likeType */])
 	
 	console.log(likedValue);
 	console.log(typeOfLike)
-	console.log(`likeType: ${likeType}`)
+	/* console.log(`likeType: ${likeType}`) */
 	console.log(`postId: ${postId}`);
 	console.log(`currentLikeId: ${currentLikeId}`)
 
@@ -57,7 +50,7 @@ const Upvote = ({ typeOfLike, initialLikeValue, postId, likeId }) => {
 		})
 		.then(({ data }) => {
 			setLikedValue(data.like.value);
-			setLikeType('upvotedTrue')
+			/* setLikeType('upvotedTrue') */
 			setCurrentLikeId(data.like.id);
 			console.log(data)
 		})
@@ -77,7 +70,7 @@ const Upvote = ({ typeOfLike, initialLikeValue, postId, likeId }) => {
 		})
 		.then(({ data }) => {
 			setLikedValue(data.like.value);
-			setLikeType('upvoteRemoved')
+			/* setLikeType('upvoteRemoved') */
 			setLiked({ liked: 'upvoteRemoved' });
 			console.log(data)
 		})
@@ -96,7 +89,7 @@ const Upvote = ({ typeOfLike, initialLikeValue, postId, likeId }) => {
 			},
 		}).then(({ data }) => {
 			setLikedValue(data.like.value);
-			setLikeType('upvotedTrue');
+			/* setLikeType('upvotedTrue'); */
 			setLiked({ liked: 'upvoteTrue' });
 			console.log(data);
 		});
@@ -111,7 +104,7 @@ const Upvote = ({ typeOfLike, initialLikeValue, postId, likeId }) => {
 
     if (liked.liked === "upvoteTrue") {
         return (
-					<div className='UpvoteDiv' onClick={liked.liked == 'upvoteTrue' ? (event) => handleRemoveUpvote(event) : null}>
+					<div className='UpvoteDiv REMOVEUPVOTE' onClick={liked.liked == 'upvoteTrue' ? (event) => handleRemoveUpvote(event) : null}>
 						<svg
 							// className='UpvoteIcon'
 							xmlns='http://www.w3.org/2000/svg'
