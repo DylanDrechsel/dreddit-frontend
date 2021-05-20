@@ -10,19 +10,36 @@ const Upvote = ({ typeOfLike, initialLikeValue, postId, likeId }) => {
 	const [liked, setLiked] = useState({
 		liked: null
 	})
-	const [likedValue, setLikedValue] = useState(initialLikeValue)
-	const [likeType, setLikeType] = useState(typeOfLike)
-	const [currentLikeId, setCurrentLikeId] = useState(likeId)
+	const [likedValue, setLikedValue] = useState(null)
+	const [likeType, setLikeType] = useState(null)
+	const [currentLikeId, setCurrentLikeId] = useState(null)
 
+	// useEffect(() => {
+	// 	setLikedValue(initialLikeValue);
+	// 	setCurrentLikeId(likeId);
+	// }, [])
+
+	
+	
 	useEffect(() => {
+		if (likedValue === null && currentLikeId === null || likeType === null) {
+			console.log(initialLikeValue, '-------------------------')
+			setLikedValue(initialLikeValue);
+			setCurrentLikeId(likeId)
+			setLikeType(typeOfLike)
+		}
+
 		likedValue === 1
 			? setLiked({ liked: 'upvoteTrue' })
-			: (likedValue === -1
+			: likedValue === -1
 					? setLiked({ liked: false })
-					: setLiked({ liked: 'upvoteRemoved' }));
+					: likedValue === 0 ? setLiked({ liked: 'upvoteRemoved' }) : setLiked({ liked: 'none'})
 		console.log('hit on change in likeValue')
-	}, [likedValue], [liked])
+	}, [initialLikeValue, likedValue, typeOfLike, likeType])
 	
+	console.log(likedValue);
+	console.log(typeOfLike)
+	console.log(`likeType: ${likeType}`)
 	console.log(`postId: ${postId}`);
 	console.log(`currentLikeId: ${currentLikeId}`)
 
@@ -89,7 +106,7 @@ const Upvote = ({ typeOfLike, initialLikeValue, postId, likeId }) => {
 
 
 	console.log(liked)
-	console.log(likeType)
+	// console.log(`like type: ${likeType}`);
 	console.log(likedValue)
 
     if (likeType == "upvotedTrue") {
@@ -137,7 +154,7 @@ const Upvote = ({ typeOfLike, initialLikeValue, postId, likeId }) => {
 		);
 	} else {
         return (
-					<div className='UpvoteDiv' onClick={(event) => handleCreateUpvote(event)}>
+					<div className='UpvoteDiv CREATEUPVOTE' onClick={(event) => handleCreateUpvote(event)}>
 						<svg
 							// className='UpvoteIcon'
 							xmlns='http://www.w3.org/2000/svg'
