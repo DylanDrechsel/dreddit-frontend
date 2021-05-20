@@ -14,29 +14,37 @@ const SideUpvoteDownvoteBar = ({ likes, postId, upvoteCountChange }) => {
     const [likeValue, setLikeValue] = useState(null)
     const [likeId, setLikeId] = useState(null)
     const [upvoteCount, setUpvoteCount] = useState(0)
+    const [downvoteLikeValue, setDownvoteLikeValue] = useState(null)
     let count = 0
 
     console.log(likes)
     
     useEffect(() => {
+        console.log('hit')
+
         for (let i = 0; i < likes.length; i++) {
             if (likes[i].authorId === userId && likes[i].value === 1) {
                 // setTypeOfLike("upvotedTrue")
                 setLikeValue(1)
+                setDownvoteLikeValue(1)
                 setLikeId(likes[i].id);
             }
             else if (likes[i].authorId === userId && likes[i].value === -1) {
                 // setTypeOfLike('downvoted');
                 setLikeValue(-1);
+                setDownvoteLikeValue(-1);
                 setLikeId(likes[i].id);
             }
             else if (likes[i].authorId === userId && likes[i].value === 0) {
                 // setTypeOfLike("upvoteRemove")
                 setLikeValue(0);
+                setDownvoteLikeValue(0);
                 setLikeId(likes[i].id);
             }
         }
-    }, [])
+    }, [upvoteCountChange])
+
+    // console.log(downvoteLikeValue)
 
 
     useEffect(() => {
@@ -66,7 +74,7 @@ const SideUpvoteDownvoteBar = ({ likes, postId, upvoteCountChange }) => {
 					<NumberOfUpvotes upvoteCount={upvoteCount} />
 
 					<Row>
-						<Downvote /* typeOfLike={typeOfLike} */ />
+						<Downvote initialLikeValue={likeValue} postId={postId} likeId={likeId} /* typeOfLike={typeOfLike} */ />
 					</Row>
 				</Col>
 			</div>
