@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { tokenState } from '../../../../../App';
+import { tokenState, upvoteChangeState } from '../../../../../App';
 import { useRecoilState } from 'recoil';
 
 
 
-const Upvote = ({ typeOfLike, initialLikeValue, postId, likeId }) => {
+const Upvote = ({ /* typeOfLike, */ initialLikeValue, postId, likeId }) => {
 	const [token] = useRecoilState(tokenState);
+	const [upvoteChange, setUpvoteChange] = useRecoilState(upvoteChangeState)
 	const [liked, setLiked] = useState({
 		liked: null
 	})
@@ -22,16 +23,21 @@ const Upvote = ({ typeOfLike, initialLikeValue, postId, likeId }) => {
 			/* setLikeType(typeOfLike) */
 		}
 
+		setUpvoteChange(!upvoteChange);
+
 		likedValue === 1
 			? setLiked({ liked: 'upvoteTrue' })
 			: likedValue === -1
-					? setLiked({ liked: false })
-					: likedValue === 0 ? setLiked({ liked: 'upvoteRemoved' }) : setLiked({ liked: 'none'})
+			? setLiked({ liked: false })
+			: likedValue === 0
+			? setLiked({ liked: 'upvoteRemoved' })
+			: setLiked({ liked: 'none' });
 		console.log('hit on change in likeValue')
-	}, [initialLikeValue, likedValue, typeOfLike/* , likeType */])
+	}, [initialLikeValue, likedValue, /* typeOfLike *//* , likeType */])
 	
 	console.log(likedValue);
-	console.log(typeOfLike)
+	console.log(`THIS IS UPVOTECHANGE!!@!@!#!!#  ${upvoteChange}`)
+	// console.log(typeOfLike)
 	/* console.log(`likeType: ${likeType}`) */
 	console.log(`postId: ${postId}`);
 	console.log(`currentLikeId: ${currentLikeId}`)
