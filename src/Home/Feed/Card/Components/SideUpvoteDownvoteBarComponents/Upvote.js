@@ -65,7 +65,7 @@ const Upvote = ({ typeOfLike, initialLikeValue, postId, likeId }) => {
 
 	const handleRemoveUpvote = (event) => {
 		event.preventDefault();
-		console.log(`hit remove upvote ${postId}`);
+		console.log(`hit remove upvote ${currentLikeId}`);
 
 		axios({
 			url: `http://localhost:4000/likes/${currentLikeId}`,
@@ -85,7 +85,7 @@ const Upvote = ({ typeOfLike, initialLikeValue, postId, likeId }) => {
 
 	const handleAddUpvote = (event) => {
 		event.preventDefault();
-		console.log(`hit add upvote ${postId}`);
+		console.log(`hit add upvote ${currentLikeId}`);
 
 		axios({
 			url: `http://localhost:4000/likes/${currentLikeId}`,
@@ -109,7 +109,7 @@ const Upvote = ({ typeOfLike, initialLikeValue, postId, likeId }) => {
 	// console.log(`like type: ${likeType}`);
 	console.log(likedValue)
 
-    if (likeType == "upvotedTrue") {
+    if (liked.liked === "upvoteTrue") {
         return (
 					<div className='UpvoteDiv' onClick={liked.liked == 'upvoteTrue' ? (event) => handleRemoveUpvote(event) : null}>
 						<svg
@@ -128,10 +128,10 @@ const Upvote = ({ typeOfLike, initialLikeValue, postId, likeId }) => {
 						</svg>
 					</div>
 				);
-    } else if (likeType === 'upvoteRemoved') {
+    } else if (liked.liked === 'upvoteRemoved') {
 		return (
 			<div
-				className='UpvoteDiv'
+				className='UpvoteDiv UPVOTEREMOVED'
 				onClick={
 					liked.liked == 'upvoteRemoved'
 						? (event) => handleAddUpvote(event)
