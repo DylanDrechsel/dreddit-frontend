@@ -19,6 +19,11 @@ export const userNameState = atom({
   default: null
 })
 
+export const upvoteChangeState = atom({
+  key: 'upvoteChange',
+  default: false
+})
+
 function App() {
   const [token, setToken] = useRecoilState(tokenState)
 

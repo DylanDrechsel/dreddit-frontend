@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { tokenState } from '../../../App';
+import { tokenState, upvoteChangeState } from '../../../App';
 import { useRecoilState } from 'recoil';
 import { Row, Col, Container } from 'react-bootstrap'
 import axios from 'axios'
@@ -13,10 +13,12 @@ import SideUpvoteDownvoteBar from './Components/SideUpvoteDownvoteBar'
 
 
 const Card = () => {
-    const [token, setToken] = useRecoilState(tokenState);
+    const [token] = useRecoilState(tokenState);
+    const [upvoteChange] = useRecoilState(upvoteChangeState);
 	const [postData, setPostData] = useState({});
     const [haveData, setHaveData] = useState(false)
-	let count = 0;
+    const [upvoteCountChange, setUpvoteCountChange] = useState(false)
+
 
     useEffect(() => {
         axios.get(`http://localhost:4000/posts`, {
@@ -27,8 +29,9 @@ const Card = () => {
         .then(({ data }) => {
             setPostData(data)
             setHaveData(true)
+            setUpvoteCountChange(!upvoteCountChange)
         })
-    }, [])
+    }, [upvoteChange])
 
     if (haveData) {
         // console.log(postData.posts[1])
@@ -44,7 +47,7 @@ const Card = () => {
                             <Container>
                                 <Row>
                                     <Col xs={1} className='SideColumn'>
-                                        <SideUpvoteDownvoteBar likes={post.likes} postId={post.id}/>
+                                        <SideUpvoteDownvoteBar likes={post.likes} postId={post.id} upvoteCountChange={upvoteCountChange}/>
                                     </Col>
 
                                     <Col xs={11} className='MainCardColumn'>
