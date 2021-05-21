@@ -10,42 +10,29 @@ import axios from 'axios';
 
 const SideUpvoteDownvoteBar = ({ likes, postId, upvoteCountChange }) => {
     const [userId] = useRecoilState(userIdState);
-    // const [typeOfLike, setTypeOfLike] = useState('none')
     const [likeValue, setLikeValue] = useState(null)
     const [likeId, setLikeId] = useState(null)
     const [upvoteCount, setUpvoteCount] = useState(0)
-    const [downvoteLikeValue, setDownvoteLikeValue] = useState(null)
     let count = 0
 
     console.log(likes)
     
     useEffect(() => {
-        console.log('hit')
-
         for (let i = 0; i < likes.length; i++) {
             if (likes[i].authorId === userId && likes[i].value === 1) {
-                // setTypeOfLike("upvotedTrue")
                 setLikeValue(1)
-                setDownvoteLikeValue(1)
                 setLikeId(likes[i].id);
             }
             else if (likes[i].authorId === userId && likes[i].value === -1) {
-                // setTypeOfLike('downvoted');
-                setLikeValue(-1);
-                setDownvoteLikeValue(-1);
+                setLikeValue(-1);;
                 setLikeId(likes[i].id);
             }
             else if (likes[i].authorId === userId && likes[i].value === 0) {
-                // setTypeOfLike("upvoteRemove")
                 setLikeValue(0);
-                setDownvoteLikeValue(0);
                 setLikeId(likes[i].id);
             }
         }
     }, [upvoteCountChange])
-
-    // console.log(downvoteLikeValue)
-
 
     useEffect(() => {
         for (let i = 0; i < likes.length; i++) {
@@ -57,24 +44,20 @@ const SideUpvoteDownvoteBar = ({ likes, postId, upvoteCountChange }) => {
         }  
     }, [upvoteCountChange])
 
-    // console.log(`type of like: ${typeOfLike}`)
-    console.log(`Like Id: ${likeId}`);
-    console.log(`LikeValue: ${likeValue}`);
-    // console.log(upvoteCount)
+    // console.log(`Like Id: ${likeId}`);
+    // console.log(`LikeValue: ${likeValue}`);
 
-    
-    
     return (
 			<div className='SideUpvoteDownvoteBar'>
 				<Col>
 					<Row>	
-						<Upvote /* typeOfLike={typeOfLike} */ initialLikeValue={likeValue} postId={postId} likeId={likeId} /* handleUpvote={handleUpvote} */ />
+						<Upvote initialLikeValue={likeValue} postId={postId} likeId={likeId} />
 					</Row>
 
 					<NumberOfUpvotes upvoteCount={upvoteCount} />
 
 					<Row>
-						<Downvote initialLikeValue={likeValue} postId={postId} likeId={likeId} /* typeOfLike={typeOfLike} */ />
+						<Downvote initialLikeValue={likeValue} postId={postId} likeId={likeId} />
 					</Row>
 				</Col>
 			</div>
