@@ -44,7 +44,7 @@ const Card = () => {
             <div>
                 {postData.posts.map((post) => {
                     return (
-                        <div className='Card'>
+                        <div className='Card' key={post.id}>
                             <Container>
                                 <Link to={`${post.id}`} style={{ textDecoration: 'none', color: 'white' }}>
                                     <Row>
