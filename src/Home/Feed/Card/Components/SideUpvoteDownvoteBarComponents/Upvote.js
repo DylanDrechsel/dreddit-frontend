@@ -128,7 +128,7 @@ const Upvote = ({ /* typeOfLike, */ initialLikeValue, postId, likeId }) => {
 
     if (liked.liked === "upvoteTrue") {
         return (
-					<div className='UpvoteDiv REMOVEUPVOTE' onClick={liked.liked == 'upvoteTrue' ? (event) => handleRemoveUpvote(event) : null}>
+					<div className='UpvoteDiv REMOVEUPVOTE' onClick={(event) => handleRemoveUpvote(event)}>
 						<svg
 							// className='UpvoteIcon'
 							xmlns='http://www.w3.org/2000/svg'
