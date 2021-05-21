@@ -3,6 +3,8 @@ import { atom, useRecoilState } from 'recoil';
 import LandingPage from './LandingPage/LandingPage'
 import Home from './Home/Home'
 import { Route } from 'react-router-dom'
+import PostDetailPage from './PostDetailPage/PostDetailPage'
+import Navbar from './Global/Navigation'
 
 export const tokenState = atom({
   key: 'token',
@@ -25,7 +27,7 @@ export const upvoteChangeState = atom({
 })
 
 function App() {
-  const [token, setToken] = useRecoilState(tokenState)
+  const [token] = useRecoilState(tokenState)
 
   if (token === null) {
     return (
@@ -36,10 +38,10 @@ function App() {
   } else if (token != null) {
     return (
 			<div className='App'>
+        <Navbar />
         <Route path='/' exact component={Home} />
-				{/* <Home /> */}
 
-        <Route path='/:id' exact component={LandingPage} />
+        <Route path='/:id' exact component={PostDetailPage} />
 			</div>
 		);
   }
