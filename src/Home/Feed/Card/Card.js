@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { tokenState, upvoteChangeState } from '../../../App';
 import { useRecoilState } from 'recoil';
 import { Row, Col, Container } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 import Title from './Components/Title'
 import Category from './Components/Category'
@@ -45,29 +46,31 @@ const Card = () => {
                     return (
                         <div className='Card'>
                             <Container>
-                                <Row>
-                                    <Col xs={1} className='SideColumn'>
-                                        <SideUpvoteDownvoteBar likes={post.likes} postId={post.id} upvoteCountChange={upvoteCountChange}/>
-                                    </Col>
+                                <Link to={`${post.id}`} style={{ textDecoration: 'none', color: 'white' }}>
+                                    <Row>
+                                        <Col xs={1} className='SideColumn'>
+                                            <SideUpvoteDownvoteBar likes={post.likes} postId={post.id} upvoteCountChange={upvoteCountChange}/>
+                                        </Col>
 
-                                    <Col xs={11} className='MainCardColumn'>
-                                        <Row className='PostInformation'>
-                                            <Category category={post.category} />
-                                            <PostedBy username={post.author.username} />
-                                            <TimeSincePost time={post.createdAt}/>
-                                        </Row>
+                                        <Col xs={11} className='MainCardColumn'>
+                                            <Row className='PostInformation'>
+                                                <Category category={post.category} />
+                                                <PostedBy username={post.author.username} />
+                                                <TimeSincePost time={post.createdAt}/>
+                                            </Row>
 
-                                        <Row className="justify-content-md-center">
-                                            <Title title={post.title} />
-                                        </Row>
+                                            <Row className="justify-content-md-center">
+                                                <Title title={post.title} />
+                                            </Row>
 
-                                        {!post.image ? null : <PostImage path={post.image.path}/>}
-                                        
-                                        <Row>
-                                            <CommentButton comments={post.comments}/>
-                                        </Row>
-                                    </Col>
-                                </Row>
+                                            {!post.image ? null : <PostImage path={post.image.path}/>}
+                                            
+                                            <Row>
+                                                <CommentButton comments={post.comments}/>
+                                            </Row>
+                                        </Col>
+                                    </Row>
+                                </Link>
                             </Container>
                         </div>
                     )

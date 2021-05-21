@@ -18,8 +18,13 @@
     border-radius: 1%;
     border-style: solid;
     border-width: 1px;
-    border-color: rgb(87, 87, 87);
+    border-color: rgb(65, 65, 65);
     margin-bottom: 2vh;
+}
+
+.Card:hover {
+     border-style: solid;
+     border-color: rgb(109, 109, 109);
 }
 
 .CardTitle {
@@ -105,7 +110,7 @@
 .SideColumn {
     padding-right: 0 !important;
     padding-left: 0 !important;
-    background-color: rgba(128, 128, 128, 0.185);
+    background-color: rgba(128, 128, 128, 0.048);
     /* border-style: solid; */
     border-color: rgb(158, 158, 158);
     /* border-radius: 20% 0% 0% 20%; */

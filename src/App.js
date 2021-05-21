@@ -36,9 +36,10 @@ function App() {
   } else if (token != null) {
     return (
 			<div className='App'>
-				<Home />
+        <Route path='/' exact component={Home} />
+				{/* <Home /> */}
 
-        <Route path='/:id/comments' component={LandingPage} />
+        <Route path='/:id' exact component={LandingPage} />
 			</div>
 		);
   }
