@@ -107,6 +107,21 @@
     top: 1vh
 }
 
+.PostSideUpvoteDownvoteBar {
+    height: auto;
+    width: 2.5vw;
+    /* background-color: gray; */
+    /* position: relative;
+    bottom: .1vh;
+    left: .725vw; */
+    border-radius: 20% 0% 0% 20%;
+    /* overflow: hidden; */
+    align-items: center;
+    position: relative;
+    left: .35vw;
+    top: 1vh;
+}
+
 .SideColumn {
     padding-right: 0 !important;
     padding-left: 0 !important;
