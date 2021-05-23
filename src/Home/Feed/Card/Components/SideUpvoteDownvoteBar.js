@@ -14,9 +14,6 @@ const SideUpvoteDownvoteBar = ({ likes, postId, upvoteCountChange }) => {
     const [likeId, setLikeId] = useState(null)
     const [upvoteCount, setUpvoteCount] = useState(0)
     let count = 0
-
-    console.log(likes)
-    console.log(likeValue)
     
     useEffect(() => {
         for (let i = 0; i < likes.length; i++) {

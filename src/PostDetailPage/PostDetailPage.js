@@ -3,6 +3,7 @@ import axios from 'axios'
 import { userIdState, tokenState, userNameState } from '../App';
 import { useRecoilState } from 'recoil';
 import './PostDetailPage.css';
+import { Row, Col, Container } from 'react-bootstrap';
 import PostDetailFeed from './PostDetailFeed/PostDetailFeed'
 
 const PostDetailPage = ({ match }) => {
