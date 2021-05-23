@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { userIdState } from '../../../../App';
+import { userIdState, websiteState } from '../../../../App';
 import { useRecoilState } from 'recoil';
 import Upvote from './SideUpvoteDownvoteBarComponents/Upvote'
 import Downvote from './SideUpvoteDownvoteBarComponents/Downvote'
@@ -13,6 +13,7 @@ const SideUpvoteDownvoteBar = ({ likes, postId, upvoteCountChange }) => {
     const [likeValue, setLikeValue] = useState(null)
     const [likeId, setLikeId] = useState(null)
     const [upvoteCount, setUpvoteCount] = useState(0)
+    const [website] = useRecoilState(websiteState)
     let count = 0
     
     useEffect(() => {
@@ -46,7 +47,7 @@ const SideUpvoteDownvoteBar = ({ likes, postId, upvoteCountChange }) => {
     // console.log(`LikeValue: ${likeValue}`);
 
     return (
-			<div className='SideUpvoteDownvoteBar'>
+			<div className={website === 'home' ? 'SideUpvoteDownvoteBar' : 'PostSideUpvoteDownvoteBar'}>
 				<Col>
 					<Row>	
 						<Upvote initialLikeValue={likeValue} postId={postId} likeId={likeId} />

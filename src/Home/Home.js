@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { userIdState, tokenState, userNameState } from '../App'
+import { userIdState, tokenState, userNameState, websiteState } from '../App'
 import { useRecoilState } from 'recoil'
 import axios from 'axios'
 // import Navbar from '../Global/Navigation'
@@ -11,6 +11,13 @@ const Home = () => {
     const [token, setToken] = useRecoilState(tokenState);
     const [userName, setUserName] = useRecoilState(userNameState);
     const [userData, setUserData] = useState({})
+    const [website, setWebsite] = useRecoilState(websiteState);
+
+    useEffect(() => {
+        setWebsite('home')
+    }, [])
+
+    console.log(website)
 
     useEffect(() => {
         axios.get(`http://localhost:4000/users/${userId}`, {

@@ -26,6 +26,11 @@ export const upvoteChangeState = atom({
   default: false
 })
 
+export const websiteState = atom({
+  key: 'website',
+  default: 'landing'
+})
+
 function App() {
   const [token] = useRecoilState(tokenState)
 
