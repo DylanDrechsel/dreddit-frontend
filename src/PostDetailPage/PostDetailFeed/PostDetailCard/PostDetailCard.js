@@ -5,6 +5,7 @@ import { useRecoilState } from 'recoil';
 import { Row, Col, Container } from 'react-bootstrap';
 import PostDetailCardCategory from './Components/PostDetailCategory'
 import SideUpvoteDownvoteBar from '../../../Home/Feed/Card/Components/SideUpvoteDownvoteBar'
+import Category from '../../../Home/Feed/Card/Components/Category'
 
 
 const PostDetailCard = ({ id }) => {
@@ -36,23 +37,23 @@ const PostDetailCard = ({ id }) => {
 	if (haveData) {
 		return (
 			<div className='PostDetailCard'>
-                <Container>
-                    <Row>
-                        <Col xs={1} className='SideColumn'>
-                            <SideUpvoteDownvoteBar className='PostDetailSideUpvoteDownvoteBar'
-                                likes={data.post.likes}
-                                postId={data.post.id}
-                                upvoteCountChange={upvoteCountChange}
-                            />
-                        </Col>
+				<Container style={{ paddingRight: '0px', paddingLeft: '0px', marginLeft: '0px', marginRight: '0px' }}>
+					<Row style={{ marginLeft: '0px', marginRight: '0px'}}>
+						<Col xs={1} className='PostDetailSideUpvoteDownvoteBar'>
+							<SideUpvoteDownvoteBar
+								likes={data.post.likes}
+								postId={data.post.id}
+								upvoteCountChange={upvoteCountChange}
+							/>
+						</Col>
 
-                        <Col xs={11}>
-                            <Row>
-                                <PostDetailCardCategory category={data.post.category} />
-                            </Row>
-                        </Col>
-                    </Row>
-                </Container>
+						<Col xs={11}>
+							<Row>
+								<Category category={data.post.category} />
+							</Row>
+						</Col>
+					</Row>
+				</Container>
 			</div>
 		);
 	} else {

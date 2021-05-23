@@ -4,7 +4,7 @@ const Category = ({ category }) => {
     console.log(category)
     return (
 
-        <div className="CardCaregory">
+        <div className="CardCaregory PostDetailCardCategory">
             <b>{category}</b>
         </div>
     );
