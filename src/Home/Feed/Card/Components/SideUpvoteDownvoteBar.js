@@ -5,7 +5,6 @@ import Upvote from './SideUpvoteDownvoteBarComponents/Upvote'
 import Downvote from './SideUpvoteDownvoteBarComponents/Downvote'
 import NumberOfUpvotes from './SideUpvoteDownvoteBarComponents/NumberOfUpvotes'
 import { Col, Row } from 'react-bootstrap'
-import axios from 'axios';
 
 
 const SideUpvoteDownvoteBar = ({ likes, postId, upvoteCountChange }) => {

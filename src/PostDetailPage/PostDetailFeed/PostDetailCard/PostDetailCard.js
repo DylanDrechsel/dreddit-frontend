@@ -6,6 +6,8 @@ import { Row, Col, Container } from 'react-bootstrap';
 import PostDetailCardCategory from './Components/PostDetailCategory'
 import SideUpvoteDownvoteBar from '../../../Home/Feed/Card/Components/SideUpvoteDownvoteBar'
 import Category from '../../../Home/Feed/Card/Components/Category'
+import PostedBy from '../../../Home/Feed/Card/Components/PostedBy'
+import TimeSincePost from '../../../Home/Feed/Card/Components/TimeSincePost'
 
 
 const PostDetailCard = ({ id }) => {
@@ -50,6 +52,8 @@ const PostDetailCard = ({ id }) => {
 						<Col xs={11}>
 							<Row>
 								<Category category={data.post.category} />
+                                <PostedBy username={data.post.author.username} />
+                                <TimeSincePost time={data.post.createdAt} />
 							</Row>
 						</Col>
 					</Row>
