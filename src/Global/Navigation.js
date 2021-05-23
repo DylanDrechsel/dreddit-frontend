@@ -3,6 +3,7 @@ import './Global.css'
 import { Nav, NavDropdown, Form, FormControl, Button, Navbar, Row } from 'react-bootstrap'
 import { userIdState, tokenState, userNameState } from '../App';
 import { useRecoilState } from 'recoil';
+import { Link } from 'react-router-dom'
 import { motion, useAnimation } from 'framer-motion'
 import Welcome from './WelcomeAnimation/Welcome'
 
@@ -31,9 +32,7 @@ const Navigation = () => {
 					<Navbar.Toggle aria-controls='navbarScroll' />
 					<Navbar.Collapse id='navbarScroll'>
 						<Nav className='mr-auto my-2 my-lg-0' navbarScroll>
-							<Nav.Link
-								href='#action1'
-								style={{
+							<Link to={`/`} style={{
 									color: 'white',
 								}}>
 								<motion.h5
@@ -41,18 +40,19 @@ const Navigation = () => {
 									initial={{ opacity: 0 }}>
 									<b>Home</b>
 								</motion.h5>
-							</Nav.Link>
-							<Nav.Link
-								href='#action2'
-								style={{
-									color: 'white',
-								}}>
-								<motion.h5
-									animate={{ opacity: 1, transition: { delay: 6 } }}
-									initial={{ opacity: 0 }}>
-									<b>Link</b>
-								</motion.h5>
-							</Nav.Link>
+							</Link>
+
+								{/* <Nav.Link
+									href='#action2'
+									style={{
+										color: 'white',
+									}}>
+									<motion.h5
+										animate={{ opacity: 1, transition: { delay: 6 } }}
+										initial={{ opacity: 0 }}>
+										<b>Link</b>
+									</motion.h5>
+								</Nav.Link> */}
 						</Nav>
 
 						<Navbar.Brand
