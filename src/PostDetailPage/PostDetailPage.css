@@ -25,3 +25,24 @@
      /* position: relative; */
      /* right: 2.75vw; */
 }
+
+.PostDetailCardCategory {
+    font-size: 14px;
+    position: relative;
+    left: 1.5vw;
+    padding-top: 1vh;
+}
+
+.PostDetailCardPostedBy {
+    font-size: 12px;
+    position: relative;
+    left: 1.75vw;
+    top: 1.3vh
+}
+
+.PostDetailTime {
+    font-size: 12px;
+    position: relative;
+    left: 2.5vw;
+    top: 1.3vh;
+}

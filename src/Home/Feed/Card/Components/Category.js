@@ -1,12 +1,18 @@
 import React from 'react';
+import { websiteState } from '../../../../App'
+import { useRecoilState } from 'recoil'
 
 const Category = ({ category }) => {
-    return (
+    const [website] = useRecoilState(websiteState)
 
-        <div className="CardCaregory PostDetailCardCategory">
-            <b>{category}</b>
-        </div>
-    );
+    return (
+			<div
+				className={
+					website === 'home' ? 'CardCaregory' : 'PostDetailCardCategory'
+				}>
+				<b>{category}</b>
+			</div>
+		);
 };
 
 export default Category;

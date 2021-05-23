@@ -1,6 +1,9 @@
 import React from 'react';
+import { userIdState, websiteState } from '../../../../App';
+import { useRecoilState } from 'recoil';
 
 const TimeSincePost = ({ time }) => {
+    const [website] = useRecoilState(websiteState)
     const todaysDateUTC = new Date().toISOString();
     let createdYear = []
     let createdMonth = []
@@ -59,7 +62,7 @@ const TimeSincePost = ({ time }) => {
     // console.log((diffTimeMilliseconds / (1000 * 60 * 60 * 24)));
 
     return (
-			<div className='Time'>
+			<div className={website === 'home' ? 'Time' : 'PostDetailTime'}>
 				<p>created {diffcreatedDays} day ago</p>
 			</div>
 		);
