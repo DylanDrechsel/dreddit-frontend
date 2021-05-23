@@ -13,35 +13,23 @@ const PostDetailPage = ({ match }) => {
     const [haveData, setHaveData] = useState(false)
     const id = match.params.id
 
-    useEffect(() => {
-        axios.get(`http://localhost:4000/posts/${id}`, {
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
-        })
-        .then(({ data }) => {
-            setData(data)
-            setHaveData(true)
-        })
-    }, [])
+    // useEffect(() => {
+    //     axios.get(`http://localhost:4000/posts/${id}`, {
+    //         headers: {
+    //             Authorization: `Bearer ${token}`
+    //         }
+    //     })
+    //     .then(({ data }) => {
+    //         setData(data)
+    //         setHaveData(true)
+    //     })
+    // }, [])
 
-    if (haveData) {
-        console.log(data)
-    }
-
-    if (haveData) {
         return (
         <div className="PostDetailPage">
-            <PostDetailFeed data={data}/>
+            <PostDetailFeed id={id}/>
         </div>
         );
-    } else {
-        return (
-            <div>
-                LOADING
-            </div>
-        )
-    }
 };
 
 export default PostDetailPage;

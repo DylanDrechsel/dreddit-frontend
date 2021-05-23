@@ -11,3 +11,13 @@
     left: 17.5vw;
     background-color: #201E1D;
 }
+
+.PostDetailCardCaregory {
+    font-size: 14px;
+    position: relative;
+    left: 1.5vw;
+}
+
+.PostDetailSideUpvoteDownvoteBar {
+    background-color: white !important;
+}

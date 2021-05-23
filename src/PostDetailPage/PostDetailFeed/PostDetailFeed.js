@@ -1,8 +1,11 @@
 import React from 'react';
+import PostDetailCard from './PostDetailCard/PostDetailCard'
 
-const Feed = ({ data }) => {
+
+const Feed = ({ id }) => {
 	return (
-		<div className='PostDetailFeed'>
+		<div className='PostDetailFeed' >
+            <PostDetailCard id={id} />
 		</div>
 	);
 };
