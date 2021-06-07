@@ -32,7 +32,9 @@ const Navigation = () => {
 					<Navbar.Toggle aria-controls='navbarScroll' />
 					<Navbar.Collapse id='navbarScroll'>
 						<Nav className='mr-auto my-2 my-lg-0' navbarScroll>
-							<Link to={`/`} style={{
+							<Link
+								to={`/`}
+								style={{
 									color: 'white',
 								}}>
 								<motion.h5
@@ -42,7 +44,7 @@ const Navigation = () => {
 								</motion.h5>
 							</Link>
 
-								{/* <Nav.Link
+							{/* <Nav.Link
 									href='#action2'
 									style={{
 										color: 'white',
@@ -54,6 +56,20 @@ const Navigation = () => {
 									</motion.h5>
 								</Nav.Link> */}
 						</Nav>
+
+						<Link to={`/submit`} style={{ color: 'white' }}>
+							<motion.svg className="NavPostAdd"
+								animate={{ opacity: 1, transition: { delay: 10 } }}
+								initial={{ opacity: 0 }}
+								xmlns='http://www.w3.org/2000/svg'
+								width='24'
+								height='24'
+								fill-rule='evenodd'
+								fill='white'
+								viewBox='0 0 24 24'>
+								<path d='M24 10h-10v-10h-4v10h-10v4h10v10h4v-10h10z' />
+							</motion.svg>
+						</Link>
 
 						<Navbar.Brand
 							href='#'

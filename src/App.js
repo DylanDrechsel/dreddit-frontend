@@ -46,6 +46,8 @@ function App() {
         <Navbar />
         <Route path='/' exact component={Home} />
 
+        <Route path='/submit' exact component={Home} />
+
         <Route path='/:id' exact component={PostDetailPage} />
 			</div>
 		);

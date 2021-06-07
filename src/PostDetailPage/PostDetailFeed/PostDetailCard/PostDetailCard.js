@@ -8,6 +8,8 @@ import SideUpvoteDownvoteBar from '../../../Home/Feed/Card/Components/SideUpvote
 import Category from '../../../Home/Feed/Card/Components/Category'
 import PostedBy from '../../../Home/Feed/Card/Components/PostedBy'
 import TimeSincePost from '../../../Home/Feed/Card/Components/TimeSincePost'
+import Title from '../../../Home/Feed/Card/Components/Title'
+import PostImage from '../../../Home/Feed/Card/Components/PostImage'
 
 
 const PostDetailCard = ({ id }) => {
@@ -55,6 +57,14 @@ const PostDetailCard = ({ id }) => {
                                 <PostedBy username={data.post.author.username} />
                                 <TimeSincePost time={data.post.createdAt} />
 							</Row>
+
+                            <Row className="justify-content-md-center">
+                                <Title title={data.post.title} />
+                            </Row>
+
+                            {!data.post.image ? null : <PostImage path={data.post.image.path}/>}
+
+
 						</Col>
 					</Row>
 				</Container>

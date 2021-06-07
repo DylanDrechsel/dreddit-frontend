@@ -69,3 +69,9 @@
     top: -2vh;
     right: 35vw
 }
+
+.NavPostAdd {
+    position: relative;
+    right: 1.5vw;
+    bottom: .5vh;
+}
