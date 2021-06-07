@@ -5,6 +5,7 @@ import Home from './Home/Home'
 import { Route } from 'react-router-dom'
 import PostDetailPage from './PostDetailPage/PostDetailPage'
 import Navbar from './Global/Navigation'
+import Submit from './SubmitPage/Submit'
 
 export const tokenState = atom({
   key: 'token',
@@ -46,7 +47,7 @@ function App() {
         <Navbar />
         <Route path='/' exact component={Home} />
 
-        <Route path='/submit' exact component={Home} />
+        <Route path='/post/submit' exact component={Submit} />
 
         <Route path='/:id' exact component={PostDetailPage} />
 			</div>

@@ -57,9 +57,9 @@ const Navigation = () => {
 								</Nav.Link> */}
 						</Nav>
 
-						<Link to={`/submit`} style={{ color: 'white' }}>
+						<Link to={`/post/submit`} style={{ color: 'white' }}>
 							<motion.svg className="NavPostAdd"
-								animate={{ opacity: 1, transition: { delay: 10 } }}
+								animate={{ opacity: 1, transition: { delay: 9 } }}
 								initial={{ opacity: 0 }}
 								xmlns='http://www.w3.org/2000/svg'
 								width='24'
