@@ -17,10 +17,10 @@ const Submit = () => {
 
     return (
 			<div className='SubmitPage'>
-				<Container>
+				<Container className='PostContainer'>
 					<Row>
 						<Col xs={5}>
-							<h3 className='CreateAPost'>Create a post!</h3>
+							<h5 className='CreateAPost'>Create a post!</h5>
 						</Col>
 
 						<Col xs={7}>
@@ -28,7 +28,7 @@ const Submit = () => {
 
 
                             {/* WORKING ON UPLOADING IMAGE FOR POST */}
-							<Form className='ImageFile'>
+							{/* <Form className='ImageFile'>
 								<Form.Group controlId='image'>
 									<input id='image' type='file' multiple></input>
 									<Button
@@ -39,12 +39,12 @@ const Submit = () => {
 										Submit
 									</Button>{' '}
 								</Form.Group>
-							</Form>
+							</Form> */}
 						</Col>
 					</Row>
 				</Container>
 
-				<Form className='SubmitInputBars' onChange={handleInput}>
+				{/* <Form className='SubmitInputBars' onChange={handleInput}>
 					<Form.Group controlId='title'>
 						<Form.Control type='title' placeholder='Title' />
 					</Form.Group>
@@ -54,7 +54,7 @@ const Submit = () => {
 					<Form.Group controlId='category'>
 						<Form.Control type='category' placeholder='Category' />
 					</Form.Group>
-				</Form>
+				</Form> */}
 			</div>
 		);
 };

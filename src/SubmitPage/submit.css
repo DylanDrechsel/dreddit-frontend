@@ -1,13 +1,15 @@
 .SubmitPage {
     color: white;
     width: 50vw;
-    padding-top: 5vh;
+    margin-top: 5vh;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
     
     position: relative;
     left: 25vw;
 
     /* Used for testing purposes */
-    background-color: red; 
+    /* background-color: red;  */
 }
 
 .SubmitInputBars {
@@ -15,4 +17,8 @@
 
     position: relative;
     left: 5vw;
+}
+
+.PostContainer {
+    border-bottom: 1px solid #272726
 }
