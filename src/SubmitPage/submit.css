@@ -5,4 +5,14 @@
     
     position: relative;
     left: 25vw;
+
+    /* Used for testing purposes */
+    background-color: red; 
+}
+
+.SubmitInputBars {
+    width: 40vw;
+
+    position: relative;
+    left: 5vw;
 }
