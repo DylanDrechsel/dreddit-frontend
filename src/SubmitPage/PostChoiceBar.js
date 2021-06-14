@@ -10,8 +10,8 @@ const PostChoiceBar = () => {
 
     return (
 			<div className='PostChoiceBar'>
-				<Container onClick={handlePostNoImageClick}>
-					<Row className={postState === 'post' ? 'PostNoImageClicked' : 'PostNoImage'}>
+				<Container>
+					<Row className={postState === 'post' ? 'PostNoImageClicked' : 'PostNoImage'} onClick={handlePostNoImageClick}>
                         <Col>
 						    <h4 className='PostNoImageText' style={{ textAlign: 'center'}}>Post</h4>
                         </Col>
