@@ -12,6 +12,10 @@ const PostChoiceBar = () => {
         setPostState('image');
     }
 
+    const handleLinkPostClick = () => {
+        setPostState('link')
+    }
+
     return (
 			<div className='PostChoiceBar'>
 				<Container>
@@ -22,6 +26,10 @@ const PostChoiceBar = () => {
 
                         <Col className={postState === 'image' ? 'PostWithImageClicked' : 'PostWithImage'} onClick={handlePostWithImageClick}>
                             <h4 className='PostWithImageText'>Post With Image</h4>
+                        </Col>
+
+                        <Col className={postState === 'link' ? 'LinkPostClicked' : 'LinkPost'} onClick={handleLinkPostClick}>
+                            <h4 className='LinkPostText'>Link</h4>
                         </Col>
 					</Row>
 				</Container>
