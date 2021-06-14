@@ -4,20 +4,24 @@ import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 const PostChoiceBar = () => {
     const [postState, setPostState] = useState()
 
-    const handlePostNoImageClick = (event) => {
-        setPostState('post')
+    const handlePostNoImageClick = () => {
+        setPostState('text')
+    }
+
+    const handlePostWithImageClick = () => {
+        setPostState('image');
     }
 
     return (
 			<div className='PostChoiceBar'>
 				<Container>
 					<Row >
-                        <Col className={postState === 'post' ? 'PostNoImageClicked' : 'PostNoImage'} onClick={handlePostNoImageClick}>
+                        <Col className={postState === 'text' ? 'PostNoImageClicked' : 'PostNoImage'} onClick={handlePostNoImageClick}>
 						    <h4 className='PostNoImageText'>Text Post</h4>
                         </Col>
 
-                        <Col>
-                            <h4>Post With Image</h4>
+                        <Col className={postState === 'image' ? 'PostWithImageClicked' : 'PostWithImage'} onClick={handlePostWithImageClick}>
+                            <h4 className='PostWithImageText'>Post With Image</h4>
                         </Col>
 					</Row>
 				</Container>

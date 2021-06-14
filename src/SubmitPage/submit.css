@@ -58,3 +58,33 @@
 .PostNoImageText {
     padding-top: .75vh !important;
 }
+
+.PostWithImage {
+    border-top-left-radius: 5px;
+    width: 16.67vw !important;
+    height: 5vh !important;
+    background-color: #201E1D;
+    border-right: 1px solid #42403f !important;
+    border-bottom: 1px solid #42403f !important;
+}
+
+.PostWithImageClicked {
+    border-top-left-radius: 5px;
+    width: 16.67vw !important;
+    height: 5vh !important;
+    background-color: #201E1D;
+    border-right: 1px solid #42403f !important;
+    border-bottom: 2px solid white !important;
+}
+
+.PostWithImage:hover {
+    background-color: #272525;
+}
+
+.PostWithImage:active {
+    border-bottom: 2px solid white !important;
+}
+
+.PostWithImageText {
+    padding-top: .75vh !important;
+}
