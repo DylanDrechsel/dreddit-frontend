@@ -22,3 +22,14 @@
 .PostContainer {
     border-bottom: 1px solid #272726
 }
+
+.PostChoiceBar {
+    /* background-color: red; */
+    width: 50vw !important;
+}
+
+.PostNoImage {
+    /* text-align: center !important; */
+    width: 16.67vw !important;
+    background-color: red
+}
