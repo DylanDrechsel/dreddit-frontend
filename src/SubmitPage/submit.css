@@ -30,6 +30,7 @@
 }
 
 .PostNoImage {
+    border-top-left-radius: 5px;
     width: 16.67vw !important;
     height: 5vh !important;
     background-color: #201E1D;
@@ -38,6 +39,7 @@
 }
 
 .PostNoImageClicked {
+    border-top-left-radius: 5px;
     width: 16.67vw !important;
     height: 5vh !important;
     background-color: #201E1D;
@@ -54,5 +56,5 @@
 }
 
 .PostNoImageText {
-    text-align: center !important;
+    padding-top: .75vh !important;
 }
