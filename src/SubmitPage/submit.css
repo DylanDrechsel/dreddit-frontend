@@ -22,3 +22,29 @@
 .PostContainer {
     border-bottom: 1px solid #272726
 }
+
+.PostChoiceBar {
+    padding-top: 1vh;
+    width: 50vw !important;
+    height: 5vh !important;
+}
+
+.PostNoImage {
+    width: 16.67vw !important;
+    height: 5vh !important;
+    background-color: #201E1D;
+    border-right: 1px solid #42403f !important;
+    border-bottom: 1px solid #42403f !important;
+}
+
+.PostNoImage:hover {
+    background-color: #272525;
+}
+
+.PostNoImage:active {
+    border-bottom: 2px solid white !important;
+}
+
+.PostNoImageText {
+    text-align: center !important;
+}

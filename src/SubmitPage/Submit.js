@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './submit.css'
 import { Container, Row, Col, Form, Button } from 'react-bootstrap'
+import PostChoiceBar from './PostChoiceBar'
 
 const Submit = () => {
     const [data, setData] = useState({})
@@ -19,7 +20,7 @@ const Submit = () => {
 			<div className='SubmitPage'>
 				<Container className='PostContainer'>
 					<Row>
-						<Col xs={5}>
+						<Col xs={3}>
 							<h5 className='CreateAPost'>Create a post!</h5>
 						</Col>
 
@@ -41,6 +42,12 @@ const Submit = () => {
 								</Form.Group>
 							</Form> */}
 						</Col>
+					</Row>
+				</Container>
+
+				<Container className='PostChoice'>
+					<Row>
+						<PostChoiceBar />
 					</Row>
 				</Container>
 
