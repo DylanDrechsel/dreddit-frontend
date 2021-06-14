@@ -37,6 +37,14 @@
     border-bottom: 1px solid #42403f !important;
 }
 
+.PostNoImageClicked {
+    width: 16.67vw !important;
+    height: 5vh !important;
+    background-color: #201E1D;
+    border-right: 1px solid #42403f !important;
+    border-bottom: 2px solid white !important;
+}
+
 .PostNoImage:hover {
     background-color: #272525;
 }
