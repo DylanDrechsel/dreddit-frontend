@@ -24,12 +24,27 @@
 }
 
 .PostChoiceBar {
-    /* background-color: red; */
+    padding-top: 1vh;
     width: 50vw !important;
+    height: 5vh !important;
 }
 
 .PostNoImage {
-    /* text-align: center !important; */
     width: 16.67vw !important;
-    background-color: red
+    height: 5vh !important;
+    background-color: #201E1D;
+    border-right: 1px solid #42403f !important;
+    border-bottom: 1px solid #42403f !important;
+}
+
+.PostNoImage:hover {
+    background-color: #272525;
+}
+
+.PostNoImage:active {
+    border-bottom: 2px solid white !important;
+}
+
+.PostNoImageText {
+    text-align: center !important;
 }
