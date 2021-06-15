@@ -1,21 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import './submit.css'
+import { userIdState, tokenState, userNameState, websiteState } from '../App';
+import { useRecoilState } from 'recoil';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap'
 import PostChoiceBar from './PostChoiceBar'
 
 
 const Submit = () => {
-    const [data, setData] = useState({})
+    // const [data, setData] = useState({})
+	const [website, setWebsite] = useRecoilState(websiteState);
 
-    const handleInput = (event) => {
-        event.preventDefault()
+	useEffect(() => {
+		setWebsite('submit');
+	}, []);
 
-        const input = { ...data }
-        input[event.target.id] = event.target.value
-        setData(input)
-    }
+    // const handleInput = (event) => {
+    //     const input = { ...data }
+    //     input[event.target.id] = event.target.value
+    //     setData(input)
+    // }
 
-    console.log(data)
+    // console.log(data)
 
     return (
 			<div className='SubmitPage'>
