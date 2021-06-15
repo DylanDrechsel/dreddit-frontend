@@ -6,13 +6,7 @@ const TextPost = () => {
     const [textPostData, setTextPostData] = useState({})
     console.log(textPostData)
 
-    const handleTitleInput = (event) => {
-        const input = { ...textPostData }
-        input[event.target.id] = event.target.value
-        setTextPostData(input)
-    }
-
-    const handleCategoryInput = (event) => {
+    const handlePostDataInput = (event) => {
         const input = { ...textPostData }
         input[event.target.id] = event.target.value
         setTextPostData(input)
@@ -20,8 +14,8 @@ const TextPost = () => {
 
     return (
         <div className="TextPost">
-            <Title handleTitleInput={handleTitleInput}/>
-            <Category handleCategoryInput={handleCategoryInput}/>
+            <Title handlePostDataInput={handlePostDataInput}/>
+            <Category handlePostDataInput={handlePostDataInput}/>
         </div>
     );
 };
