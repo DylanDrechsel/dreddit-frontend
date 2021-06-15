@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import TextPost from './PostBoxes/TextPost'
 
 const PostChoiceBar = () => {
-    const [postState, setPostState] = useState()
+    const [postState, setPostState] = useState('text')
 
     const handlePostNoImageClick = () => {
         setPostState('text')
@@ -32,6 +33,10 @@ const PostChoiceBar = () => {
                             <h4 className='LinkPostText'>Link</h4>
                         </Col>
 					</Row>
+
+                    <Row>
+                        <TextPost />
+                    </Row>
 				</Container>
 			</div>
 		);
