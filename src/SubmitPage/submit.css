@@ -114,3 +114,9 @@
 .LinkPostText {
     padding-top: .75vh !important;
 }
+
+.TextPost {
+    background-color: #201E1D;
+    width: 50vw !important;
+    height: 50vh !important;
+}
