@@ -3,6 +3,7 @@ import './submit.css'
 import { Container, Row, Col, Form, Button } from 'react-bootstrap'
 import PostChoiceBar from './PostChoiceBar'
 
+
 const Submit = () => {
     const [data, setData] = useState({})
 
@@ -50,18 +51,6 @@ const Submit = () => {
 						<PostChoiceBar />
 					</Row>
 				</Container>
-
-				{/* <Form className='SubmitInputBars' onChange={handleInput}>
-					<Form.Group controlId='title'>
-						<Form.Control type='title' placeholder='Title' />
-					</Form.Group>
-				</Form>
-
-				<Form className='SubmitInputBars' onChange={handleInput}>
-					<Form.Group controlId='category'>
-						<Form.Control type='category' placeholder='Category' />
-					</Form.Group>
-				</Form> */}
 			</div>
 		);
 };
