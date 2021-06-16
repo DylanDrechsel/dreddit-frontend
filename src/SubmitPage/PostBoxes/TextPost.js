@@ -17,7 +17,7 @@ const TextPost = () => {
         <div className="TextPost">
             <Title handlePostDataInput={handlePostDataInput}/>
             <Category handlePostDataInput={handlePostDataInput}/>
-            <Content />
+            <Content handlePostDataInput={handlePostDataInput}/>
         </div>
     );
 };
