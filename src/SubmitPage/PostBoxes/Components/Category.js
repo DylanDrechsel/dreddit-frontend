@@ -6,7 +6,7 @@ const Category = ({ handlePostDataInput }) => {
         <div className="CategoryBar">
             <Form>
                 <Form.Group controlId="category">
-                    <Form.Control type="category" placeholder="category" style={{ backgroundColor: 'black', color: 'white', border: '1px solid grey'}} onChange={handlePostDataInput}/>
+                    <Form.Control type="category" placeholder="Category" style={{ backgroundColor: 'black', color: 'white', border: '1px solid grey'}} onChange={handlePostDataInput}/>
                 </Form.Group>
             </Form>
         </div>
