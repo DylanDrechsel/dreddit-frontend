@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
+import { tokenState } from '../../App';
+import { useRecoilState } from 'recoil';
 import Title from './Components/Title'
 import Category from './Components/Category'
 import Content from './Components/Content'
+import axios from 'axios'
 
 const TextPost = () => {
+    const [token] = useRecoilState(tokenState);
     const [textPostData, setTextPostData] = useState({})
     console.log(textPostData)
 
@@ -11,6 +15,17 @@ const TextPost = () => {
         const input = { ...textPostData }
         input[event.target.id] = event.target.value
         setTextPostData(input)
+    }
+
+    const Post = () => {
+        axios({
+            url: 'http://localhost:4000/posts/create/',
+            method: 'POST',
+            data: textPostData,
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        })
     }
 
     return (
