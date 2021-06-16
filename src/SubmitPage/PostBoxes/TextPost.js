@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Title from './Components/Title'
 import Category from './Components/Category'
+import Content from './Components/Content'
 
 const TextPost = () => {
     const [textPostData, setTextPostData] = useState({})
@@ -16,6 +17,7 @@ const TextPost = () => {
         <div className="TextPost">
             <Title handlePostDataInput={handlePostDataInput}/>
             <Category handlePostDataInput={handlePostDataInput}/>
+            <Content />
         </div>
     );
 };
