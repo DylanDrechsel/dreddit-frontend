@@ -1,11 +1,17 @@
 import React from 'react';
+import { Button } from 'react-bootstrap'
 
 const SaveDraft = () => {
     return (
-        <div className="SaveDraftButton">
-            <h4 className="SaveDraftText">SAVE DRAFT</h4>
-        </div>
-    );
+			<div>
+				<Button
+					className='SaveDraftButton'
+					variant='outline'>
+					SAVE DRAFT
+				</Button>
+				{/* <h6 className="SaveDraftText">SAVE DRAFT</h6> */}
+			</div>
+		);
 };
 
 export default SaveDraft;
