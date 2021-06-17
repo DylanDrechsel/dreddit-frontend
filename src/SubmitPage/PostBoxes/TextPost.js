@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { tokenState } from '../../App';
 import { useRecoilState } from 'recoil';
+import axios from 'axios'
 import Title from './Components/Title'
 import Category from './Components/Category'
 import Content from './Components/Content'
-import axios from 'axios'
+import SaveDraft from './Components/SaveDraft'
 
 const TextPost = () => {
     const [token] = useRecoilState(tokenState);
@@ -33,6 +34,7 @@ const TextPost = () => {
             <Title handlePostDataInput={handlePostDataInput}/>
             <Category handlePostDataInput={handlePostDataInput}/>
             <Content handlePostDataInput={handlePostDataInput}/>
+            <SaveDraft />
         </div>
     );
 };
