@@ -1,12 +1,13 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 
-const Post = () => {
+const Post = ({ post }) => {
     return (
         <div className="PostButtonDiv">
             <Button
 					className='PostButton'
-					variant='outline'>
+					variant='outline'
+                    onClick={post}>
 					POST
 			</Button>
         </div>
