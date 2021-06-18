@@ -34,8 +34,9 @@ const PostChoiceBar = () => {
                         </Col>
 					</Row>
 
+                
                     <Row>
-                        <TextPost />
+                        {postState === 'text' ? (<TextPost />) : null}
                     </Row>
 				</Container>
 			</div>
