@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import TextPost from './PostBoxes/TextPost'
+import ImagePost from './PostBoxes/ImagePost'
 
 const PostChoiceBar = () => {
     const [postState, setPostState] = useState('text')
@@ -36,7 +37,7 @@ const PostChoiceBar = () => {
 
                 
                     <Row>
-                        {postState === 'text' ? (<TextPost />) : null}
+                        {postState === 'text' ? (<TextPost />) : postState === 'image' ? (<ImagePost />) : null}
                     </Row>
 				</Container>
 			</div>
