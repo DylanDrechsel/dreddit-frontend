@@ -55,7 +55,7 @@ const TextPost = () => {
             <Content handlePostDataInput={handlePostDataInput}/>
 
             <Row className="PostOptionsRow">
-                <SaveDraft saveDraftPost={saveDraftPost} post={post}/>
+                <SaveDraft saveDraftPost={saveDraftPost}/>
                 <PostButton post={post}/>
             </Row>
         </div>
