@@ -3,7 +3,7 @@ import { Button } from 'react-bootstrap';
 
 const Post = () => {
     return (
-        <div>
+        <div className="PostButtonDiv">
             <Button
 					className='PostButton'
 					variant='outline'>

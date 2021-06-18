@@ -152,9 +152,18 @@
 .PostButton {
     background-color: black !important;
     border: 1px solid grey !important;
-    color: white !important
+    color: white !important;
 }
 
 .PostButton:hover {
     background-color: #272525 !important;
+}
+
+.PostButtonDiv {
+    padding-left: 1vw !important;
+}
+
+.PostOptionsRow {
+    position: relative;
+    left: 36.2vw
 }
