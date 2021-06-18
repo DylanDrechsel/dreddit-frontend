@@ -18,15 +18,37 @@ const ImagePost = () => {
         input[event.target.id] = event.target.value
         setTextPostData(input)
     }
-    
+
+    const post = () => {
+        axios({
+            url: 'http://localhost:4000/posts/create/',
+            method: 'POST',
+            data: {...textPostData, published: true},
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        })
+    }
+
+    const saveDraftPost = () => {
+        axios({
+            url: 'http://localhost:4000/posts/create/',
+            method: 'POST',
+            data: {...textPostData, published: false},
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        })
+    }
+
     return (
         <div className="ImagePost">
             <Title handlePostDataInput={handlePostDataInput}/>
             <Category handlePostDataInput={handlePostDataInput}/>
 
             <Row className="PostOptionsRow">
-                <SaveDraft /* saveDraftPost={saveDraftPost} *//>
-                <PostButton /* post={post} *//>
+                <SaveDraft saveDraftPost={saveDraftPost}/>
+                <PostButton post={post}/>
             </Row>
         </div>
     );
