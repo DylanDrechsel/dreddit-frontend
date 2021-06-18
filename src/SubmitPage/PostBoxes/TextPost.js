@@ -35,15 +35,15 @@ const TextPost = () => {
     }
 
     const saveDraftPost = () => {
-            axios({
-                url: 'http://localhost:4000/posts/create/',
-                method: 'POST',
-                data: {...textPostData, published: false},
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }
-            })
-            // .then((res) => {
+        axios({
+            url: 'http://localhost:4000/posts/create/',
+            method: 'POST',
+            data: {...textPostData, published: false},
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        })
+           // .then((res) => {
             //     console.log(res)
             // })
     }
