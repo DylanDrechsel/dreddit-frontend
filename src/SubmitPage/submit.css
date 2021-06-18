@@ -148,3 +148,13 @@
 .SaveDraftButton:hover {
     background-color: #272525 !important;
 }
+
+.PostButton {
+    background-color: black !important;
+    border: 1px solid grey !important;
+    color: white !important
+}
+
+.PostButton:hover {
+    background-color: #272525 !important;
+}

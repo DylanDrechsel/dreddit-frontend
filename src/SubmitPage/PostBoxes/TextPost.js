@@ -6,6 +6,7 @@ import Title from './Components/Title'
 import Category from './Components/Category'
 import Content from './Components/Content'
 import SaveDraft from './Components/SaveDraft'
+import PostButton from './Components/Post'
 
 const TextPost = () => {
     const [token] = useRecoilState(tokenState);
@@ -35,6 +36,7 @@ const TextPost = () => {
             <Category handlePostDataInput={handlePostDataInput}/>
             <Content handlePostDataInput={handlePostDataInput}/>
             <SaveDraft />
+            <PostButton />
         </div>
     );
 };
