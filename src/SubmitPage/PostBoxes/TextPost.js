@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { tokenState } from '../../App';
 import { useRecoilState } from 'recoil';
-import { Row, Col } from 'react-bootstrap'
+import { Row } from 'react-bootstrap'
 import axios from 'axios'
 import Title from './Components/Title'
 import Category from './Components/Category'
@@ -11,9 +11,7 @@ import PostButton from './Components/Post'
 
 const TextPost = () => {
     const [token] = useRecoilState(tokenState);
-    const [textPostData, setTextPostData] = useState({
-        published: true
-    })
+    const [textPostData, setTextPostData] = useState({})
     console.log(textPostData)
 
     const handlePostDataInput = (event) => {
@@ -26,11 +24,28 @@ const TextPost = () => {
         axios({
             url: 'http://localhost:4000/posts/create/',
             method: 'POST',
-            data: textPostData,
+            data: {...textPostData, published: true},
             headers: {
                 Authorization: `Bearer ${token}`
             }
         })
+        // .then((res) => {
+        //     console.log(res)
+        // })
+    }
+
+    const saveDraftPost = () => {
+            axios({
+                url: 'http://localhost:4000/posts/create/',
+                method: 'POST',
+                data: {...textPostData, published: false},
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            })
+            // .then((res) => {
+            //     console.log(res)
+            // })
     }
 
     return (
@@ -40,7 +55,7 @@ const TextPost = () => {
             <Content handlePostDataInput={handlePostDataInput}/>
 
             <Row className="PostOptionsRow">
-                <SaveDraft />
+                <SaveDraft saveDraftPost={saveDraftPost} post={post}/>
                 <PostButton post={post}/>
             </Row>
         </div>
