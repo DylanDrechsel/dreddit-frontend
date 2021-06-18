@@ -11,7 +11,9 @@ import PostButton from './Components/Post'
 
 const TextPost = () => {
     const [token] = useRecoilState(tokenState);
-    const [textPostData, setTextPostData] = useState({})
+    const [textPostData, setTextPostData] = useState({
+        published: true
+    })
     console.log(textPostData)
 
     const handlePostDataInput = (event) => {
@@ -20,7 +22,7 @@ const TextPost = () => {
         setTextPostData(input)
     }
 
-    const Post = () => {
+    const post = () => {
         axios({
             url: 'http://localhost:4000/posts/create/',
             method: 'POST',
@@ -39,7 +41,7 @@ const TextPost = () => {
 
             <Row className="PostOptionsRow">
                 <SaveDraft />
-                <PostButton />
+                <PostButton post={post}/>
             </Row>
         </div>
     );
