@@ -167,3 +167,9 @@
     position: relative;
     left: 38.5vw
 }
+
+.ImagePost {
+    background-color: #201E1D;
+    width: 50vw !important;
+    height: 50vh !important;
+}
