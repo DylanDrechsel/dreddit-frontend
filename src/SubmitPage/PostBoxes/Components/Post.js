@@ -1,13 +1,13 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 
-const Post = ({ post, onSubmit }) => {
+const Post = ({ post, onSubmit, newHandleSubmit }) => {
     return (
         <div className="PostButtonDiv">
             <Button
 					className='PostButton'
 					variant='outline'
-                    onClick={onSubmit}>
+                    onClick={newHandleSubmit}>
 					POST
 			</Button>
         </div>
