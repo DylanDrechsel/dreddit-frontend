@@ -12,12 +12,12 @@ import PostButton from './Components/Post'
 const TextPost = () => {
     const [token] = useRecoilState(tokenState);
     const [textPostData, setTextPostData] = useState({})
-    const [website, setWebsite] = useRecoilState(websiteState)
+    // const [website, setWebsite] = useRecoilState(websiteState)
     console.log(textPostData)
 
-    useEffect(() => {
-		setWebsite('submit');
-	}, []);
+    // useEffect(() => {
+	// 	setWebsite('submit');
+	// }, []);
 
     const handlePostDataInput = (event) => {
         const input = { ...textPostData }
