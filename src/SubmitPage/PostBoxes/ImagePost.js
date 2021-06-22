@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { tokenState } from '../../App';
+import React, { useState, useEffect } from 'react';
+import { tokenState, websiteState } from '../../App';
 import { useRecoilState } from 'recoil';
 import { Row } from 'react-bootstrap';
 import axios from 'axios';
@@ -10,8 +10,13 @@ import PostButton from './Components/Post';
 
 const ImagePost = () => {
     const [token] = useRecoilState(tokenState);
+    const [website, setWebsite] = useRecoilState(websiteState);
     const [imagePostData, setImagePostData] = useState({})
     let formData = new FormData()
+
+    useEffect(() => {
+		setWebsite('submit/image');
+	}, []);
 
     const handlePostDataInput = (event) => {
         const input = { ...imagePostData }

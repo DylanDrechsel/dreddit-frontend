@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './submit.css'
-import { userIdState, tokenState, userNameState, websiteState } from '../App';
+import { websiteState } from '../App';
 import { useRecoilState } from 'recoil';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap'
 import PostChoiceBar from './PostChoiceBar'
