@@ -10,13 +10,13 @@ import PostButton from './Components/Post';
 
 const ImagePost = () => {
     const [token] = useRecoilState(tokenState);
-    const [website, setWebsite] = useRecoilState(websiteState);
+    // const [website, setWebsite] = useRecoilState(websiteState);
     const [imagePostData, setImagePostData] = useState({})
     let formData = new FormData()
 
-    useEffect(() => {
-		setWebsite('submit/image');
-	}, []);
+    // useEffect(() => {
+	// 	setWebsite('submit/image');
+	// }, []);
 
     const handlePostDataInput = (event) => {
         const input = { ...imagePostData }
@@ -24,7 +24,7 @@ const ImagePost = () => {
         setImagePostData(input)
     }
 
-    const imagePost = (event) => {
+    const post = (event) => {
         event.preventDefault()
 
         const myForm = document.getElementById("imageForm")
@@ -87,7 +87,7 @@ const ImagePost = () => {
 					</form>
                         
 					<SaveDraft saveDraftPost={saveDraftPost} />
-					<PostButton imagePost={imagePost} />
+					<PostButton post={post} />
 
 				</Row>
 			</div>

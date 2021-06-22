@@ -1,19 +1,13 @@
 import React from 'react';
-import { tokenState, websiteState } from '../../../App';
-import { useRecoilState } from 'recoil';
 import { Button } from 'react-bootstrap';
 
-const Post = ({ post, imagePost }) => {
-    const [website] = useRecoilState(websiteState);
-
-    console.log(website)
-
+const Post = ({ post }) => {
     return (
         <div className="PostButtonDiv">
             <Button
 					className='PostButton'
 					variant='outline'
-                    onClick={website === 'submit' ? post : imagePost}>
+                    onClick={post}>
 					POST
 			</Button>
         </div>
