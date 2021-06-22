@@ -47,14 +47,25 @@ const ImagePost = () => {
         })
     }
 
-    const saveDraftPost = () => {
+    const saveDraftPost = (event) => {
+        event.preventDefault()
+
+        const myForm = document.getElementById("imageForm")
+        formData = new FormData(myForm)
+
+        formData.append('title', imagePostData.title)
+        formData.append('category', imagePostData.category);
+
         axios({
             url: 'http://localhost:4000/posts/create/image',
             method: 'POST',
-            data: {...imagePostData, published: false},
+            data: formData,
             headers: {
-                Authorization: `Bearer ${token}`
+                Authorization: `Bearer ${token}`,
             }
+        })
+        .then (res => {
+            console.log(res)
         })
     }
 
