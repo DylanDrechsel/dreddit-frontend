@@ -77,18 +77,19 @@ const ImagePost = () => {
 				<Category handlePostDataInput={handlePostDataInput} />
 
 				<Row className='PostOptionsRow'>
-					<form id='imageForm' action='/upload' enctype='multipart/form-data'>
+                        
+					<SaveDraft saveDraftPost={saveDraftPost} />
+					<PostButton post={post} />
+
+					<form id='imageForm' action='/upload' enctype='multipart/form-data' className='ImageForm'>
 						<input
+                            className='ImageInput'
 							type='file'
 							id='file'
 							accept='.jpg'
 							name='image'
 						/>
 					</form>
-                        
-					<SaveDraft saveDraftPost={saveDraftPost} />
-					<PostButton post={post} />
-
 				</Row>
 			</div>
 		);
