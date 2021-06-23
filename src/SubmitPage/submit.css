@@ -173,3 +173,8 @@
     width: 50vw !important;
     height: 50vh !important;
 }
+
+.ImageForm {
+    position: relative;
+    right: 48vw;
+}
