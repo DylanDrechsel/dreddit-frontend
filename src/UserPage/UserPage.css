@@ -1,0 +1,23 @@
+.UserChoiceBar {
+    background-color: #272726;
+    width: 100vw;
+    height: 3vh;
+
+    /* margin-top: 1vh !important; */
+    border-top: 1px solid #42403f !important;
+    border-bottom: 1px solid #42403f !important;
+
+    /* position: relative;
+    left: 25vw; */
+}
+
+.UserPostButton {
+    position: relative;
+    left: 50vw;
+    width: 3.5vw !important;
+    top: .15vh;
+}
+
+.UserPostButton:hover {
+    background-color: #302e2e !important;
+}
