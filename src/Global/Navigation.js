@@ -71,19 +71,21 @@ const Navigation = () => {
 							</motion.svg>
 						</Link>
 
-						<Navbar.Brand
-							href='#'
-							style={{
-								color: 'white',
-								left: '5vw',
-							}}>
-							{' '}
-							<motion.h3
-								initial={{ x: '-45vw', y: '-.5vh', opacity: 0 }}
-								animate={controls}>
-								<b>{userName}</b>
-							</motion.h3>
-						</Navbar.Brand>
+						<Link to={`/user/${userId}`} style={{ color: 'white' }}>
+							<Navbar.Brand
+								href='#'
+								style={{
+									color: 'white',
+									left: '5vw',
+								}}>
+								{' '}
+								<motion.h3
+									initial={{ x: '-45vw', y: '-.5vh', opacity: 0 }}
+									animate={controls}>
+									<b>{userName}</b>
+								</motion.h3>
+							</Navbar.Brand>
+						</Link>
 					</Navbar.Collapse>
 					<Welcome />
 				</Navbar>

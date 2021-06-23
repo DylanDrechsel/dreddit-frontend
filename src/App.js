@@ -6,6 +6,7 @@ import { Route } from 'react-router-dom'
 import PostDetailPage from './PostDetailPage/PostDetailPage'
 import Navbar from './Global/Navigation'
 import Submit from './SubmitPage/Submit'
+import UserPage from './UserPage/UserPage'
 
 export const tokenState = atom({
   key: 'token',
@@ -41,7 +42,7 @@ function App() {
         <LandingPage />
       </div>
     );
-  } else if (token != null) {
+  } else if (token !== null) {
     return (
 			<div className='App'>
         <Navbar />
@@ -50,6 +51,8 @@ function App() {
         <Route path='/post/submit' exact component={Submit} />
 
         <Route path='/:id' exact component={PostDetailPage} />
+
+        <Route path='/user/:userId' exact component={UserPage} />
 			</div>
 		);
   }
