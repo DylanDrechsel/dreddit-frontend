@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { websiteState } from '../App';
 import { useRecoilState } from 'recoil';
+import UserChoiceBar from './UserChoiceBar'
 
 const UserPage = () => {
     const [website, setWebsite] = useRecoilState(websiteState);
@@ -9,11 +10,9 @@ const UserPage = () => {
 		setWebsite('userPage');
 	}, []);
 
-    console.log(website)
-
     return (
         <div>
-            
+            <UserChoiceBar />
         </div>
     );
 };
