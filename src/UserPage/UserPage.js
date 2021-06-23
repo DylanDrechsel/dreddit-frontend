@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import { websiteState } from '../App';
 import { useRecoilState } from 'recoil';
-import UserChoiceBar from './UserChoiceBar'
+import './UserPage.css';
+import UserChoiceBar from './UserChoiceBar';
 
 const UserPage = () => {
     const [website, setWebsite] = useRecoilState(websiteState);
