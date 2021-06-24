@@ -21,3 +21,14 @@
 .UserPostButton:hover {
     background-color: #302e2e !important;
 }
+
+.PublishedPostDiv {
+    margin-top: 2vh;
+    background-color: #201E1D;
+
+    height: auto;
+    width: 50vw;
+
+    position: relative;
+    left: 25vw;
+}
