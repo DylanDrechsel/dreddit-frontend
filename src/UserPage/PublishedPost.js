@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 const PublishedPost = () => {
     const [token] = useRecoilState(tokenState);
     const [posts, setPosts] = useState({})
+    const [haveData, setHaveData] = useState(false)
 
     useEffect(() => {
         axios({
@@ -19,20 +20,25 @@ const PublishedPost = () => {
         })
         .then((response) => {
             setPosts(response)
+            setHaveData(true)
         })
     }, [])
 
-    console.log(posts)
-
-    const renderPosts = () => {
-
+    if (haveData) {
+        return (
+            <div className='PublishedPostDiv'>
+                {posts.data.posts.map((post) => {
+                    return (
+                        <h1>Test</h1>
+                    )
+                })}
+            </div>
+        );
+    } else {
+        return (
+            <h1 style={{ color: 'white' }}>Loading</h1>
+        )
     }
-
-    return (
-        <div className='PublishedPostDiv'>
-            HELLO FROM PUBISHED POSTS
-        </div>
-    );
 };
 
 export default PublishedPost;
