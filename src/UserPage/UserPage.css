@@ -27,8 +27,10 @@
     background-color: #201E1D;
 
     height: auto;
-    width: 50vw;
+    width: 90vw;
 
     position: relative;
-    left: 25vw;
+    left: 2vw;
+
+    border: 1px solid #42403f !important;
 }

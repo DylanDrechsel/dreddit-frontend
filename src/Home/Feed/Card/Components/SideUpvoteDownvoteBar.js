@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { userIdState, websiteState } from '../../../../App';
+import { userIdState, websiteState, upvoteChangeState } from '../../../../App';
 import { useRecoilState } from 'recoil';
 import Upvote from './SideUpvoteDownvoteBarComponents/Upvote'
 import Downvote from './SideUpvoteDownvoteBarComponents/Downvote'
