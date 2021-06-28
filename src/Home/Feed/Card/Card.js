@@ -68,7 +68,7 @@ const Card = () => {
                                             
                                             <Row>
                                                 <CommentButton comments={post.comments}/>
-                                                <ShareButton />
+                                                <ShareButton postId={post.id}/>
                                             </Row>
                                         </Col>
                                     </Row>
