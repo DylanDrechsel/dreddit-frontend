@@ -9,6 +9,8 @@ import SideUpvoteDownvoteBar from '../Home/Feed/Card/Components/SideUpvoteDownvo
 import Category from '../Home/Feed/Card/Components/Category';
 import PostedBy from '../Home/Feed/Card/Components/PostedBy';
 import TimeSincePost from '../Home/Feed/Card/Components/TimeSincePost';
+import PostImage from '../Home/Feed/Card/Components/PostImage';
+import CommentButton from '../Home/Feed/Card/Components/CommentButton';
 
 const PublishedPost = () => {
     const [token] = useRecoilState(tokenState);
@@ -47,28 +49,32 @@ const PublishedPost = () => {
                 {posts.data.posts.map((post) => {
                     return (
                         <div className='EachPublishedPostDiv'>
-                            <Container>
+                            <Container fluid>
                                 <Link to={`/${post.id}`} style={{ textDecoration: 'none', color: 'white' }}>
                                     <Row>
-                                        <Col xs={1} className='SideColumn'>
+                                        <Col xs={1} className='UsersPublishedPostsSideColumn'>
                                             <SideUpvoteDownvoteBar likes={post.likes} postId={post.id} upvoteCountChange={upvoteCountChange}/>
                                         </Col>
 
-                                        <Col xs={11} className='MainCardColumn'>
+                                        <Row>
+                                            <Col xs={1}>
+                                                {!post.image ? null : <PostImage path={post.image.path}/>}
+                                            </Col>
+                                        </Row>
+                                        
+                                        <Col xs={9} className='MainCardColumn'>
+                                            <Row className="justify-content-md-center">
+                                                <Title title={post.title} />
+                                            </Row>
+
                                             <Row className='PostInformation'>
                                                 <Category category={post.category} />
                                                 <PostedBy username={post.author.username} />
                                                 <TimeSincePost time={post.createdAt}/>
                                             </Row>
-
-                                            <Row className="justify-content-md-center">
-                                                <Title title={post.title} />
-                                            </Row>
-
-                                            {/* {!post.image ? null : <PostImage path={post.image.path}/>} */}
                                             
                                             <Row>
-                                                {/* <CommentButton comments={post.comments}/> */}
+                                                <CommentButton comments={post.comments}/>
                                             </Row>
                                         </Col>
                                     </Row>

@@ -7,8 +7,8 @@ const PostImage = ({ path }) => {
     const url = `http://localhost:4000/${path}`
 
     return (
-        <div className={website === 'home' ? "CardPostImage" : 'PostDetailCardImage'}>
-            <img src={url} className={website === 'home' ? "PostImage" : 'DetailPostImage'}/>
+        <div className={website === 'home' ? "CardPostImage" : website === 'userPage/posts' ? 'UsersPublishedPosts' : 'PostDetailCardImage'}>
+            <img src={url} className={website === 'home' ? "PostImage" : website === 'userPage/posts' ? 'UsersPublishedPostsImage' : 'DetailPostImage'}/>
         </div>
     );
 };
