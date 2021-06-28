@@ -6,7 +6,7 @@ const Title = ({ title }) => {
     const [website] = useRecoilState(websiteState)
     
     return (
-        <div className={website === 'home' ? 'CardTitle' : 'PostDetailCardTitle'}>
+        <div className={website === 'home' ? 'CardTitle' : website === 'userPage/posts' ? 'UsersPublishedPostsTitle' : 'PostDetailCardTitle'}>
             <b>{title}</b>
         </div>
     );
