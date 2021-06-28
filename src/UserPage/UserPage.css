@@ -42,3 +42,37 @@
 .EachPublishedPostDiv:hover {
     border: 1px solid rgb(109, 109, 109) !important;
 }
+
+.UsersPublishedPostsImage {
+    width: 5.5vw !important;
+    height: 10vh !important;
+    border-radius: 15px;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+}
+
+.UsersPublishedPostsSideColumn {
+    /* padding-right: 0 !important;
+    padding-left: 0 !important; */
+    background-color: rgba(128, 128, 128, 0.048);
+    /* border-style: solid; */
+    border-color: rgb(158, 158, 158);
+    /* border-radius: 20% 0% 0% 20%; */
+    border-top-left-radius: .2vw;
+    border-bottom-left-radius: .2vw;
+}
+
+.UserPublishedPostSideUpvoteDownvoteBar {
+    height: auto;
+    width: 2.5vw;
+    /* background-color: gray; */
+    /* position: relative;
+    bottom: .1vh;
+    left: .725vw; */
+    border-radius: 20% 0% 0% 20%;
+    /* overflow: hidden; */
+    align-items: center;
+    position: relative;
+    left: 1.4vw;
+    top: 2vh;
+}
