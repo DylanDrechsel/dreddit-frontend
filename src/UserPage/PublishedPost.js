@@ -63,7 +63,7 @@ const PublishedPost = () => {
                                         </Row>
                                         
                                         <Col xs={9} className='MainCardColumn'>
-                                            <Row className="justify-content-md-center">
+                                            <Row className="justify-content-md-left">
                                                 <Title title={post.title} />
                                             </Row>
 

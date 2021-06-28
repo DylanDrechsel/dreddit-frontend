@@ -37,6 +37,7 @@
 
 .EachPublishedPostDiv {
     border: 1px solid #42403f !important;
+    height: 10vh;
 }
 
 .EachPublishedPostDiv:hover {
@@ -44,11 +45,12 @@
 }
 
 .UsersPublishedPostsImage {
-    width: 5.5vw !important;
-    height: 10vh !important;
+    width: 4.5vw !important;
+    height: 8vh !important;
     border-radius: 15px;
     margin-top: 1vh;
     margin-bottom: 1vh;
+    margin-left: .5vw;
 }
 
 .UsersPublishedPostsSideColumn {
@@ -74,5 +76,12 @@
     align-items: center;
     position: relative;
     left: 1.4vw;
-    top: 2vh;
+    top: 1vh;
+}
+
+.UsersPublishedPostsTitle {
+    font-size: 18px;
+    position: relative;
+    top: .5vh;
+    left: 1.5vw;
 }
