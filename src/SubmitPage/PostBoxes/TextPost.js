@@ -26,7 +26,26 @@ const TextPost = () => {
         setTextPostData(input)
     }
 
+    const checkInformation = (textPostData) => {
+        if (!textPostData.title && !textPostData.category) {
+            alert('Please enter title and category')
+            return 1
+        } else if (!textPostData.title) {
+            alert('Please enter title')
+            return 1
+        } else if (!textPostData.category) {
+            alert('Please enter category')
+            return 1
+        }
+
+        return 0
+    }
+
     const post = () => {
+        if (checkInformation(textPostData) !== 0) {
+            return
+        }
+
         axios({
             url: 'http://localhost:4000/posts/create/',
             method: 'POST',
@@ -53,6 +72,10 @@ const TextPost = () => {
     }
 
     const saveDraftPost = () => {
+        if (checkInformation(textPostData) !== 0) {
+            return
+        }
+
         axios({
             url: 'http://localhost:4000/posts/create/',
             method: 'POST',

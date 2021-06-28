@@ -197,7 +197,7 @@
     opacity: 1;
     font-size: 24px !important;
     /* display: none; */
-    animation: fadeInAndOutSaved 3.0s;
+    animation: fadeInAndOutPosted 3.0s;
 
     position: relative;
     bottom: 4vh;
