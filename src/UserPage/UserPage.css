@@ -135,7 +135,9 @@
     background-color: #383838;
 }
 
-.ShareButtonText {
+.UsersPublishedPostsShareButtonText {
+    font-size: 12px;
+
     position: relative;
-    top: .5vh
+    top: .35vh
 }

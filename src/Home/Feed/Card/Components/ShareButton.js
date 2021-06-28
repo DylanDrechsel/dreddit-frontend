@@ -15,7 +15,7 @@ const ShareButton = ({ postId }) => {
 
     return (
         <div className={website === 'home' ? "ShareButtonDiv" : website === 'userPage/posts' ? 'UsersPublishedPostsShareButtonDiv' : null} onClick={handleShareButton}>
-            <p className='ShareButtonText'>Share</p>
+            <p className={website === 'home' ? 'ShareButtonText' : website === 'userPage/posts' ? 'UsersPublishedPostsShareButtonText' : null}>Share</p>
         </div>
     );
 };

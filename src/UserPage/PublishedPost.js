@@ -12,6 +12,7 @@ import TimeSincePost from '../Home/Feed/Card/Components/TimeSincePost';
 import PostImage from '../Home/Feed/Card/Components/PostImage';
 import CommentButton from '../Home/Feed/Card/Components/CommentButton';
 import ShareButton from '../Home/Feed/Card/Components/ShareButton';
+import NoImageAvailable from '../Home/Feed/Card/CardImages/no-image-found-360x250.png';
 
 const PublishedPost = () => {
     const [token] = useRecoilState(tokenState);
@@ -59,7 +60,7 @@ const PublishedPost = () => {
 
                                         <Row>
                                             <Col xs={1}>
-                                                {!post.image ? null : <PostImage path={post.image.path}/>}
+                                                {!post.image ? <img className='UsersPublishedPostsImage' src={NoImageAvailable} /> : <PostImage path={post.image.path}/>}
                                             </Col>
                                         </Row>
                                         
