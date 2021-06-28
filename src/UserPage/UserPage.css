@@ -120,3 +120,22 @@
 .UsersPublishedPostsCommentButton:hover {
     background-color: #383838;
 }
+
+.UsersPublishedPostsShareButtonDiv {
+    position: relative;
+    max-width: 6vw;
+    min-width: 6vw;
+    min-height: 2.5vh;
+    max-height: 2.5vh;
+    top: .75vh;
+    left: 1.55vw;
+}
+
+.UsersPublishedPostsShareButtonDiv:hover {
+    background-color: #383838;
+}
+
+.ShareButtonText {
+    position: relative;
+    top: .5vh
+}
