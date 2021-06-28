@@ -34,3 +34,11 @@
 
     border: 1px solid #42403f !important;
 }
+
+.EachPublishedPostDiv {
+    border: 1px solid #42403f !important;
+}
+
+.EachPublishedPostDiv:hover {
+    border: 1px solid rgb(109, 109, 109) !important;
+}

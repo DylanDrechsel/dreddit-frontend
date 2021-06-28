@@ -10,9 +10,9 @@ const UserPage = () => {
     const [website, setWebsite] = useRecoilState(websiteState);
     const [token] = useRecoilState(tokenState)
 
-	useEffect(() => {
-		setWebsite('userPage/posts');
-	}, []);
+	// useEffect(() => {
+	// 	setWebsite('userPage/posts');
+	// }, []);
 
     
 
@@ -20,7 +20,7 @@ const UserPage = () => {
         <div>
             <UserChoiceBar />
 
-            {website === 'userPage/posts' ? (<PublishedPost />) : null}
+            {website === '' ? null : (<PublishedPost />)}
         </div>
     );
 };
