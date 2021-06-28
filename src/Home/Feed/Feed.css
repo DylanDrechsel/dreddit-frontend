@@ -92,6 +92,27 @@
     top: .25vh;
 }
 
+.ShareButtonDiv {
+    position: relative;
+    max-width: 6vw;
+    min-width: 6vw;
+    min-height: 2.5vh;
+    max-height: 2.5vh;
+    bottom: .5vh;
+    left: 1.55vw;
+}
+
+.ShareButtonText {
+    font-size: 12px;
+
+    position: relative;
+    top: .25vh;
+}
+
+.ShareButtonDiv:hover {
+    background-color: #383838;
+}
+
 .SideUpvoteDownvoteBar {
     height: auto;
     width: 2.5vw;

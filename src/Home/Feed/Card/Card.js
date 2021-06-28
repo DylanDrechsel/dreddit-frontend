@@ -11,6 +11,7 @@ import PostImage from './Components/PostImage'
 import TimeSincePost from './Components/TimeSincePost'
 import CommentButton from './Components/CommentButton'
 import SideUpvoteDownvoteBar from './Components/SideUpvoteDownvoteBar'
+import ShareButton from './Components/ShareButton';
 
 
 const Card = () => {
@@ -67,6 +68,7 @@ const Card = () => {
                                             
                                             <Row>
                                                 <CommentButton comments={post.comments}/>
+                                                <ShareButton />
                                             </Row>
                                         </Col>
                                     </Row>
