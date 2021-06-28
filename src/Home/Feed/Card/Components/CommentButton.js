@@ -1,8 +1,11 @@
 import React from 'react';
+import { websiteState } from '../../../../App';
+import { useRecoilState } from 'recoil';
 import CommentImage from '../CardImages/comment.png'
 import { Row } from 'react-bootstrap'
 
 const CommentButton = ({ comments }) => {
+    const [website] = useRecoilState(websiteState)
     let commentCount = 0
     
     
@@ -12,7 +15,7 @@ const CommentButton = ({ comments }) => {
 
 
     return (
-        <div className="CommentButton">
+        <div className={website === 'home' ? "CommentButton" : website === 'userPage/posts' ? 'UsersPublishedPostsCommentButton' : null}>
             <Row>
                 <img src={CommentImage} className="CommentImage"/>
                 <p className="CommentCount">{commentCount} Comments</p>

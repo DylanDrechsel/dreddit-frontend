@@ -8,7 +8,7 @@ const Category = ({ category }) => {
     return (
 			<div
 				className={
-					website === 'home' ? 'CardCaregory' : 'PostDetailCardCategory'
+					website === 'home' ? 'CardCaregory' : website === 'userPage/posts' ? 'UsersPublishedPostsCategory' : 'PostDetailCardCategory'
 				}>
 				<b>{category}</b>
 			</div>
