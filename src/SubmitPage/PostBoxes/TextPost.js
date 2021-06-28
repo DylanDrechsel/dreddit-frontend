@@ -12,6 +12,7 @@ import PostButton from './Components/Post'
 const TextPost = () => {
     const [token] = useRecoilState(tokenState);
     const [textPostData, setTextPostData] = useState({})
+    const [posted, setPosted] = useState(false)
     // const [website, setWebsite] = useRecoilState(websiteState)
     console.log(textPostData)
 
@@ -34,9 +35,21 @@ const TextPost = () => {
                 Authorization: `Bearer ${token}`
             }
         })
-        // .then((res) => {
-        //     console.log(res)
-        // })
+        .then(() => {
+            setPosted('text')
+
+            setTimeout(() => {
+                setPosted(false)
+            }, 3000)
+        })
+        .catch(() => {
+            alert('Something went wrong... Please try again!')
+            // setPosted('error')
+
+            // setTimeout(() => {
+            //     setPosted(false)
+            // }, 3000)
+        })
     }
 
     const saveDraftPost = () => {
@@ -48,23 +61,39 @@ const TextPost = () => {
                 Authorization: `Bearer ${token}`
             }
         })
-           // .then((res) => {
-            //     console.log(res)
-            // })
+        .then(() => {
+            setPosted('saveText')
+
+            setTimeout(() => {
+                setPosted(false)
+            }, 3000)
+        })
+        .catch(() => {
+            alert('Something went wrong... Please try again!')
+        })
     }
 
     return (
-        <div className="TextPost">
-            <Title handlePostDataInput={handlePostDataInput}/>
-            <Category handlePostDataInput={handlePostDataInput}/>
-            <Content handlePostDataInput={handlePostDataInput}/>
+			<div>
+				<div className='TextPost'>
+					<Title handlePostDataInput={handlePostDataInput} />
+					<Category handlePostDataInput={handlePostDataInput} />
+					<Content handlePostDataInput={handlePostDataInput} />
 
-            <Row className="PostOptionsRow">
-                <SaveDraft saveDraftPost={saveDraftPost}/>
-                <PostButton post={post}/>
-            </Row>
-        </div>
-    );
+					<Row className='PostOptionsRow'>
+						<SaveDraft saveDraftPost={saveDraftPost} />
+						<PostButton post={post} />
+					</Row>
+				</div>
+
+				{posted === 'text' ? (
+					<h1 className='PostedAlert'>Posted!</h1>
+				) : posted === 'saveText' ? (
+					<h1 className='PostedSaved'>Post Saved!</h1>
+				) : posted === 'error' ? <h1>Something Went Wrong</h1>
+                  : null}
+			</div>
+		);
 };
 
 export default TextPost;
