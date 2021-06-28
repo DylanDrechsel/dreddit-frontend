@@ -38,6 +38,7 @@ const SideUpvoteDownvoteBar = ({ likes, postId, upvoteCountChange }) => {
 
             if (i === likes.length - 1) {
                 setUpvoteCount(count)
+                
             }
         }  
     }, [upvoteCountChange])
