@@ -6,6 +6,9 @@ import { Row, Col, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Title from '../Home/Feed/Card/Components/Title'
 import SideUpvoteDownvoteBar from '../Home/Feed/Card/Components/SideUpvoteDownvoteBar';
+import Category from '../Home/Feed/Card/Components/Category';
+import PostedBy from '../Home/Feed/Card/Components/PostedBy';
+import TimeSincePost from '../Home/Feed/Card/Components/TimeSincePost';
 
 const PublishedPost = () => {
     const [token] = useRecoilState(tokenState);
@@ -13,6 +16,11 @@ const PublishedPost = () => {
     const [haveData, setHaveData] = useState(false)
     const [upvoteChange] = useRecoilState(upvoteChangeState);
     const [upvoteCountChange, setUpvoteCountChange] = useState(false);
+    const [website, setWebsite] = useRecoilState(websiteState);
+
+    useEffect(() => {
+			setWebsite('userPage/posts');
+	}, []);
 
     useEffect(() => {
         axios({
@@ -20,7 +28,7 @@ const PublishedPost = () => {
             method: 'GET',
             headers: {
                     Authorization: `Bearer ${token}`,
-                }
+            }
         })
         .then((response) => {
             setPosts(response)
@@ -30,6 +38,8 @@ const PublishedPost = () => {
             console.log(posts)
         })
     }, [upvoteChange])
+
+    console.log(website)
 
     if (haveData) {
         return (
@@ -46,9 +56,9 @@ const PublishedPost = () => {
 
                                         <Col xs={11} className='MainCardColumn'>
                                             <Row className='PostInformation'>
-                                                {/* <Category category={post.category} />
+                                                <Category category={post.category} />
                                                 <PostedBy username={post.author.username} />
-                                                <TimeSincePost time={post.createdAt}/> */}
+                                                <TimeSincePost time={post.createdAt}/>
                                             </Row>
 
                                             <Row className="justify-content-md-center">
