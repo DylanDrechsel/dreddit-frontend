@@ -85,3 +85,38 @@
     top: .5vh;
     left: 1.5vw;
 }
+
+.UsersPublishedPostsCategory {
+    font-size: 12px;
+    position: relative;
+    left: 1.5vw;
+    top: 1vh
+}
+
+.UsersPublishedPostsPostedBy {
+    font-size: 12px;
+    position: relative;
+    left: 1.75vw;
+    top: 1vh
+}
+
+.UsersPublishedPostsTime {
+    font-size: 12px;
+    position: relative;
+    left: 2.5vw;
+    top: 1vh;
+}
+
+.UsersPublishedPostsCommentButton {
+    position: relative;
+    max-width: 6vw;
+    min-width: 6vw;
+    min-height: 2.5vh;
+    max-height: 2.5vh;
+    top: .75vh;
+    left: 1.55vw;
+}
+
+.UsersPublishedPostsCommentButton:hover {
+    background-color: #383838;
+}
