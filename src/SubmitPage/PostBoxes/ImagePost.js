@@ -10,6 +10,7 @@ import PostButton from './Components/Post';
 
 const ImagePost = () => {
     const [token] = useRecoilState(tokenState);
+    const [posted, setPosted] = useState(false);
     // const [website, setWebsite] = useRecoilState(websiteState);
     const [imagePostData, setImagePostData] = useState({})
     let formData = new FormData()
@@ -42,8 +43,15 @@ const ImagePost = () => {
                 Authorization: `Bearer ${token}`,
             }
         })
-        .then (res => {
-            console.log(res)
+        .then(() => {
+            setPosted('image')
+
+            setTimeout(() => {
+                setPosted(false)
+            }, 3000)
+        })
+        .catch(() => {
+            alert('Something went wrong... Please try again!')
         })
     }
 
@@ -64,33 +72,53 @@ const ImagePost = () => {
                 Authorization: `Bearer ${token}`,
             }
         })
-        .then (res => {
-            console.log(res)
+        .then(() => {
+            setPosted('saveImage')
+
+            setTimeout(() => {
+                setPosted(false)
+            }, 3000)
+        })
+        .catch(() => {
+            alert('Something went wrong... Please try again!')
         })
     }
 
     
 
     return (
-			<div className='ImagePost'>
-				<Title handlePostDataInput={handlePostDataInput} />
-				<Category handlePostDataInput={handlePostDataInput} />
+			<div>
+				<div className='ImagePost'>
+					<Title handlePostDataInput={handlePostDataInput} />
+					<Category handlePostDataInput={handlePostDataInput} />
 
-				<Row className='PostOptionsRow'>
-                        
-					<SaveDraft saveDraftPost={saveDraftPost} />
-					<PostButton post={post} />
+					<Row className='PostOptionsRow'>
+						<SaveDraft saveDraftPost={saveDraftPost} />
+						<PostButton post={post} />
 
-					<form id='imageForm' action='/upload' enctype='multipart/form-data' className='ImageForm'>
-						<input
-                            className='ImageInput'
-							type='file'
-							id='file'
-							accept='.jpg'
-							name='image'
-						/>
-					</form>
-				</Row>
+						<form
+							id='imageForm'
+							action='/upload'
+							enctype='multipart/form-data'
+							className='ImageForm'>
+							<input
+								className='ImageInput'
+								type='file'
+								id='file'
+								accept='.jpg'
+								name='image'
+							/>
+						</form>
+					</Row>
+				</div>
+
+				{posted === 'image' ? (
+					<h1 className='PostedAlert'>Posted!</h1>
+				) : posted === 'saveImage' ? (
+					<h1 className='PostedSaved'>Post Saved!</h1>
+				) : posted === 'error' ? (
+					<h1>Something Went Wrong</h1>
+				) : null}
 			</div>
 		);
 };

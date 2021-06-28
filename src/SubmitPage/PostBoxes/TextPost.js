@@ -42,6 +42,14 @@ const TextPost = () => {
                 setPosted(false)
             }, 3000)
         })
+        .catch(() => {
+            alert('Something went wrong... Please try again!')
+            // setPosted('error')
+
+            // setTimeout(() => {
+            //     setPosted(false)
+            // }, 3000)
+        })
     }
 
     const saveDraftPost = () => {
@@ -59,6 +67,9 @@ const TextPost = () => {
             setTimeout(() => {
                 setPosted(false)
             }, 3000)
+        })
+        .catch(() => {
+            alert('Something went wrong... Please try again!')
         })
     }
 
@@ -79,7 +90,8 @@ const TextPost = () => {
 					<h1 className='PostedAlert'>Posted!</h1>
 				) : posted === 'saveText' ? (
 					<h1 className='PostedSaved'>Post Saved!</h1>
-				) : null}
+				) : posted === 'error' ? <h1>Something Went Wrong</h1>
+                  : null}
 			</div>
 		);
 };
