@@ -11,6 +11,7 @@ import PostedBy from '../Home/Feed/Card/Components/PostedBy';
 import TimeSincePost from '../Home/Feed/Card/Components/TimeSincePost';
 import PostImage from '../Home/Feed/Card/Components/PostImage';
 import CommentButton from '../Home/Feed/Card/Components/CommentButton';
+import ShareButton from '../Home/Feed/Card/Components/ShareButton';
 
 const PublishedPost = () => {
     const [token] = useRecoilState(tokenState);
@@ -75,6 +76,7 @@ const PublishedPost = () => {
                                             
                                             <Row>
                                                 <CommentButton comments={post.comments}/>
+                                                <ShareButton postId={post.id} />
                                             </Row>
                                         </Col>
                                     </Row>
