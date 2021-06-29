@@ -95,7 +95,7 @@ const PublishedPost = () => {
 
                                         <ShareButton postId={post.id} />
                                         <DeleteButton postId={post.id} handleReload={handleReload} />
-                                        <EditButton postId={post.id} handleReload={handleReload} />
+                                        <EditButton postId={post.id} handleReload={handleReload} post={post}/>
                                     </Row>
                                 </div> 
                             </Container>
