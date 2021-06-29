@@ -9,6 +9,7 @@ import Content from './Components/Content'
 import SaveDraft from './Components/SaveDraft'
 import PostButton from './Components/Post'
 
+let errorText = ''
 const TextPost = () => {
     const [token] = useRecoilState(tokenState);
     const [textPostData, setTextPostData] = useState({})
@@ -28,13 +29,13 @@ const TextPost = () => {
 
     const checkInformation = (textPostData) => {
         if (!textPostData.title && !textPostData.category) {
-            alert('Please enter title and category')
+            errorText = 'Please enter title and category'
             return 1
         } else if (!textPostData.title) {
-            alert('Please enter title')
+            errorText = 'Please enter title'
             return 1
         } else if (!textPostData.category) {
-            alert('Please enter category')
+            errorText = 'Please enter category'
             return 1
         }
 
@@ -43,6 +44,13 @@ const TextPost = () => {
 
     const post = () => {
         if (checkInformation(textPostData) !== 0) {
+            setPosted('error')
+
+            setTimeout(() => {
+                setPosted(false)
+            }, 3000)
+
+            // exits out of post function before axios request is made if the data isnt entered properly
             return
         }
 
@@ -62,17 +70,24 @@ const TextPost = () => {
             }, 3000)
         })
         .catch(() => {
-            alert('Something went wrong... Please try again!')
-            // setPosted('error')
+            errorText = 'Something went wrong... Please try again!'
+            setPosted('error')
 
-            // setTimeout(() => {
-            //     setPosted(false)
-            // }, 3000)
+            setTimeout(() => {
+                setPosted(false)
+            }, 3000)
         })
     }
 
     const saveDraftPost = () => {
         if (checkInformation(textPostData) !== 0) {
+            setPosted('error')
+
+            setTimeout(() => {
+                setPosted(false)
+            }, 3000)
+
+            // exits out of post function before axios request is made if the data isnt entered properly
             return
         }
 
@@ -92,9 +107,16 @@ const TextPost = () => {
             }, 3000)
         })
         .catch(() => {
-            alert('Something went wrong... Please try again!')
+            errorText = 'Something went wrong... Please try again!'
+            setPosted('error')
+
+            setTimeout(() => {
+                setPosted(false)
+            }, 3000)
         })
     }
+
+    console.log(errorText)
 
     return (
 			<div>
@@ -113,7 +135,7 @@ const TextPost = () => {
 					<h1 className='PostedAlert'>Posted!</h1>
 				) : posted === 'saveText' ? (
 					<h1 className='PostedSaved'>Post Saved!</h1>
-				) : posted === 'error' ? <h1>Something Went Wrong</h1>
+				) : posted === 'error' ? <h1>{errorText}</h1>
                   : null}
 			</div>
 		);
