@@ -14,6 +14,7 @@ import CommentButton from '../Home/Feed/Card/Components/CommentButton';
 import ShareButton from '../Home/Feed/Card/Components/ShareButton';
 import NoImageAvailable from '../Home/Feed/Card/CardImages/no-image-found-360x250.png';
 import DeleteButton from './UserPageGlobalComponents/DeleteButton'
+import EditButton from './UserPageGlobalComponents/EditButton'
 
 const PublishedPost = () => {
     const [token] = useRecoilState(tokenState);
@@ -94,6 +95,7 @@ const PublishedPost = () => {
 
                                         <ShareButton postId={post.id} />
                                         <DeleteButton postId={post.id} handleReload={handleReload} />
+                                        <EditButton postId={post.id} handleReload={handleReload} />
                                     </Row>
                                 </div> 
                             </Container>
