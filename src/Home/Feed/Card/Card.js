@@ -81,6 +81,7 @@ const Card = () => {
             );
     } else {
         return (
+            // CSS in UserPage.css
             <div class="loader animation-stop">
                 <span class="circle delay-1 size-2"></span>
                 <span class="circle delay-2 size-4"></span>
