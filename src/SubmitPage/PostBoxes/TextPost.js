@@ -30,13 +30,13 @@ const TextPost = () => {
 
     const checkInformation = (textPostData) => {
         if (!textPostData.title && !textPostData.category) {
-            errorText = 'Please enter title and category'
+            errorText = 'Please enter Title and Category'
             return 1
         } else if (!textPostData.title) {
-            errorText = 'Please enter title'
+            errorText = 'Please enter Title'
             return 1
         } else if (!textPostData.category) {
-            errorText = 'Please enter category'
+            errorText = 'Please enter Category'
             return 1
         }
 
@@ -72,7 +72,7 @@ const TextPost = () => {
         })
         .catch(() => {
             errorText = 'Something went wrong... Please try again!'
-            setPosted('error')
+            setPosted('serverError')
 
             setTimeout(() => {
                 setPosted(false)
@@ -109,7 +109,7 @@ const TextPost = () => {
         })
         .catch(() => {
             errorText = 'Something went wrong... Please try again!'
-            setPosted('error')
+            setPosted('serverError')
 
             setTimeout(() => {
                 setPosted(false)
@@ -138,7 +138,8 @@ const TextPost = () => {
 					<h1 className='PostedSaved'>Post Saved!</h1>
 				) : posted === 'error' ? (
 					<h1 className='PostError'>{errorText}</h1>
-				) : null}
+				) : posted === 'serverError' ? (<h1 className='PostServerError'>{errorText}</h1>)
+                  : null}
 			</div>
 		);
 };

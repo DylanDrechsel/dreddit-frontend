@@ -95,7 +95,7 @@ const ImagePost = () => {
         })
         .catch(() => {
             errorText = 'Something went wrong... Please try again!'
-            setPosted('error')
+            setPosted('serverError')
 
             setTimeout(() => {
                 setPosted(false)
@@ -113,7 +113,7 @@ const ImagePost = () => {
         formData.append('category', imagePostData.category);
 
         if (checkInformation(imagePostData) !== 0) {
-            setPosted('error')
+            setPosted('servererror')
 
             setTimeout(() => {
                 setPosted(false)
@@ -140,7 +140,7 @@ const ImagePost = () => {
         })
         .catch(() => {
             errorText = 'Something went wrong... Please try again!'
-            setPosted('error')
+            setPosted('serverError')
 
             setTimeout(() => {
                 setPosted(false)
@@ -166,12 +166,12 @@ const ImagePost = () => {
 							enctype='multipart/form-data'
 							className='ImageForm'>
 							<input
-                                onChange={() => {
-                                    setImagePostData({
-                                        ...imagePostData,
-                                        hasImage: 'yes'
-                                    })
-                                }}
+								onChange={() => {
+									setImagePostData({
+										...imagePostData,
+										hasImage: 'yes',
+									});
+								}}
 								className='ImageInput'
 								type='file'
 								id='file'
@@ -187,7 +187,9 @@ const ImagePost = () => {
 				) : posted === 'saveImage' ? (
 					<h1 className='PostedSaved'>Post Saved!</h1>
 				) : posted === 'error' ? (
-					<h1>{errorText}</h1>
+					<h1 className='PostServerError'>{errorText}</h1>
+				) : posted === 'serverError' ? (
+					<h1 className='PostServerError'>{errorText}</h1>
 				) : null}
 			</div>
 		);
