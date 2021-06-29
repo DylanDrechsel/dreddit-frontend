@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Modal, Button } from 'react-bootstrap';
+import Title from '../../SubmitPage/PostBoxes/Components/Title'
+import Category from '../../SubmitPage/PostBoxes/Components/Category';
+import Content from '../../SubmitPage/PostBoxes/Components/Content'
 
 const EditPostModal = ({ show, handleClose, post }) => {
     const [postData, setPostData] = useState()
@@ -10,7 +13,7 @@ const EditPostModal = ({ show, handleClose, post }) => {
 
     console.log(postData)
 
-    if (postData) {
+    if (postData && !postData.image) {
         return (
                 <div>
                     <>
@@ -24,8 +27,9 @@ const EditPostModal = ({ show, handleClose, post }) => {
                                 <Modal.Title style={{ color: 'white' }}>Edit Post</Modal.Title>
                             </Modal.Header>
                             <Modal.Body style={{ backgroundColor: 'black', color: 'white' }}>
-                                I will not close if you click outside me. Don't even try to press
-                                escape key.
+                                <Title postTitle={postData.title}/>
+                                <Category postCategory={postData.category}/>
+                                <Content postContent={postData.content}/>
                             </Modal.Body>
                             <Modal.Footer style={{ backgroundColor: 'black' }}>
                                 <Button variant='secondary' onClick={handleClose}>
