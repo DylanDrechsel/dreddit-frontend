@@ -10,6 +10,7 @@ import SaveDraft from './Components/SaveDraft'
 import PostButton from './Components/Post'
 
 let errorText = ''
+
 const TextPost = () => {
     const [token] = useRecoilState(tokenState);
     const [textPostData, setTextPostData] = useState({})
