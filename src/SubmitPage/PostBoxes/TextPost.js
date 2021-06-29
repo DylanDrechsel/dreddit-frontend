@@ -117,8 +117,6 @@ const TextPost = () => {
         })
     }
 
-    console.log(errorText)
-
     return (
 			<div>
 				<div className='TextPost'>
@@ -138,8 +136,9 @@ const TextPost = () => {
 					<h1 className='PostedSaved'>Post Saved!</h1>
 				) : posted === 'error' ? (
 					<h1 className='PostError'>{errorText}</h1>
-				) : posted === 'serverError' ? (<h1 className='PostServerError'>{errorText}</h1>)
-                  : null}
+				) : posted === 'serverError' ? (
+                    <h1 className='PostServerError'>{errorText}</h1>
+                ) : null}
 			</div>
 		);
 };

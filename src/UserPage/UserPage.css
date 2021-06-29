@@ -141,3 +141,25 @@
     position: relative;
     top: .35vh
 }
+
+
+.DeleteButton {
+    position: relative;
+    max-width: 6vw;
+    min-width: 6vw;
+    min-height: 2.5vh;
+    max-height: 2.5vh;
+    top: .75vh;
+    left: 1.55vw;
+}
+
+.DeleteButtonText {
+    font-size: 12px;
+
+    position: relative;
+    top: .5vh;
+}
+
+.DeleteButton:hover {
+    background-color: #383838;
+}

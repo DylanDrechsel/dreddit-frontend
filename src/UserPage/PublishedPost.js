@@ -13,6 +13,7 @@ import PostImage from '../Home/Feed/Card/Components/PostImage';
 import CommentButton from '../Home/Feed/Card/Components/CommentButton';
 import ShareButton from '../Home/Feed/Card/Components/ShareButton';
 import NoImageAvailable from '../Home/Feed/Card/CardImages/no-image-found-360x250.png';
+import DeleteButton from './UserPageGlobalComponents/DeleteButton'
 
 const PublishedPost = () => {
     const [token] = useRecoilState(tokenState);
@@ -78,6 +79,7 @@ const PublishedPost = () => {
                                             <Row>
                                                 <CommentButton comments={post.comments}/>
                                                 <ShareButton postId={post.id} />
+                                                <DeleteButton postId={post.id} />
                                             </Row>
                                         </Col>
                                     </Row>
