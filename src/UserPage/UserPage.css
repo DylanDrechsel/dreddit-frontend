@@ -172,3 +172,153 @@
 
     color: white;
 }
+
+ .loader {
+     top: 50%;
+     left: 50%;
+     width: 100px;
+     height: 100px;
+     margin: 50px;
+     position: absolute;
+     transform: translate(-50%, -50%);
+ }
+
+ .loader .circle {
+     width: 50px;
+     height: 50px;
+     display: block;
+     position: absolute;
+     transform-origin: 50% 50%;
+     animation: rotating 2s ease-in-out infinite;
+ }
+
+ .loader .circle:after {
+     content: '';
+     top: 0;
+     left: 0;
+     width: 10px;
+     height: 10px;
+     display: block;
+     border-radius: 50%;
+     position: absolute;
+     transform: translate(-50%, -50%);
+     background-color: #fc0;
+ }
+
+ .loader .circle.delay-1 {
+     animation-delay: 0.125s;
+ }
+
+ .loader .circle.size-1:after {
+     width: 11px;
+     height: 11px;
+ }
+
+ .loader .circle.delay-2 {
+     animation-delay: 0.25s;
+ }
+
+ .loader .circle.size-2:after {
+     width: 12px;
+     height: 12px;
+ }
+
+ .loader .circle.delay-3 {
+     animation-delay: 0.375s;
+ }
+
+ .loader .circle.size-3:after {
+     width: 13px;
+     height: 13px;
+ }
+
+ .loader .circle.delay-4 {
+     animation-delay: 0.5s;
+ }
+
+ .loader .circle.size-4:after {
+     width: 14px;
+     height: 14px;
+ }
+
+ .loader .circle.delay-5 {
+     animation-delay: 0.625s;
+ }
+
+ .loader .circle.size-5:after {
+     width: 15px;
+     height: 15px;
+ }
+
+ .loader .circle.delay-6 {
+     animation-delay: 0.75s;
+ }
+
+ .loader .circle.size-6:after {
+     width: 16px;
+     height: 16px;
+ }
+
+ .loader .circle.delay-7 {
+     animation-delay: 0.875s;
+ }
+
+ .loader .circle.size-7:after {
+     width: 17px;
+     height: 17px;
+ }
+
+ .loader .circle.delay-8 {
+     animation-delay: 1s;
+ }
+
+ .loader .circle.size-8:after {
+     width: 18px;
+     height: 18px;
+ }
+
+ .loader .circle.delay-9 {
+     animation-delay: 1.125s;
+ }
+
+ .loader .circle.size-9:after {
+     width: 19px;
+     height: 19px;
+ }
+
+ .loader .circle.delay-10 {
+     animation-delay: 1.25s;
+ }
+
+ .loader .circle.size-10:after {
+     width: 20px;
+     height: 20px;
+ }
+
+ .loader .circle.delay-11 {
+     animation-delay: 1.375s;
+ }
+
+ .loader .circle.size-11:after {
+     width: 21px;
+     height: 21px;
+ }
+
+ .loader .circle.delay-12 {
+     animation-delay: 1.5s;
+ }
+
+ .loader .circle.size-12:after {
+     width: 22px;
+     height: 22px;
+ }
+
+ @keyframes rotating {
+     0% {
+         transform: rotate(0deg);
+     }
+
+     100% {
+         transform: rotate(360deg);
+     }
+ }

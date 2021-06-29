@@ -88,7 +88,10 @@ const PublishedPost = () => {
 
                                 <div className='UsersButtonsRow'>
                                     <Row>
-                                        <CommentButton comments={post.comments}/>
+                                        <Link to={`/${post.id}`} style={{ textDecoration: 'none', color: 'white' }} >
+                                            <CommentButton comments={post.comments}/>
+                                        </Link>
+
                                         <ShareButton postId={post.id} />
                                         <DeleteButton postId={post.id} handleReload={handleReload} />
                                     </Row>
@@ -101,7 +104,16 @@ const PublishedPost = () => {
         );
     } else {
         return (
-            <h1 style={{ color: 'white' }}>Loading</h1>
+            <div class="loader animation-stop">
+                <span class="circle delay-1 size-2"></span>
+                <span class="circle delay-2 size-4"></span>
+                <span class="circle delay-3 size-6"></span>
+                <span class="circle delay-4 size-7"></span>
+                <span class="circle delay-5 size-7"></span>
+                <span class="circle delay-6 size-6"></span>
+                <span class="circle delay-7 size-4"></span>
+                <span class="circle delay-8 size-2"></span>
+            </div>
         )
     }
 };
