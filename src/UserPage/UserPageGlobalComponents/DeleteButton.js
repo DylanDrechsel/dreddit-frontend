@@ -16,14 +16,9 @@ const DeleteButton = ({ postId, handleReload }) => {
                     Authorization: `Bearer ${token}`,
             }
         })
-        .then((res) => {
-            console.log(res)
-        })
         .then(() => {
-            handleReload()
+            handleReload();
         })
-
-        handleReload();
     }
 
     return (
