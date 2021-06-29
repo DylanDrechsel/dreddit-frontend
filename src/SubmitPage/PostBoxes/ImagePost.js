@@ -8,6 +8,8 @@ import Category from './Components/Category';
 import SaveDraft from './Components/SaveDraft';
 import PostButton from './Components/Post';
 
+let errorText = '';
+
 const ImagePost = () => {
     const [token] = useRecoilState(tokenState);
     const [posted, setPosted] = useState(false);
@@ -25,6 +27,35 @@ const ImagePost = () => {
         setImagePostData(input)
     }
 
+    const checkInformation = (imagePostData) => {
+        if (!imagePostData.title && !imagePostData.category && !imagePostData.hasImage) {
+            errorText = 'Please enter Title, Category, and Image'
+            return 1
+        } else if (!imagePostData.title && !imagePostData.category) {
+            errorText = 'Please enter Title and Category'
+            return 1
+        } else if (!imagePostData.title && !imagePostData.hasImage) {
+            errorText = 'Please enter Title and upload Image'
+            return 1
+        } else if (!imagePostData.category && !imagePostData.hasImage) {
+            errorText = 'Please enter Category and upload Image'
+            return 1
+        } else if (!imagePostData.title) {
+            errorText = 'Please enter Title'
+            return 1
+        } else if (!imagePostData.category) {
+            errorText = 'Please enter Category'
+            return 1
+        } else if (!imagePostData.hasImage) {
+            errorText = 'Please upload Image'
+            return 1
+        }
+
+        return 0
+    }
+
+    console.log(errorText)
+
     const post = (event) => {
         event.preventDefault()
 
@@ -34,6 +65,18 @@ const ImagePost = () => {
         formData.append('title', imagePostData.title)
         formData.append('category', imagePostData.category);
         formData.append('published', 'true');
+
+
+        if (checkInformation(imagePostData) !== 0) {
+            setPosted('error')
+
+            setTimeout(() => {
+                setPosted(false)
+            }, 3000)
+
+            // exits out of post function before axios request is made if the data isnt entered properly
+            return
+        }
 
         axios({
             url: 'http://localhost:4000/posts/create/image',
@@ -51,7 +94,12 @@ const ImagePost = () => {
             }, 3000)
         })
         .catch(() => {
-            alert('Something went wrong... Please try again!')
+            errorText = 'Something went wrong... Please try again!'
+            setPosted('error')
+
+            setTimeout(() => {
+                setPosted(false)
+            }, 3000)
         })
     }
 
@@ -63,6 +111,17 @@ const ImagePost = () => {
 
         formData.append('title', imagePostData.title)
         formData.append('category', imagePostData.category);
+
+        if (checkInformation(imagePostData) !== 0) {
+            setPosted('error')
+
+            setTimeout(() => {
+                setPosted(false)
+            }, 3000)
+
+            // exits out of post function before axios request is made if the data isnt entered properly
+            return
+        }
 
         axios({
             url: 'http://localhost:4000/posts/create/image',
@@ -80,7 +139,12 @@ const ImagePost = () => {
             }, 3000)
         })
         .catch(() => {
-            alert('Something went wrong... Please try again!')
+            errorText = 'Something went wrong... Please try again!'
+            setPosted('error')
+
+            setTimeout(() => {
+                setPosted(false)
+            }, 3000)
         })
     }
 
@@ -102,6 +166,12 @@ const ImagePost = () => {
 							enctype='multipart/form-data'
 							className='ImageForm'>
 							<input
+                                onChange={() => {
+                                    setImagePostData({
+                                        ...imagePostData,
+                                        hasImage: 'yes'
+                                    })
+                                }}
 								className='ImageInput'
 								type='file'
 								id='file'
@@ -117,7 +187,7 @@ const ImagePost = () => {
 				) : posted === 'saveImage' ? (
 					<h1 className='PostedSaved'>Post Saved!</h1>
 				) : posted === 'error' ? (
-					<h1>Something Went Wrong</h1>
+					<h1>{errorText}</h1>
 				) : null}
 			</div>
 		);
