@@ -163,3 +163,12 @@
 .DeleteButton:hover {
     background-color: #383838;
 }
+
+.UsersButtonsRow {
+    position: relative;
+    bottom: 3.5vh;
+    left: 11.5vw;
+    cursor: pointer;
+
+    color: white;
+}

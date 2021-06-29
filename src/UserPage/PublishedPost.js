@@ -22,12 +22,19 @@ const PublishedPost = () => {
     const [upvoteChange] = useRecoilState(upvoteChangeState);
     const [upvoteCountChange, setUpvoteCountChange] = useState(false);
     const [website, setWebsite] = useRecoilState(websiteState);
+    const [reload, setReload] = useState(false)
 
     useEffect(() => {
 			setWebsite('userPage/posts');
 	}, []);
 
+    const handleReload = () => {
+        setReload(!reload)
+    }
+
     useEffect(() => {
+        console.log('Reload hit')
+
         axios({
             url: 'http://localhost:4000/posts/user/published',
             method: 'GET',
@@ -42,7 +49,7 @@ const PublishedPost = () => {
 
             console.log(posts)
         })
-    }, [upvoteChange])
+    }, [upvoteChange, reload])
 
     console.log(website)
 
@@ -75,15 +82,17 @@ const PublishedPost = () => {
                                                 <PostedBy username={post.author.username} />
                                                 <TimeSincePost time={post.createdAt}/>
                                             </Row>
-                                            
-                                            <Row>
-                                                <CommentButton comments={post.comments}/>
-                                                <ShareButton postId={post.id} />
-                                                <DeleteButton postId={post.id} />
-                                            </Row>
                                         </Col>
                                     </Row>
                                 </Link>
+
+                                <div className='UsersButtonsRow'>
+                                    <Row>
+                                        <CommentButton comments={post.comments}/>
+                                        <ShareButton postId={post.id} />
+                                        <DeleteButton postId={post.id} handleReload={handleReload} />
+                                    </Row>
+                                </div> 
                             </Container>
                         </div>
                     )
