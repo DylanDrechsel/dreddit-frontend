@@ -135,8 +135,9 @@ const TextPost = () => {
 					<h1 className='PostedAlert'>Posted!</h1>
 				) : posted === 'saveText' ? (
 					<h1 className='PostedSaved'>Post Saved!</h1>
-				) : posted === 'error' ? <h1>{errorText}</h1>
-                  : null}
+				) : posted === 'error' ? (
+					<h1 className='PostError'>{errorText}</h1>
+				) : null}
 			</div>
 		);
 };
