@@ -12,23 +12,20 @@
 .SignInSignUpBox {
     width: 25vw;
     height: 60vh;
-    background-color: #CED2C6;
+    background: linear-gradient(-45deg, #ee7752, #ff1177, #23a6d5, #23d5ab);
+    background-size: 300% 300%;
+    animation: gradient 10s ease infinite;
 }
 
 .SignIn {
     padding: 1vw;
 }
 
-#container {
-    width: 500px;
-    margin: auto;
-}
-
 /*Neon*/
 p {
+    font-family: Iceland;
     text-align: center;
-    font-size: 7em;
-    margin: 20px 0 20px 0;
+    font-size: 256px;
 }
 
 b {
@@ -40,10 +37,9 @@ b {
 
 p:nth-child(1) b {
     color: rgb(255, 255, 255);
-    font-family: Monoton;
-    -webkit-animation: neon 1.5s ease-in-out infinite alternate;
-    -moz-animation: neon 1.5s ease-in-out infinite alternate;
-    animation: neon 1.5s ease-in-out infinite alternate;
+    -webkit-animation: neon 2s ease-in-out infinite alternate;
+    -moz-animation: neon 2s ease-in-out infinite alternate;
+    animation: neon 2s ease-in-out infinite alternate;
 }
 
 /*glow for webkit*/
@@ -87,3 +83,19 @@ p:nth-child(1) b {
             0 0 35px #ff1177, 0 0 40px #ff1177, 0 0 50px #ff1177, 0 0 75px #ff1177;
     }
 }
+
+/* Signin/signup Box animation */
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
