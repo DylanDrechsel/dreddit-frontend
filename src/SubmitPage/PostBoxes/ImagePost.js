@@ -148,8 +148,6 @@ const ImagePost = () => {
         })
     }
 
-    
-
     return (
 			<div>
 				<div className='ImagePost'>
