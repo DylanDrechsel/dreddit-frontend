@@ -3,10 +3,8 @@
 }
 
 .Title {
-    color: #473DA4;
-    padding-top: 10vh;
-    font-size: 72px;
-    letter-spacing: 6px;
+    position: relative;
+    bottom: 8vh;
 }
 
 .SignInSignUpBox {
@@ -15,6 +13,9 @@
     background: linear-gradient(-45deg, #ee7752, #ff1177, #23a6d5, #23d5ab);
     background-size: 300% 300%;
     animation: gradient 10s ease infinite;
+
+    position: relative;
+    bottom: 12vh;
 }
 
 .SignIn {
@@ -98,4 +99,3 @@ p:nth-child(1) b {
         background-position: 0% 50%;
     }
 }
-

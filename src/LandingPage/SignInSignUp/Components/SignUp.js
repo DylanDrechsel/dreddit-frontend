@@ -3,15 +3,25 @@ import { Button } from 'react-bootstrap'
 import SignUpModal from './SignUpModal'
 
 const SignUp = () => {
-    const [show, setShow] = useState(true)
+    const [show, setShow] = useState(false)
+
+    const handleShow = () => {
+        setShow(true)
+    }
+
+    const handleClose = () => {
+        setShow(false)
+    }
 
     return (
-        <div>
-            <Button>Sign Up!</Button>
+			<div>
+				<Button onClick={handleShow} variant='outline-dark' style={{ color: 'black' }}>
+					<b style={{ fontFamily: 'iceland', fontSize: '24px' }}>Sign Up!</b>
+				</Button>
 
-            {show === true ? (<SignUpModal />) : null}
-        </div>
-    );
+				{show === true ? <SignUpModal handleClose={handleClose} show={show} /> : null}
+			</div>
+		);
 };
 
 export default SignUp;

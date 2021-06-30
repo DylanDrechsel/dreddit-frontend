@@ -46,8 +46,8 @@ const SignIn = () => {
 					<Form.Group controlId='email' onChange={handleInput}>
 						<Form.Control
 							type='email'
-							placeholder='Enter email'
-							style={{ textAlign: 'center' }}
+							placeholder='Email'
+							style={{ textAlign: 'center', backgroundColor: 'black', border: '1px black', color: 'white'}}
 						/>
 					</Form.Group>
 
@@ -55,12 +55,12 @@ const SignIn = () => {
 						<Form.Control
 							type='password'
 							placeholder='Password'
-							style={{ textAlign: 'center' }}
+							style={{ textAlign: 'center', backgroundColor: 'black', border: '1px black', color: 'white'}}
 						/>
 					</Form.Group>
 
-					<Button variant='primary' type='submit' onClick={handleLogin}>
-						Log In!
+					<Button variant='outline-dark' type='submit' onClick={handleLogin} style={{ color: 'black' }}>
+						<b style={{ fontFamily: 'iceland', fontSize: '24px' }}>Log In!</b>
 					</Button>
 				</Form>
 			</div>

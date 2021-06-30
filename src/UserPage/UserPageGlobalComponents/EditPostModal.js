@@ -133,7 +133,7 @@ const EditPostModal = ({ show, handleClose, post, handleReload }) => {
 								onHide={handleClose}
 								backdrop='static'
 								keyboard={false}>
-								<Modal.Header closeButton style={{ backgroundColor: 'black' }}>
+								<Modal.Header style={{ backgroundColor: 'black' }}>
 									<Modal.Title style={{ color: 'white' }}>
 										Edit Post
 									</Modal.Title>
