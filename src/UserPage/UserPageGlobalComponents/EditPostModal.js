@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { tokenState } from '../../App';
 import { useRecoilState } from 'recoil';
 import axios from 'axios';
-import { Modal, Button } from 'react-bootstrap';
+import { Modal, Button, Dropdown, DropdownButton } from 'react-bootstrap';
 import Title from '../../SubmitPage/PostBoxes/Components/Title'
 import Category from '../../SubmitPage/PostBoxes/Components/Category';
 import Content from '../../SubmitPage/PostBoxes/Components/Content'
@@ -69,15 +69,21 @@ const EditPostModal = ({ show, handleClose, post, handleReload }) => {
 										handleDataChange={handleDataChange}
 									/>
 								</Modal.Body>
+
+								<DropdownButton
+									id='dropdown-item-button'
+									title='Publish?'
+                                    variant='outline-light'
+                                    className='DropdownButton'>
+									<Dropdown.Item as='button' onClick={() => {setEditData({published: true})}}>Post!</Dropdown.Item>
+									<Dropdown.Item as='button' onClick={() => {setEditData({published: false})}}>Save</Dropdown.Item>
+								</DropdownButton>
+
 								<Modal.Footer style={{ backgroundColor: 'black' }}>
 									<Button variant='outline-light' onClick={handleClose}>
 										Close
 									</Button>
-									<Button
-										variant='outline-light'
-										onClick={
-											handleTextEditPost
-										}>
+									<Button variant='outline-light' onClick={handleTextEditPost}>
 										Edit
 									</Button>
 								</Modal.Footer>
