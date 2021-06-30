@@ -2,10 +2,12 @@ import React from 'react';
 
 const Title = () => {
     return (
-        <div >
-            <h1 className="Title"><b>DREDDIT</b></h1>
-        </div>
-    );
+			<div id='container'>
+				<p>
+					<b>DREDDIT</b>
+				</p>
+			</div>
+		);
 };
 
 export default Title;
