@@ -18,7 +18,7 @@ const EditButton = ({ postId, handleReload, post}) => {
                 <h1 className='EditButtonText'>Edit</h1>
             </div>
 
-            {show === true ? <EditPostModal show={show} handleClose={handleClose} post={post}/> : null}
+            {show === true ? <EditPostModal show={show} handleClose={handleClose} post={post} handleReload={handleReload}/> : null}
         </div>
 	);
 };
