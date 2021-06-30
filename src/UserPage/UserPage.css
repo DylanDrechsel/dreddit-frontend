@@ -203,6 +203,24 @@
     position: relative;
 }
 
+.EditModalImage {
+    height: 50.5vh;
+    width: 22.5vw;
+    
+    position: relative;
+    left: .9vw;
+}
+
+.EditImageForm {
+    background-color: black;
+    padding-bottom: 1vh;
+    padding-left: 1.8vw;
+}
+
+.EditImageInput {
+    color: white
+}
+
  .loader {
      top: 50%;
      left: 50%;
