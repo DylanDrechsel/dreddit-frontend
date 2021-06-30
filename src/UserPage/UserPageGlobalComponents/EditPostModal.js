@@ -11,9 +11,13 @@ const EditPostModal = ({ show, handleClose, post }) => {
         setPostData(post)
     }, [])
 
-    const handleDataChange = () => {
-        
+    const handleDataChange = (event) => {
+        const input = { ...postData }
+        input[event.target.id] = event.target.value
+        setPostData(input)
     }
+
+    console.log(postData)
 
 
     if (postData && !postData.image) {
@@ -30,7 +34,7 @@ const EditPostModal = ({ show, handleClose, post }) => {
                                 <Modal.Title style={{ color: 'white' }}>Edit Post</Modal.Title>
                             </Modal.Header>
                             <Modal.Body style={{ backgroundColor: 'black', color: 'white' }}>
-                                <Title postTitle={postData.title}/>
+                                <Title postTitle={postData.title} handleDataChange={handleDataChange}/>
                                 <Category postCategory={postData.category}/>
                                 <Content postContent={postData.content}/>
                             </Modal.Body>
