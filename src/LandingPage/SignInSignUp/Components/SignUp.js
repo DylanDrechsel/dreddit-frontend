@@ -1,22 +1,15 @@
 import React, { useState } from 'react';
-import { tokenState, userIdState, userNameState } from '../../../App';
-import { useRecoilState } from 'recoil';
-import { Form, Button } from 'react-bootstrap'
-import axios from 'axios'
+import { Button } from 'react-bootstrap'
+import SignUpModal from './SignUpModal'
 
 const SignUp = () => {
-    const [token, setToken] = useRecoilState(tokenState);
-    const [userId, setUserId] = useRecoilState(userIdState)
-    const [userName, setUserName] = useRecoilState(userNameState)
-    const [userData, setUserData] = useState({
-		email: null,
-		password: null,
-	});
-
+    const [show, setShow] = useState(true)
 
     return (
         <div>
-            <Button>Sign Up</Button>
+            <Button>Sign Up!</Button>
+
+            {show === true ? (<SignUpModal />) : null}
         </div>
     );
 };
