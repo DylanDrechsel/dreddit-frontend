@@ -11,7 +11,10 @@ const EditPostModal = ({ show, handleClose, post }) => {
         setPostData(post)
     }, [])
 
-    console.log(postData)
+    const handleDataChange = () => {
+        
+    }
+
 
     if (postData && !postData.image) {
         return (
@@ -32,11 +35,11 @@ const EditPostModal = ({ show, handleClose, post }) => {
                                 <Content postContent={postData.content}/>
                             </Modal.Body>
                             <Modal.Footer style={{ backgroundColor: 'black' }}>
-                                <Button variant='secondary' onClick={handleClose}>
+                                <Button variant='outline-light' onClick={handleClose}>
                                     Close
                                 </Button>
-                                <Button variant='primary' onClick={handleClose}>
-                                    Understood
+                                <Button variant='outline-light' /* style={{ backgroundColor: 'black' }} */onClick={handleClose}>
+                                    Edit
                                 </Button>
                             </Modal.Footer>
                         </Modal>

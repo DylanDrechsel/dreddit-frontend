@@ -6,7 +6,7 @@ const Title = ({ handlePostDataInput, postTitle }) => {
         <div className="TitleBar">
             <Form>
                 <Form.Group controlId="title">
-                    <Form.Control type="title" placeholder={postTitle ? postTitle : "Title"} style={{ backgroundColor: 'black', color: 'white', border: '1px solid grey'}} onChange={handlePostDataInput}/>
+                    <Form.Control type="title" defaultValue={postTitle} placeholder={"Title"} style={{ backgroundColor: 'black', color: 'white', border: '1px solid grey'}} onChange={handlePostDataInput}/>
                 </Form.Group>
             </Form>
         </div>
