@@ -191,6 +191,11 @@ const ImagePost = () => {
 							/>
 						</form>
 					</Row>
+                    {newImage ? (
+                        // <div className='PreviewPostImageDiv'>
+                            <img className='PreviewPostImage' src={newImage} />
+                        // </div>
+                    ) : null}
 				</div>
 
 				{posted === 'image' ? (
@@ -203,11 +208,6 @@ const ImagePost = () => {
 					<h1 className='PostServerError'>{errorText}</h1>
 				) : null}
 
-				{newImage ? (
-					<div className='PreviewPostImageDiv'>
-						<img className='PreviewPostImage' src={newImage} />
-					</div>
-				) : null}
 			</div>
 		);
 };
