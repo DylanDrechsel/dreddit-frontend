@@ -62,7 +62,7 @@ const TimeSincePost = ({ time }) => {
     // console.log((diffTimeMilliseconds / (1000 * 60 * 60 * 24)));
 
     return (
-			<div className={website === 'home' ? 'Time' : website === 'userPage/posts' ? 'UsersPublishedPostsTime' : 'PostDetailTime'}>
+			<div className={website === 'home' ? 'Time' : website === 'userPage/posts' || website === 'userPage/saved' ? 'UsersPublishedPostsTime' : 'PostDetailTime'}>
 				<p>created {diffcreatedDays} day ago</p>
 			</div>
 		);

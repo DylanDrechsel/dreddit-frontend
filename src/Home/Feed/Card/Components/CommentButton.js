@@ -15,13 +15,20 @@ const CommentButton = ({ comments }) => {
 
 
     return (
-        <div className={website === 'home' ? "CommentButton" : website === 'userPage/posts' ? 'UsersPublishedPostsCommentButton' : null}>
-            <Row>
-                <img src={CommentImage} className="CommentImage"/>
-                <p className="CommentCount">{commentCount} Comments</p>
-            </Row>
-        </div>
-    );
+			<div
+				className={
+					website === 'home'
+						? 'CommentButton'
+						: website === 'userPage/posts' || website === 'userPage/saved'
+						? 'UsersPublishedPostsCommentButton'
+						: null
+				}>
+				<Row>
+					<img src={CommentImage} className='CommentImage' />
+					<p className='CommentCount'>{commentCount} Comments</p>
+				</Row>
+			</div>
+		);
 };
 
 export default CommentButton;

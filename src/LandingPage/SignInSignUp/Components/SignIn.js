@@ -70,7 +70,7 @@ const SignIn = () => {
 
     return (
 			<div className='SignIn'>
-				<h2>
+				<h2 style={{ fontFamily: 'iceland', fontSize: '42px'}}>
 					<b>Log In</b>
 				</h2>
 				<Form>

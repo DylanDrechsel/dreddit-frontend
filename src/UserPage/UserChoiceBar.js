@@ -1,11 +1,15 @@
 import React from 'react';
 import { Row, Col, Container } from 'react-bootstrap'
 import GetPosts from './UserChoiceBarComponents/GetPosts'
+import GetSavedPosts from './UserChoiceBarComponents/GetSavedPosts'
 
 const UserChoiceBar = () => {
     return (
 			<div className='UserChoiceBar'>
-                <GetPosts />
+				<Row>
+					<GetPosts />
+					<GetSavedPosts />
+				</Row>
 			</div>
 		);
 };
