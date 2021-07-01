@@ -5,15 +5,18 @@ import { Row, Col } from 'react-bootstrap'
 
 const SignInSignUp = () => {
     return (
-        <div className="SignInSignUpBox">
-            <Row>
-                <Col>
-                    <SignIn />
-                    <SignUp />
-                </Col>
-            </Row>
-        </div>
-    );
+			<div style={{ height: '50vh'}}>
+				<div className='SignInSignUpBox'>
+					<Row>
+						<Col>
+							<SignIn />
+						</Col>
+					</Row>
+			</div>
+
+				<SignUp />
+			</div>
+		);
 };
 
 export default SignInSignUp;

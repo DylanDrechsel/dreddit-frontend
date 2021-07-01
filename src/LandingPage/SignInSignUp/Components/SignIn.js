@@ -8,10 +8,8 @@ const SignIn = () => {
     const [token, setToken] = useRecoilState(tokenState);
     const [userId, setUserId] = useRecoilState(userIdState)
     const [userName, setUserName] = useRecoilState(userNameState)
-    const [userData, setUserData] = useState({
-		email: null,
-		password: null,
-	});
+    const [userData, setUserData] = useState({});
+	const [error, setError] = useState('none')
 
     const handleInput = (event) => {
         const input = { ...userData }
@@ -24,18 +22,51 @@ const SignIn = () => {
         loginFunction()
     }
 
+	const setErrorBackToNone = () => {
+		setTimeout(() => {
+			setError('none')
+		}, 3000)
+	}
+
     const loginFunction = () => {
+		if (!userData.email && !userData.password) {
+			setError('NoInformation')
+			setErrorBackToNone();
+			return
+		} else if (!userData.email) {
+			setError('NoEmail');
+			setErrorBackToNone();
+			return;
+		} else if (!userData.password) {
+			setError('NoPassword');
+			setErrorBackToNone();
+			return;
+		}
+
         axios({
             url: 'http://localhost:4000/login',
             method: 'POST',
             data: userData
         })
         .then(({ data }) => {
-            setUserId(data.id)
-            setUserName(data.username)
-            setToken(data.signedJwt)
+			console.log(data)
+
+			if (data.status === 200) {
+				setUserId(data.id);
+				setUserName(data.username);
+				setToken(data.signedJwt);
+			} else if (data.message === 'Incorrect Email') {
+				setError('EmailError')
+				setErrorBackToNone()
+			} else if (data.message === 'Incorrect Password') {
+				setError('PasswordError');
+				setErrorBackToNone();
+			}
         })
     }
+
+	console.log(error)
+	console.log(userData)
 
     return (
 			<div className='SignIn'>
@@ -46,8 +77,13 @@ const SignIn = () => {
 					<Form.Group controlId='email' onChange={handleInput}>
 						<Form.Control
 							type='email'
-							placeholder='Enter email'
-							style={{ textAlign: 'center' }}
+							placeholder='Email'
+							style={{
+								textAlign: 'center',
+								backgroundColor: 'black',
+								border: '1px black',
+								color: 'white',
+							}}
 						/>
 					</Form.Group>
 
@@ -55,16 +91,37 @@ const SignIn = () => {
 						<Form.Control
 							type='password'
 							placeholder='Password'
-							style={{ textAlign: 'center' }}
+							style={{
+								textAlign: 'center',
+								backgroundColor: 'black',
+								border: '1px black',
+								color: 'white',
+							}}
 						/>
 					</Form.Group>
 
-					<Button variant='primary' type='submit' onClick={handleLogin}>
-						Log In!
+					<Button
+						variant='outline-dark'
+						type='submit'
+						onClick={handleLogin}
+						style={{ color: 'black', width: '23vw' }}>
+						<b style={{ fontFamily: 'iceland', fontSize: '24px' }}>Log In!</b>
 					</Button>
 				</Form>
+
+				{error === 'EmailError' ? (
+					<h1 className='EmailError'>Email Incorrect</h1>
+				) : error === 'PasswordError' ? (
+					<h1 className='PasswordError'>Password Incorrect</h1>
+				) : error === 'NoInformation' ? (
+					<h1 className='NoInformation'>Please Enter Username and Password</h1>
+				) : error === 'NoEmail' ? (
+					<h1 className='NoEmail'>Please Enter Email</h1>
+				) : error === 'NoPassword' ? (
+					<h1 className='NoPassword'>Please Enter Password</h1>
+				) : null}
 			</div>
 		);
-};
-
-export default SignIn;
+	};
+	
+	export default SignIn;
