@@ -172,7 +172,7 @@
 .ImagePost {
     background-color: #201E1D;
     width: 50vw !important;
-    height: auto !important;
+    height: 80vh !important;
 }
 
 .ImageForm {
@@ -189,7 +189,7 @@
     -moz-animation: fadeInAndOutPosted 3.0s;
 
     position: relative;
-    bottom: 4vh;
+    bottom: 67vh;
     left: 32vw;
 
     width: 5vw;
@@ -204,7 +204,7 @@
     -moz-animation: fadeInAndOutPosted 3.0s;
 
     position: relative;
-    bottom: 4vh;
+    bottom: 67vh;
     left: 29vw;
 
     width: 8vw;
@@ -219,7 +219,7 @@
     -moz-animation: fadeInAndOutPosted 3.0s;
 
     position: relative;
-    bottom: 4vh;
+    bottom: 67vh;
     left: 17vw;
 
     width: 20vw;
@@ -234,10 +234,23 @@
     -moz-animation: fadeInAndOutPosted 3.0s;
 
     position: relative;
-    bottom: 4vh;
+    bottom: 67vh;
     left: 12.25vw;
 
     width: 28vw;
+}
+
+.PreviewPostImage {
+    width: 25vw;
+    height: 60vh;
+
+    padding-top: 5vh;
+
+    position: sticky;
+}
+
+.PreviewPostImageDiv {
+    background-color: #201E1D;
 }
 
 @keyframes fadeInAndOutPosted {

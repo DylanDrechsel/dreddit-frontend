@@ -15,6 +15,7 @@ const ImagePost = () => {
     const [posted, setPosted] = useState(false);
     // const [website, setWebsite] = useRecoilState(websiteState);
     const [imagePostData, setImagePostData] = useState({})
+    const [newImage, setNewImage] = useState();
     let formData = new FormData()
 
     // useEffect(() => {
@@ -113,7 +114,7 @@ const ImagePost = () => {
         formData.append('category', imagePostData.category);
 
         if (checkInformation(imagePostData) !== 0) {
-            setPosted('servererror')
+            setPosted('serverError')
 
             setTimeout(() => {
                 setPosted(false)
@@ -148,6 +149,16 @@ const ImagePost = () => {
         })
     }
 
+    const imageHandler = (event) => {
+		const reader = new FileReader();
+		reader.onload = () => {
+			if (reader.readyState === 2) {
+				setNewImage(reader.result)	
+			}
+		}
+		reader.readAsDataURL(event.target.files[0])
+	}
+
     return (
 			<div>
 				<div className='ImagePost'>
@@ -164,7 +175,9 @@ const ImagePost = () => {
 							enctype='multipart/form-data'
 							className='ImageForm'>
 							<input
-								onChange={() => {
+								onChange={(event) => {
+									imageHandler(event);
+
 									setImagePostData({
 										...imagePostData,
 										hasImage: 'yes',
@@ -178,6 +191,11 @@ const ImagePost = () => {
 							/>
 						</form>
 					</Row>
+                    {newImage ? (
+                        // <div className='PreviewPostImageDiv'>
+                            <img className='PreviewPostImage' src={newImage} />
+                        // </div>
+                    ) : null}
 				</div>
 
 				{posted === 'image' ? (
@@ -189,6 +207,7 @@ const ImagePost = () => {
 				) : posted === 'serverError' ? (
 					<h1 className='PostServerError'>{errorText}</h1>
 				) : null}
+
 			</div>
 		);
 };
