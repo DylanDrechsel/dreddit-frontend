@@ -30,13 +30,16 @@ const SignIn = () => {
 
     const loginFunction = () => {
 		if (!userData.email && !userData.password) {
-			setError('No Information')
+			setError('NoInformation')
+			setErrorBackToNone();
 			return
 		} else if (!userData.email) {
-			setError('No Email');
+			setError('NoEmail');
+			setErrorBackToNone();
 			return;
 		} else if (!userData.password) {
-			setError('No Password');
+			setError('NoPassword');
+			setErrorBackToNone();
 			return;
 		}
 
@@ -57,6 +60,7 @@ const SignIn = () => {
 				setErrorBackToNone()
 			} else if (data.message === 'Incorrect Password') {
 				setError('PasswordError');
+				setErrorBackToNone();
 			}
         })
     }
@@ -66,7 +70,6 @@ const SignIn = () => {
 
     return (
 			<div className='SignIn'>
-
 				<h2>
 					<b>Log In</b>
 				</h2>
@@ -75,24 +78,48 @@ const SignIn = () => {
 						<Form.Control
 							type='email'
 							placeholder='Email'
-							style={{ textAlign: 'center', backgroundColor: 'black', border: '1px black', color: 'white'}}
-							/>
+							style={{
+								textAlign: 'center',
+								backgroundColor: 'black',
+								border: '1px black',
+								color: 'white',
+							}}
+						/>
 					</Form.Group>
 
 					<Form.Group controlId='password' onChange={handleInput}>
 						<Form.Control
 							type='password'
 							placeholder='Password'
-							style={{ textAlign: 'center', backgroundColor: 'black', border: '1px black', color: 'white'}}
-							/>
+							style={{
+								textAlign: 'center',
+								backgroundColor: 'black',
+								border: '1px black',
+								color: 'white',
+							}}
+						/>
 					</Form.Group>
 
-					<Button variant='outline-dark' type='submit' onClick={handleLogin} style={{ color: 'black', width: '23vw' }}>
+					<Button
+						variant='outline-dark'
+						type='submit'
+						onClick={handleLogin}
+						style={{ color: 'black', width: '23vw' }}>
 						<b style={{ fontFamily: 'iceland', fontSize: '24px' }}>Log In!</b>
 					</Button>
 				</Form>
-				
-				{error === 'EmailError' ? (<h1 className='EmailError'>Email Incorrect</h1>) : error === 'PasswordError' ? (<h1>Password Incorrect</h1>) : error === "No Information" ? (<h1>Please Enter Username and Password</h1>) : error === 'No Email' ? (<h1>Please Enter Email</h1>) : error === 'No Password' ? (<h1>Please Enter Password</h1>) : null}
+
+				{error === 'EmailError' ? (
+					<h1 className='EmailError'>Email Incorrect</h1>
+				) : error === 'PasswordError' ? (
+					<h1 className='PasswordError'>Password Incorrect</h1>
+				) : error === 'NoInformation' ? (
+					<h1 className='NoInformation'>Please Enter Username and Password</h1>
+				) : error === 'NoEmail' ? (
+					<h1 className='NoEmail'>Please Enter Email</h1>
+				) : error === 'NoPassword' ? (
+					<h1 className='NoPassword'>Please Enter Password</h1>
+				) : null}
 			</div>
 		);
 	};

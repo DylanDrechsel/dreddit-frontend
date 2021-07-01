@@ -20,6 +20,8 @@
     bottom: 12vh;
 
     overflow: hidden;
+
+    border-radius: 10px;
 }
 
 .SignIn {
@@ -55,6 +57,58 @@ p:nth-child(1) b {
 
     position: relative;
     top: 1.5vh
+}
+
+.PasswordError {
+    opacity: 1;
+    animation: fadeInAndOut 3.0s;
+    -webkit-animation: fadeInAndOut 3.0s;
+    -moz-animation: fadeInAndOutPosted 3.0s;
+
+    color: black;
+
+    position: relative;
+    top: 1.5vh
+}
+
+.NoInformation {
+    opacity: 1;
+    animation: fadeInAndOut 3.0s;
+    -webkit-animation: fadeInAndOut 3.0s;
+    -moz-animation: fadeInAndOutPosted 3.0s;
+
+    color: black;
+
+    position: relative;
+    top: 1.5vh;
+
+    font-size: 36px !important;
+}
+
+.NoEmail {
+    opacity: 1;
+    animation: fadeInAndOut 3.0s;
+    -webkit-animation: fadeInAndOut 3.0s;
+    -moz-animation: fadeInAndOutPosted 3.0s;
+
+    color: black;
+
+    position: relative;
+    top: 1.5vh;
+}
+
+.NoPassword {
+    opacity: 1;
+    animation: fadeInAndOut 3.0s;
+    -webkit-animation: fadeInAndOut 3.0s;
+    -moz-animation: fadeInAndOutPosted 3.0s;
+
+    color: black;
+
+    position: relative;
+    top: 1.5vh;
+
+    font-size: 36px !important;
 }
 
 /*glow for webkit*/
