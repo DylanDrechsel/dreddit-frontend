@@ -110,9 +110,9 @@ const SignIn = () => {
 				</Form>
 
 				{error === 'EmailError' ? (
-					<h1 className='EmailError'>Email Incorrect</h1>
+					<h1 className='EmailError'>Incorrect Email</h1>
 				) : error === 'PasswordError' ? (
-					<h1 className='PasswordError'>Password Incorrect</h1>
+					<h1 className='PasswordError'>Incorrect Password</h1>
 				) : error === 'NoInformation' ? (
 					<h1 className='NoInformation'>Please Enter Username and Password</h1>
 				) : error === 'NoEmail' ? (
