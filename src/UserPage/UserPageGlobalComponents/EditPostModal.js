@@ -32,10 +32,11 @@ const EditPostModal = ({ show, handleClose, post, handleReload }) => {
             handleReload();
         })
     }
+	console.log(post.image)
 
     const handleImageEditPost = () => {
-        const myForm = document.getElementById("imageForm")
-        formData = new FormData(myForm)
+		const myForm = document.getElementById("imageForm")
+		formData = new FormData(myForm)
 
         if (editData.title) {
             formData.append('title', editData.title)
@@ -159,12 +160,6 @@ const EditPostModal = ({ show, handleClose, post, handleReload }) => {
                                     enctype='multipart/form-data'
                                     className='EditImageForm'>
                                     <input
-                                        /* onChange={() => {
-                                            setImagePostData({
-                                                ...imagePostData,
-                                                hasImage: 'yes',
-                                            });
-                                        }} */
                                         className='EditImageInput'
                                         type='file'
                                         id='file'

@@ -47,8 +47,6 @@ const PublishedPost = () => {
             setHaveData(true)
             setUpvoteCountChange(!upvoteCountChange)
 
-            handleReload()
-
             console.log(posts)
             })
         } else {
