@@ -10,7 +10,10 @@ import Content from '../../SubmitPage/PostBoxes/Components/Content'
 const EditPostModal = ({ show, handleClose, post, handleReload }) => {
     const [token] = useRecoilState(tokenState)
     const [editData, setEditData] = useState({})
+	const [newImage, setNewImage] = useState()
     let formData = new FormData();
+
+	console.log(post.image)
 
     const handleDataChange = (event) => {
         const input = { ...editData }
@@ -72,6 +75,18 @@ const EditPostModal = ({ show, handleClose, post, handleReload }) => {
 
     // console.log(postData.image.filename)
     console.log(editData)
+
+	const imageHandler = (event) => {
+		const reader = new FileReader();
+		reader.onload = () => {
+			if (reader.readyState === 2) {
+				setNewImage(reader.result)	
+			}
+		}
+		reader.readAsDataURL(event.target.files[0])
+	}
+
+	console.log(newImage)
 
 
     if (post && !post.image) {
@@ -149,25 +164,31 @@ const EditPostModal = ({ show, handleClose, post, handleReload }) => {
 										postCategory={post.category}
 										handleDataChange={handleDataChange}
 									/>
-									<img className='EditModalImage'
-										src={`http://localhost:4000/${post.image.path}`}
-									/>
+
+									{!newImage ? (
+										<img
+											className='EditModalImage'
+											src={`http://localhost:4000/${post.image.path}`}
+										/>
+									) : (
+										<img className='EditModalImage' src={newImage} />
+									)}
 								</Modal.Body>
 
-                                <form
-                                    id='imageForm'
-                                    action='/upload'
-                                    enctype='multipart/form-data'
-                                    className='EditImageForm'>
-                                    <input
-                                        className='EditImageInput'
-                                        type='file'
-                                        id='file'
-                                        accept='.jpg'
-                                        name='image'
-                                    />
-                                </form>
-
+								<form
+									id='imageForm'
+									action='/upload'
+									enctype='multipart/form-data'
+									className='EditImageForm'>
+									<input
+										onChange={imageHandler}
+										className='EditImageInput'
+										type='file'
+										id='file'
+										accept='.jpg'
+										name='image'
+									/>
+								</form>
 
 								<DropdownButton
 									id='dropdown-item-button'
