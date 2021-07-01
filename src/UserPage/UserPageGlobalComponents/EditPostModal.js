@@ -53,7 +53,7 @@ const EditPostModal = ({ show, handleClose, post, handleReload }) => {
             formData.append('category', post.category);
         }
 
-        if (editData.published === false || post.published === false) {
+        if (editData.published === false) {
             formData.append('published', 'false');
         } else {
             formData.append('published', 'true');
