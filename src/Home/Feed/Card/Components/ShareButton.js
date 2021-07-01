@@ -14,10 +14,27 @@ const ShareButton = ({ postId }) => {
     }
 
     return (
-        <div className={website === 'home' ? "ShareButtonDiv" : website === 'userPage/posts' ? 'UsersPublishedPostsShareButtonDiv' : null} onClick={handleShareButton}>
-            <p className={website === 'home' ? 'ShareButtonText' : website === 'userPage/posts' ? 'UsersPublishedPostsShareButtonText' : null}>Share</p>
-        </div>
-    );
+			<div
+				className={
+					website === 'home'
+						? 'ShareButtonDiv'
+						: website === 'userPage/posts' || website === 'userPage/saved'
+						? 'UsersPublishedPostsShareButtonDiv'
+						: null
+				}
+				onClick={handleShareButton}>
+				<p
+					className={
+						website === 'home'
+							? 'ShareButtonText'
+							: website === 'userPage/posts' || website === 'userPage/saved'
+							? 'UsersPublishedPostsShareButtonText'
+							: null
+					}>
+					Share
+				</p>
+			</div>
+		);
 };
 
 export default ShareButton;

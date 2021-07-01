@@ -10,6 +10,8 @@
     /* position: relative;
     left: 25vw; */
     cursor: pointer;
+
+    overflow: hidden;
 }
 
 .UserPostButton {
