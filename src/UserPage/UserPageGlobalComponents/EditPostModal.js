@@ -86,7 +86,6 @@ const EditPostModal = ({ show, handleClose, post, handleReload }) => {
 		reader.readAsDataURL(event.target.files[0])
 	}
 
-	console.log(newImage)
 
 
     if (post && !post.image) {

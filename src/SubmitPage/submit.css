@@ -240,6 +240,19 @@
     width: 28vw;
 }
 
+.PreviewPostImage {
+    width: 25vw;
+    height: 60vh;
+
+    padding-top: 5vh;
+
+    position: sticky;
+}
+
+.PreviewPostImageDiv {
+    background-color: #201E1D;
+}
+
 @keyframes fadeInAndOutPosted {
     0% {
         display: none;
