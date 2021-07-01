@@ -10,9 +10,9 @@ const UserPage = () => {
     const [website, setWebsite] = useRecoilState(websiteState);
     const [token] = useRecoilState(tokenState)
 
-	// useEffect(() => {
-	// 	setWebsite('userPage/posts');
-	// }, []);
+	useEffect(() => {
+		setWebsite('userPage/posts');
+	}, []);
 
     
 

@@ -25,32 +25,50 @@ const PublishedPost = () => {
     const [website, setWebsite] = useRecoilState(websiteState);
     const [reload, setReload] = useState(false)
 
-    useEffect(() => {
-			setWebsite('userPage/posts');
-	}, []);
+    
 
     const handleReload = () => {
         setReload(!reload)
     }
 
     useEffect(() => {
-        console.log('Reload hit')
+        if (website === 'userPage/saved') {
+            console.log('hit')
 
-        axios({
-            url: 'http://localhost:4000/posts/user/published',
+            axios({
+            url: 'http://localhost:4000/posts/user/unpublished',
             method: 'GET',
             headers: {
                     Authorization: `Bearer ${token}`,
-            }
-        })
+                }
+            })
         .then((response) => {
             setPosts(response)
             setHaveData(true)
             setUpvoteCountChange(!upvoteCountChange)
 
+            handleReload()
+
             console.log(posts)
-        })
-    }, [upvoteChange, reload])
+            })
+        } else {
+            axios({
+                url: 'http://localhost:4000/posts/user/published',
+                method: 'GET',
+                headers: {
+                        Authorization: `Bearer ${token}`,
+                }
+            })
+            .then((response) => {
+                setPosts(response)
+                setHaveData(true)
+                setUpvoteCountChange(!upvoteCountChange)
+    
+                console.log(posts)
+            })
+        }
+
+    }, [upvoteChange, reload, website])
 
     console.log(website)
 
