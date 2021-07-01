@@ -18,9 +18,7 @@ const ImagePost = () => {
     const [newImage, setNewImage] = useState();
     let formData = new FormData()
 
-    // useEffect(() => {
-	// 	setWebsite('submit/image');
-	// }, []);
+    
 
     const handlePostDataInput = (event) => {
         const input = { ...imagePostData }

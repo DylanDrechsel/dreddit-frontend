@@ -195,6 +195,21 @@
     width: 5vw;
 }
 
+.PostedAlertText {
+    opacity: 1;
+    font-size: 24px !important;
+    /* display: none; */
+    animation: fadeInAndOutPosted 3.0s;
+    -webkit-animation: fadeInAndOutPosted 3.0s;
+    -moz-animation: fadeInAndOutPosted 3.0s;
+
+    position: relative;
+    bottom: 4vh;
+    left: 32vw;
+
+    width: 5vw;
+}
+
 .PostedSaved {
     opacity: 1;
     font-size: 24px !important;
@@ -205,6 +220,21 @@
 
     position: relative;
     bottom: 67vh;
+    left: 29vw;
+
+    width: 8vw;
+}
+
+.PostedSavedText {
+    opacity: 1;
+    font-size: 24px !important;
+    /* display: none; */
+    animation: fadeInAndOutPosted 3.0s;
+    -webkit-animation: fadeInAndOutPosted 3.0s;
+    -moz-animation: fadeInAndOutPosted 3.0s;
+
+    position: relative;
+    bottom: 4vh;
     left: 29vw;
 
     width: 8vw;
@@ -225,6 +255,21 @@
     width: 20vw;
 }
 
+.PostErrorText {
+    opacity: 1;
+    font-size: 24px !important;
+    /* display: none; */
+    animation: fadeInAndOutPosted 3.0s;
+    -webkit-animation: fadeInAndOutPosted 3.0s;
+    -moz-animation: fadeInAndOutPosted 3.0s;
+
+    position: relative;
+    bottom: 4vh;
+    left: 17vw;
+
+    width: 20vw;
+}
+
 .PostServerError {
     opacity: 1;
     font-size: 20px !important;
@@ -235,6 +280,21 @@
 
     position: relative;
     bottom: 67vh;
+    left: 12.25vw;
+
+    width: 28vw;
+}
+
+.PostServerErrorText {
+    opacity: 1;
+    font-size: 20px !important;
+    /* display: none; */
+    animation: fadeInAndOutPosted 3.0s;
+    -webkit-animation: fadeInAndOutPosted 3.0s;
+    -moz-animation: fadeInAndOutPosted 3.0s;
+
+    position: relative;
+    bottom: 4vh;
     left: 12.25vw;
 
     width: 28vw;
