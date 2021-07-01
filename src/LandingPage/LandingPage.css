@@ -111,6 +111,96 @@ p:nth-child(1) b {
     font-size: 36px !important;
 }
 
+.SignUpPasswordMatch {
+    opacity: 1;
+    animation: fadeInAndOut 3.0s;
+    -webkit-animation: fadeInAndOut 3.0s;
+    -moz-animation: fadeInAndOutPosted 3.0s;
+
+    color: white;
+    background-color: black;
+
+    position: relative;
+    bottom: 2vh;
+
+    font-size: 36px !important;
+}
+
+.SignUpEmailExist {
+    opacity: 1;
+    animation: fadeInAndOut 3.0s;
+    -webkit-animation: fadeInAndOut 3.0s;
+    -moz-animation: fadeInAndOutPosted 3.0s;
+
+    color: white;
+    background-color: black;
+
+    position: relative;
+    bottom: 2vh;
+
+    font-size: 36px !important;
+}
+
+.SignUpUsernameExist {
+    opacity: 1;
+    animation: fadeInAndOut 3.0s;
+    -webkit-animation: fadeInAndOut 3.0s;
+    -moz-animation: fadeInAndOutPosted 3.0s;
+
+    color: white;
+    background-color: black;
+
+    position: relative;
+    bottom: 2vh;
+
+    font-size: 36px !important;
+}
+
+.SignUpNoEmail {
+    opacity: 1;
+    animation: fadeInAndOut 3.0s;
+    -webkit-animation: fadeInAndOut 3.0s;
+    -moz-animation: fadeInAndOutPosted 3.0s;
+
+    color: white;
+    background-color: black;
+
+    position: relative;
+    bottom: 2vh;
+
+    font-size: 36px !important;
+}
+
+.SignUpNoUsername {
+    opacity: 1;
+    animation: fadeInAndOut 3.0s;
+    -webkit-animation: fadeInAndOut 3.0s;
+    -moz-animation: fadeInAndOutPosted 3.0s;
+
+    color: white;
+    background-color: black;
+
+    position: relative;
+    bottom: 2vh;
+
+    font-size: 36px !important;
+}
+
+.AccountCreated {
+    opacity: 1;
+    animation: fadeInAndOut 3.0s;
+    -webkit-animation: fadeInAndOut 3.0s;
+    -moz-animation: fadeInAndOutPosted 3.0s;
+
+    color: white;
+    background-color: black;
+
+    position: relative;
+    bottom: 2vh;
+
+    font-size: 36px !important;
+}
+
 /*glow for webkit*/
 @-webkit-keyframes neon {
     from {
