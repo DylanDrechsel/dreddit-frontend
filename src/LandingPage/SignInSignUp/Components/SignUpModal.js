@@ -5,9 +5,6 @@ import { Form, Button, Row, Modal } from 'react-bootstrap';
 import axios from 'axios';
 
 const SignUpModal = ({ handleClose, show }) => {
-    const [token, setToken] = useRecoilState(tokenState);
-    const [userId, setUserId] = useRecoilState(userIdState)
-    const [userName, setUserName] = useRecoilState(userNameState)
     const [userData, setUserData] = useState({});
     const [confirmPassword, setConfirmPassword] = useState({})
 
@@ -37,7 +34,11 @@ const SignUpModal = ({ handleClose, show }) => {
             data: userData
         })
         .then((res) => {
+            console.log(res);
             console.log(res.data.message)
+            console.log(res.data.createdUser.username)
+
+            handleClose()
         })
     }
 

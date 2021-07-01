@@ -15,7 +15,7 @@ const SignUp = () => {
 
     return (
 			<div>
-				<Button onClick={handleShow} variant='outline-dark' style={{ color: 'black' }}>
+				<Button className='SignUpButton' onClick={handleShow} variant='outline-dark' style={{ color: 'black', width: '23vw'}}>
 					<b style={{ fontFamily: 'iceland', fontSize: '24px' }}>Sign Up!</b>
 				</Button>
 

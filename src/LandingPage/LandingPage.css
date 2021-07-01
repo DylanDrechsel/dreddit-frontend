@@ -1,5 +1,5 @@
 .LandingPage{
-    overflow: hidden;
+    overflow: hidden !important;
 }
 
 .Title {
@@ -13,20 +13,17 @@
     background: linear-gradient(-45deg, #ee7752, #ff1177, #23a6d5, #23d5ab);
     background-size: 300% 300%;
     animation: gradient 10s ease infinite;
+    -webkit-animation: gradient 10s ease infinite;
+    -moz-animation: gradient 10s ease infinite;
 
     position: relative;
     bottom: 12vh;
+
+    overflow: hidden;
 }
 
 .SignIn {
     padding: 1vw;
-}
-
-/*Neon*/
-p {
-    font-family: Iceland;
-    text-align: center;
-    font-size: 256px;
 }
 
 b {
@@ -43,8 +40,24 @@ p:nth-child(1) b {
     animation: neon 2s ease-in-out infinite alternate;
 }
 
-/*glow for webkit*/
+.SignUpButton {
+    position: relative;
+    bottom: 18vh;
+}
 
+.EmailError {
+    opacity: 1;
+    animation: fadeInAndOut 3.0s;
+    -webkit-animation: fadeInAndOut 3.0s;
+    -moz-animation: fadeInAndOutPosted 3.0s;
+
+    color: black;
+
+    position: relative;
+    top: 1.5vh
+}
+
+/*glow for webkit*/
 @-webkit-keyframes neon {
     from {
         text-shadow: 0 0 10px rgb(0, 0, 0), 0 0 20px rgb(0, 0, 0), 0 0 30px rgbrgb(0, 0, 0) 0 40px #ff1177,
@@ -58,7 +71,6 @@ p:nth-child(1) b {
 }
 
 /*glow for mozilla*/
-
 @-moz-keyframes neon {
     from {
         text-shadow: 0 0 10px rgb(0, 0, 0), 0 0 20px rgb(0, 0, 0), 0 0 30px rgbrgb(0, 0, 0) 0 40px #ff1177,
@@ -72,7 +84,6 @@ p:nth-child(1) b {
 }
 
 /*glow*/
-
 @keyframes neon {
     from {
         text-shadow: 0 0 10px rgb(0, 0, 0), 0 0 20px rgb(0, 0, 0), 0 0 30px rgbrgb(0, 0, 0) 0 40px #ff1177,
@@ -97,5 +108,108 @@ p:nth-child(1) b {
 
     100% {
         background-position: 0% 50%;
+    }
+}
+
+@-moz-keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@-webkit-keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes fadeInAndOut {
+    0% {
+        display: none;
+        opacity: 0;
+        /* left: 0vw */
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+        /* right: 100vw; */
+    }
+
+    70% {
+        display: block;
+        opacity: 1;
+    }
+
+    100% {
+        display: block;
+        opacity: 0;
+        /* left: 32vw */
+    }
+}
+
+@-webkit-keyframes fadeInAndOut {
+    0% {
+        display: none;
+        opacity: 0;
+        /* left: 0vw */
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+        /* right: 100vw; */
+    }
+
+    70% {
+        display: block;
+        opacity: 1;
+    }
+
+    100% {
+        display: block;
+        opacity: 0;
+        /* left: 32vw */
+    }
+}
+
+@-moz-keyframes fadeInAndOut {
+    0% {
+        display: none;
+        opacity: 0;
+        /* left: 0vw */
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+        /* right: 100vw; */
+    }
+
+    70% {
+        display: block;
+        opacity: 1;
+    }
+
+    100% {
+        display: block;
+        opacity: 0;
+        /* left: 32vw */
     }
 }
