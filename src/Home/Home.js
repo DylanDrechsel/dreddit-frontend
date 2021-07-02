@@ -17,6 +17,13 @@ const Home = () => {
         setWebsite('home')
     }, [])
 
+    console.log(userData)
+    
+
+    /* useEffect(() => {
+        document.cookie = token
+    }, []) */
+
     console.log(website)
 
     useEffect(() => {

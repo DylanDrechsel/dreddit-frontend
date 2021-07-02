@@ -28,6 +28,8 @@ const SignIn = () => {
 		}, 3000)
 	}
 
+	
+
     const loginFunction = () => {
 		if (!userData.email && !userData.password) {
 			setError('NoInformation')
@@ -63,6 +65,8 @@ const SignIn = () => {
 				setErrorBackToNone();
 			}
         })
+
+		
     }
 
 	console.log(error)
