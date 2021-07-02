@@ -10,7 +10,10 @@
 .SignInSignUpBox {
     width: 25vw;
     height: 60vh;
-    background: linear-gradient(-45deg, #ee7752, #ff1177, #23a6d5, #23d5ab);
+    background: linear-gradient(-45deg, #ff0000, #ff1177, #790086, #23d5ab);
+
+    /* Original Rainbow */
+    /* background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab); */
     background-size: 300% 300%;
     animation: gradient 10s ease infinite;
     -webkit-animation: gradient 10s ease infinite;
@@ -51,7 +54,7 @@ p:nth-child(1) b {
     opacity: 1;
     animation: fadeInAndOut 3.0s;
     -webkit-animation: fadeInAndOut 3.0s;
-    -moz-animation: fadeInAndOutPosted 3.0s;
+    -moz-animation: fadeInAndOut 3.0s;
 
     color: black;
 
@@ -63,7 +66,7 @@ p:nth-child(1) b {
     opacity: 1;
     animation: fadeInAndOut 3.0s;
     -webkit-animation: fadeInAndOut 3.0s;
-    -moz-animation: fadeInAndOutPosted 3.0s;
+    -moz-animation: fadeInAndOut 3.0s;
 
     color: black;
 
@@ -75,7 +78,7 @@ p:nth-child(1) b {
     opacity: 1;
     animation: fadeInAndOut 3.0s;
     -webkit-animation: fadeInAndOut 3.0s;
-    -moz-animation: fadeInAndOutPosted 3.0s;
+    -moz-animation: fadeInAndOut 3.0s;
 
     color: black;
 
@@ -89,7 +92,7 @@ p:nth-child(1) b {
     opacity: 1;
     animation: fadeInAndOut 3.0s;
     -webkit-animation: fadeInAndOut 3.0s;
-    -moz-animation: fadeInAndOutPosted 3.0s;
+    -moz-animation: fadeInAndOut 3.0s;
 
     color: black;
 
@@ -101,7 +104,7 @@ p:nth-child(1) b {
     opacity: 1;
     animation: fadeInAndOut 3.0s;
     -webkit-animation: fadeInAndOut 3.0s;
-    -moz-animation: fadeInAndOutPosted 3.0s;
+    -moz-animation: fadeInAndOut 3.0s;
 
     color: black;
 
@@ -115,7 +118,7 @@ p:nth-child(1) b {
     opacity: 1;
     animation: fadeInAndOut 3.0s;
     -webkit-animation: fadeInAndOut 3.0s;
-    -moz-animation: fadeInAndOutPosted 3.0s;
+    -moz-animation: fadeInAndOut 3.0s;
 
     color: white;
     background-color: black;
@@ -130,7 +133,7 @@ p:nth-child(1) b {
     opacity: 1;
     animation: fadeInAndOut 3.0s;
     -webkit-animation: fadeInAndOut 3.0s;
-    -moz-animation: fadeInAndOutPosted 3.0s;
+    -moz-animation: fadeInAndOut 3.0s;
 
     color: white;
     background-color: black;
@@ -145,7 +148,7 @@ p:nth-child(1) b {
     opacity: 1;
     animation: fadeInAndOut 3.0s;
     -webkit-animation: fadeInAndOut 3.0s;
-    -moz-animation: fadeInAndOutPosted 3.0s;
+    -moz-animation: fadeInAndOut 3.0s;
 
     color: white;
     background-color: black;
@@ -160,7 +163,7 @@ p:nth-child(1) b {
     opacity: 1;
     animation: fadeInAndOut 3.0s;
     -webkit-animation: fadeInAndOut 3.0s;
-    -moz-animation: fadeInAndOutPosted 3.0s;
+    -moz-animation: fadeInAndOut 3.0s;
 
     color: white;
     background-color: black;
@@ -175,7 +178,7 @@ p:nth-child(1) b {
     opacity: 1;
     animation: fadeInAndOut 3.0s;
     -webkit-animation: fadeInAndOut 3.0s;
-    -moz-animation: fadeInAndOutPosted 3.0s;
+    -moz-animation: fadeInAndOut 3.0s;
 
     color: white;
     background-color: black;
@@ -190,7 +193,7 @@ p:nth-child(1) b {
     opacity: 1;
     animation: fadeInAndOut 3.0s;
     -webkit-animation: fadeInAndOut 3.0s;
-    -moz-animation: fadeInAndOutPosted 3.0s;
+    -moz-animation: fadeInAndOut 3.0s;
 
     color: white;
     background-color: black;
