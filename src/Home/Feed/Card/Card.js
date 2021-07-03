@@ -21,8 +21,8 @@ const Card = () => {
     const [haveData, setHaveData] = useState(false)
     const [upvoteCountChange, setUpvoteCountChange] = useState(false)
     
-    document.cookie= `token=${token}`
-    console.log(document.cookie)
+    
+    // console.log(document.cookie)
 
     useEffect(() => {
         axios.get(`http://localhost:4000/posts`, {
@@ -30,7 +30,6 @@ const Card = () => {
             headers: {
                 'Content-Type': 'application/json; charset=utf-8',
                 Accept: 'application/json',
-                
             },    
         })
         .then(({ data }) => {

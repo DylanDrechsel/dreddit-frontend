@@ -38,8 +38,10 @@ const PublishedPost = () => {
             axios({
             url: 'http://localhost:4000/posts/user/unpublished',
             method: 'GET',
+            withCredentials: true, 
             headers: {
-                    Authorization: `Bearer ${token}`,
+                    'Content-Type': 'application/json; charset=utf-8',
+                    Accept: 'application/json',
                 }
             })
         .then((response) => {
@@ -53,8 +55,10 @@ const PublishedPost = () => {
             axios({
                 url: 'http://localhost:4000/posts/user/published',
                 method: 'GET',
+                withCredentials: true, 
                 headers: {
-                        Authorization: `Bearer ${token}`,
+                    'Content-Type': 'application/json; charset=utf-8',
+                    Accept: 'application/json',
                 }
             })
             .then((response) => {
