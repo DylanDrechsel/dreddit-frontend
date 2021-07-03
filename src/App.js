@@ -53,7 +53,7 @@ function App() {
   const [userId, setUserId] = useRecoilState(userIdState)
 
   if (localStorage.getItem("userId")) {
-    setUserId(localStorage.getItem('userId'));
+    setUserId(Number(localStorage.getItem('userId')));
   }
 
   if (localStorage.getItem('username')) {

@@ -40,7 +40,7 @@ const Card = () => {
     }, [upvoteChange])
 
     if (haveData) {
-        // console.log(postData.posts[1])
+        console.log(postData.posts[1])
     }
 
 

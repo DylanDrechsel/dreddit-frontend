@@ -59,9 +59,11 @@ const TextPost = () => {
             url: 'http://localhost:4000/posts/create/',
             method: 'POST',
             data: {...textPostData, published: true},
+            withCredentials: true,  
             headers: {
-                Authorization: `Bearer ${token}`
-            }
+                'Content-Type': 'application/json; charset=utf-8',
+                Accept: 'application/json',
+            }, 
         })
         .then(() => {
             setPosted('text')
@@ -96,9 +98,11 @@ const TextPost = () => {
             url: 'http://localhost:4000/posts/create/',
             method: 'POST',
             data: {...textPostData, published: false},
+            withCredentials: true,  
             headers: {
-                Authorization: `Bearer ${token}`
-            }
+                'Content-Type': 'application/json; charset=utf-8',
+                Accept: 'application/json',
+            }, 
         })
         .then(() => {
             setPosted('saveText')

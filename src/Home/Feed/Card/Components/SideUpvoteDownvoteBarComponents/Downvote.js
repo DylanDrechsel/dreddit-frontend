@@ -21,9 +21,11 @@ const Downvote = ({ initialLikeValue, postId, likeId }) => {
 		axios({
 			url: `http://localhost:4000/likes/create/dislike/${postId}`,
 			method: 'POST',
-			headers: {
-				Authorization: `Bearer ${token}`,
-			},
+			withCredentials: true,  
+            headers: {
+                'Content-Type': 'application/json; charset=utf-8',
+                Accept: 'application/json',
+            },   
 		}).then(({ data }) => {
 			setLikedValue(data.like.value);
 			setCurrentLikeId(data.like.id);
@@ -51,9 +53,11 @@ const Downvote = ({ initialLikeValue, postId, likeId }) => {
 		axios({
 			url: `http://localhost:4000/likes/${currentLikeId}`,
 			method: 'PUT',
-			data: {liked: 'upvoteToDownvote'},
+			data: { liked: 'upvoteToDownvote' },
+			withCredentials: true,
 			headers: {
-				Authorization: `Bearer ${token}`,
+				'Content-Type': 'application/json; charset=utf-8',
+				Accept: 'application/json',
 			},
 		}).then(({ data }) => {
 			setLikedValue(data.like.value);
@@ -66,9 +70,11 @@ const Downvote = ({ initialLikeValue, postId, likeId }) => {
 		axios({
 			url: `http://localhost:4000/likes/${currentLikeId}`,
 			method: 'PUT',
-			data: {liked: 'downvoteAdd'},
+			data: { liked: 'downvoteAdd' },
+			withCredentials: true,
 			headers: {
-				Authorization: `Bearer ${token}`,
+				'Content-Type': 'application/json; charset=utf-8',
+				Accept: 'application/json',
 			},
 		}).then(({ data }) => {
 			setLikedValue(data.like.value);

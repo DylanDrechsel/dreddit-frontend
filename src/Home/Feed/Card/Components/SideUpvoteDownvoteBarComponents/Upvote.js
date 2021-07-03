@@ -23,9 +23,11 @@ const Upvote = ({ initialLikeValue, postId, likeId }) => {
 		axios({
 			url: `http://localhost:4000/likes/create/${postId}`,
 			method: 'POST',
-			headers: {
-				Authorization: `Bearer ${token}`,
-			},
+			withCredentials: true,  
+            headers: {
+                'Content-Type': 'application/json; charset=utf-8',
+                Accept: 'application/json',
+            },   
 		})
 		.then(({ data }) => {
 			setLikedValue(data.like.value);
@@ -39,14 +41,15 @@ const Upvote = ({ initialLikeValue, postId, likeId }) => {
 		axios({
 			url: `http://localhost:4000/likes/${currentLikeId}`,
 			method: 'PUT',
-			data: {liked: 'upvoteTrue'},
+			data: { liked: 'upvoteTrue' },
+			withCredentials: true,
 			headers: {
-				Authorization: `Bearer ${token}`,
+				'Content-Type': 'application/json; charset=utf-8',
+				Accept: 'application/json',
 			},
-		})
-		.then(({ data }) => {
+		}).then(({ data }) => {
 			setLikedValue(data.like.value);
-		})
+		});
 	};
 
 	const handleAddUpvote = (event) => {
@@ -55,9 +58,11 @@ const Upvote = ({ initialLikeValue, postId, likeId }) => {
 		axios({
 			url: `http://localhost:4000/likes/${currentLikeId}`,
 			method: 'PUT',
-			data: {liked: 'upvoteRemoved'},
+			data: { liked: 'upvoteRemoved' },
+			withCredentials: true,
 			headers: {
-				Authorization: `Bearer ${token}`,
+				'Content-Type': 'application/json; charset=utf-8',
+				Accept: 'application/json',
 			},
 		}).then(({ data }) => {
 			setLikedValue(data.like.value);
@@ -70,9 +75,11 @@ const Upvote = ({ initialLikeValue, postId, likeId }) => {
 		axios({
 			url: `http://localhost:4000/likes/${currentLikeId}`,
 			method: 'PUT',
-			data: {liked: 'upvoteRemoved'},
+			data: { liked: 'upvoteRemoved' },
+			withCredentials: true,
 			headers: {
-				Authorization: `Bearer ${token}`,
+				'Content-Type': 'application/json; charset=utf-8',
+				Accept: 'application/json',
 			},
 		}).then(({ data }) => {
 			setLikedValue(data.like.value);
