@@ -81,9 +81,11 @@ const ImagePost = () => {
             url: 'http://localhost:4000/posts/create/image',
             method: 'POST',
             data: formData,
+            withCredentials: true,  
             headers: {
-                Authorization: `Bearer ${token}`,
-            }
+                'Content-Type': 'application/json; charset=utf-8',
+                Accept: 'application/json',
+            },  
         })
         .then(() => {
             setPosted('image')
@@ -126,9 +128,11 @@ const ImagePost = () => {
             url: 'http://localhost:4000/posts/create/image',
             method: 'POST',
             data: formData,
+            withCredentials: true,  
             headers: {
-                Authorization: `Bearer ${token}`,
-            }
+                'Content-Type': 'application/json; charset=utf-8',
+                Accept: 'application/json',
+            },  
         })
         .then(() => {
             setPosted('saveImage')
