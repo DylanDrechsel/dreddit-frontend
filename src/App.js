@@ -45,15 +45,13 @@ if (document.cookie !== 'token=' || document.cookie) {
   }
 }
 
-console.log(localStorage.getItem('userId'));
-
 function App() {
   const [token, setToken] = useRecoilState(tokenState)
   const [userName, setUserName] = useRecoilState(userNameState)
   const [userId, setUserId] = useRecoilState(userIdState)
 
   if (localStorage.getItem("userId")) {
-    setUserId(localStorage.getItem('userId'));
+    setUserId(Number(localStorage.getItem('userId')));
   }
 
   if (localStorage.getItem('username')) {
@@ -63,11 +61,6 @@ function App() {
   if (cookie) {
     setToken(cookie)
   }
-
-  console.log(userId)
-  console.log(userName)
-
-  // console.log(token)
 
   if (token === null) {
     return (

@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import EditPostModal from './EditPostModal'
 
-const EditButton = ({ postId, handleReload, post}) => {
+const EditButton = ({ handleReload, post }) => {
     const [show, setShow] = useState(false)
     
     const handleShow = () => {

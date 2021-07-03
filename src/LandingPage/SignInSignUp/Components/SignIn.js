@@ -28,8 +28,6 @@ const SignIn = () => {
 		}, 3000)
 	}
 
-	
-
     const loginFunction = () => {
 		if (!userData.email && !userData.password) {
 			setError('NoInformation')
@@ -51,8 +49,6 @@ const SignIn = () => {
             data: userData
         })
         .then(({ data }) => {
-			console.log(data)
-
 			if (data.status === 200) {
 				setUserId(data.id);
 				setUserName(data.username);
@@ -68,9 +64,6 @@ const SignIn = () => {
 
 		
     }
-
-	console.log(error)
-	console.log(userData)
 
     return (
 			<div className='SignIn'>

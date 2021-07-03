@@ -10,7 +10,7 @@ const ShareButton = ({ postId }) => {
 
         navigator.clipboard.writeText(
 					`http://localhost:3000/${postId}`
-				);
+		);
     }
 
     return (

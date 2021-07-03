@@ -10,7 +10,6 @@ const SaveDraft = ({ saveDraftPost }) => {
 					onClick={saveDraftPost}>
 					SAVE DRAFT
 				</Button>
-				{/* <h6 className="SaveDraftText">SAVE DRAFT</h6> */}
 			</div>
 		);
 };

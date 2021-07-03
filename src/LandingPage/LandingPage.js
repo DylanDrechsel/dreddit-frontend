@@ -1,14 +1,10 @@
 import React from 'react';
 import './LandingPage.css'
-import { tokenState } from '../App'
-import { useRecoilState } from 'recoil'
 import { Col, Row } from 'react-bootstrap'
 import Title from './Text/Title'
 import SignInSignUp from './SignInSignUp/SignInSignUp'
 
 const LandingPage = () => {
-    const [token, setToken] = useRecoilState(tokenState)
-
     return (
         <div className="LandingPage">
 

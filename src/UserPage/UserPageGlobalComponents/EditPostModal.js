@@ -1,6 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { tokenState } from '../../App';
-import { useRecoilState } from 'recoil';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { Modal, Button, Dropdown, DropdownButton } from 'react-bootstrap';
 import Title from '../../SubmitPage/PostBoxes/Components/Title'
@@ -8,12 +6,9 @@ import Category from '../../SubmitPage/PostBoxes/Components/Category';
 import Content from '../../SubmitPage/PostBoxes/Components/Content'
 
 const EditPostModal = ({ show, handleClose, post, handleReload }) => {
-    const [token] = useRecoilState(tokenState)
     const [editData, setEditData] = useState({})
 	const [newImage, setNewImage] = useState()
     let formData = new FormData();
-
-	console.log(post.image)
 
     const handleDataChange = (event) => {
         const input = { ...editData }
@@ -26,16 +21,17 @@ const EditPostModal = ({ show, handleClose, post, handleReload }) => {
             url: `http://localhost:4000/posts/${post.id}/`,
             method: 'PUT',
             data: editData,
+            withCredentials: true,  
             headers: {
-                Authorization: `Bearer ${token}`
-            }
+                'Content-Type': 'application/json; charset=utf-8',
+                Accept: 'application/json',
+            }, 
         })
         .then(() => {
             handleClose();
             handleReload();
         })
     }
-	console.log(post.image)
 
     const handleImageEditPost = () => {
 		const myForm = document.getElementById("imageForm")
@@ -63,18 +59,17 @@ const EditPostModal = ({ show, handleClose, post, handleReload }) => {
             url: `http://localhost:4000/posts/${post.id}/${post.image.id}`,
             method: 'PUT',
             data: formData,
+            withCredentials: true,  
             headers: {
-                Authorization: `Bearer ${token}`
-            }
+                'Content-Type': 'application/json; charset=utf-8',
+                Accept: 'application/json',
+            }, 
         })
         .then(() => {
             handleClose();
             handleReload();
         })
     }
-
-    // console.log(postData.image.filename)
-    console.log(editData)
 
 	const imageHandler = (event) => {
 		const reader = new FileReader();

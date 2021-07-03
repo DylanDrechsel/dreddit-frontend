@@ -12,8 +12,8 @@ const SignInSignUp = () => {
 							<SignIn />
 						</Col>
 					</Row>
-			</div>
-
+				</div>
+				
 				<SignUp />
 			</div>
 		);
