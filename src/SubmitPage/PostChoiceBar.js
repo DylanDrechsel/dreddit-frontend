@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import TextPost from './PostBoxes/TextPost'
 import ImagePost from './PostBoxes/ImagePost'
 

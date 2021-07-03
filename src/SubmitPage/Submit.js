@@ -7,20 +7,11 @@ import PostChoiceBar from './PostChoiceBar'
 
 
 const Submit = () => {
-    // const [data, setData] = useState({})
 	const [website, setWebsite] = useRecoilState(websiteState);
 
 	useEffect(() => {
 		setWebsite('submit');
 	}, []);
-
-    // const handleInput = (event) => {
-    //     const input = { ...data }
-    //     input[event.target.id] = event.target.value
-    //     setData(input)
-    // }
-
-    // console.log(data)
 
     return (
 			<div className='SubmitPage'>

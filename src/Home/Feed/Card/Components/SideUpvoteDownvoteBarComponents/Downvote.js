@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { tokenState, upvoteChangeState } from '../../../../../App';
+import { upvoteChangeState } from '../../../../../App';
 import { useRecoilState } from 'recoil';
 
 const Downvote = ({ initialLikeValue, postId, likeId }) => {
-	const [token] = useRecoilState(tokenState);
 	const [upvoteChange, setUpvoteChange] = useRecoilState(upvoteChangeState);
 	const [likedValue, setLikedValue] = useState(null);  
 	const [currentLikeId, setCurrentLikeId] = useState(null);
@@ -38,9 +37,11 @@ const Downvote = ({ initialLikeValue, postId, likeId }) => {
 		axios({
 			url: `http://localhost:4000/likes/${currentLikeId}`,
 			method: 'PUT',
-			data: {liked: 'downvoteRemoved'},
+			data: { liked: 'downvoteRemoved' },
+			withCredentials: true,
 			headers: {
-				Authorization: `Bearer ${token}`,
+				'Content-Type': 'application/json; charset=utf-8',
+				Accept: 'application/json',
 			},
 		}).then(({ data }) => {
 			setLikedValue(data.like.value);

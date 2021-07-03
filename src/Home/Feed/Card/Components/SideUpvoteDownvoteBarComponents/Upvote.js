@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { tokenState, upvoteChangeState } from '../../../../../App';
+import { upvoteChangeState } from '../../../../../App';
 import { useRecoilState } from 'recoil';
 
 
 
 const Upvote = ({ initialLikeValue, postId, likeId }) => {
-	const [token] = useRecoilState(tokenState);
 	const [upvoteChange, setUpvoteChange] = useRecoilState(upvoteChangeState)
 	const [likedValue, setLikedValue] = useState(null)
 	const [currentLikeId, setCurrentLikeId] = useState(null)

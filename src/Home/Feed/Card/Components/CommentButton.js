@@ -8,11 +8,9 @@ const CommentButton = ({ comments }) => {
     const [website] = useRecoilState(websiteState)
     let commentCount = 0
     
-    
     for (let i = 0; i < comments.length; i++) {
         commentCount += 1
     }
-
 
     return (
 			<div

@@ -1,20 +1,16 @@
 import React from 'react';
-import { tokenState } from '../../App'
-import { useRecoilState } from 'recoil';
 import axios from 'axios';
 
 const DeleteButton = ({ postId, handleReload }) => {
-    const [token] = useRecoilState(tokenState);
-
-    // console.log(handleReload)
-
     const handleDeletePost = () => {
         axios({
             url: `http://localhost:4000/posts/${postId}`,
             method: 'DELETE',
+            withCredentials: true,  
             headers: {
-                    Authorization: `Bearer ${token}`,
-            }
+                'Content-Type': 'application/json; charset=utf-8',
+                Accept: 'application/json',
+            }, 
         })
         .then(() => {
             handleReload();

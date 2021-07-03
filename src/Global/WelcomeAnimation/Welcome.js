@@ -82,7 +82,7 @@ const Welcome = () => {
 							count += 1;
 							return (
 								<motion.h1 variants={animation} custom={i}>
-									<motion.h1 className={classname} animate={letter == 'W' ? animateW : letter == 'E' ? animateE : letter == 'L' ? animateL : letter == 'C' ? animateC : letter == 'O' ? animateO : letter == 'M' ? animateM : letter == 'e' ? animateFinalE : null}>
+									<motion.h1 className={classname} animate={letter === 'W' ? animateW : letter === 'E' ? animateE : letter === 'L' ? animateL : letter === 'C' ? animateC : letter === 'O' ? animateO : letter === 'M' ? animateM : letter === 'e' ? animateFinalE : null}>
 										<b>{letter.toUpperCase()}</b>
 									</motion.h1>
 								</motion.h1>

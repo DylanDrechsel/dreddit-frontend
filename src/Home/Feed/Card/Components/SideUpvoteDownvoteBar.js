@@ -44,11 +44,6 @@ const SideUpvoteDownvoteBar = ({ likes, postId, upvoteCountChange }) => {
         }  
     }, [upvoteCountChange])
 
-    // console.log(`Like Id: ${likeId}`);
-    // console.log(`LikeValue: ${likeValue}`);
-
- 
-
     return (
 			<div className={website === 'home' ? 'SideUpvoteDownvoteBar' : website === 'userPage/posts' ? 'UserPublishedPostSideUpvoteDownvoteBar' : 'PostSideUpvoteDownvoteBar'}>
 				<Col>

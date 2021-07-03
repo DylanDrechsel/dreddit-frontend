@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import { tokenState, userIdState, userNameState } from '../../../App';
-import { useRecoilState } from 'recoil';
-import { Form, Button, Row, Modal } from 'react-bootstrap';
+import { Form, Button, Modal } from 'react-bootstrap';
 import axios from 'axios';
 
 const SignUpModal = ({ handleClose, show }) => {
@@ -38,9 +36,6 @@ const SignUpModal = ({ handleClose, show }) => {
 			return 1
 		}
 	}
-
-    console.log(userData)
-    console.log(confirmPassword)
 
     const handleSignUp = () => {
 		if(checkData() === 1) {

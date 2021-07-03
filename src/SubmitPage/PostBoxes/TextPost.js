@@ -1,6 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { tokenState, websiteState } from '../../App';
-import { useRecoilState } from 'recoil';
+import React, { useState } from 'react';
 import { Row } from 'react-bootstrap'
 import axios from 'axios'
 import Title from './Components/Title'
@@ -12,15 +10,8 @@ import PostButton from './Components/Post'
 let errorText = ''
 
 const TextPost = () => {
-    const [token] = useRecoilState(tokenState);
     const [textPostData, setTextPostData] = useState({})
     const [posted, setPosted] = useState(false)
-    // const [website, setWebsite] = useRecoilState(websiteState)
-    console.log(textPostData)
-
-    // useEffect(() => {
-	// 	setWebsite('submit');
-	// }, []);
 
     const handlePostDataInput = (event) => {
         const input = { ...textPostData }

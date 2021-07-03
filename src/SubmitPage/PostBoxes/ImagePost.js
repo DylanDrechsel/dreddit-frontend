@@ -1,6 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { tokenState, websiteState } from '../../App';
-import { useRecoilState } from 'recoil';
+import React, { useState } from 'react';
 import { Row } from 'react-bootstrap';
 import axios from 'axios';
 import Title from './Components/Title';
@@ -11,14 +9,10 @@ import PostButton from './Components/Post';
 let errorText = '';
 
 const ImagePost = () => {
-    const [token] = useRecoilState(tokenState);
     const [posted, setPosted] = useState(false);
-    // const [website, setWebsite] = useRecoilState(websiteState);
     const [imagePostData, setImagePostData] = useState({})
     const [newImage, setNewImage] = useState();
     let formData = new FormData()
-
-    
 
     const handlePostDataInput = (event) => {
         const input = { ...imagePostData }
@@ -52,8 +46,6 @@ const ImagePost = () => {
 
         return 0
     }
-
-    console.log(errorText)
 
     const post = (event) => {
         event.preventDefault()
@@ -194,9 +186,7 @@ const ImagePost = () => {
 						</form>
 					</Row>
                     {newImage ? (
-                        // <div className='PreviewPostImageDiv'>
-                            <img className='PreviewPostImage' src={newImage} />
-                        // </div>
+                        <img className='PreviewPostImage' src={newImage} />
                     ) : null}
 				</div>
 

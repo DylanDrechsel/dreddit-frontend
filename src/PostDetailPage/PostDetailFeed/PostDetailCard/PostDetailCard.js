@@ -23,19 +23,21 @@ const PostDetailCard = ({ id }) => {
 	useEffect(() => {
 		axios
 			.get(`http://localhost:4000/posts/${id}`, {
+				withCredentials: true,
 				headers: {
-					Authorization: `Bearer ${token}`,
+					'Content-Type': 'application/json; charset=utf-8',
+					Accept: 'application/json',
 				},
 			})
 			.then(({ data }) => {
 				setData(data);
 				setHaveData(true);
-                setUpvoteCountChange(!upvoteCountChange);
+				setUpvoteCountChange(!upvoteCountChange);
 			});
 	}, [upvoteChange]);
 
 	if (haveData) {
-		console.log(data);
+		// console.log(data);
 	}
 
 	if (haveData) {

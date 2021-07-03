@@ -1,5 +1,5 @@
 import React from 'react';
-import { userIdState, websiteState } from '../../../../App';
+import { websiteState } from '../../../../App';
 import { useRecoilState } from 'recoil';
 
 const TimeSincePost = ({ time }) => {
@@ -19,13 +19,13 @@ const TimeSincePost = ({ time }) => {
             createdYear.push(arrTime[i])
         }
         else if (createdMonth.length < 2) {
-            if (arrTime[i] == '-') {
+            if (arrTime[i] === '-') {
                 arrTime.splice(i, 1)
             }
             createdMonth.push(arrTime[i])
         }
         else if (createdDay.length < 2) {
-            if (arrTime[i] == '-') {
+            if (arrTime[i] === '-') {
                 arrTime.splice(i, 1)
             }
             createdDay.push(arrTime[i])
@@ -37,13 +37,13 @@ const TimeSincePost = ({ time }) => {
             todaysYear.push(arrTodaysDate[i]);
         }
         else if (todaysMonth.length < 2) {
-            if (arrTodaysDate[i] == '-') {
+            if (arrTodaysDate[i] === '-') {
                 arrTodaysDate.splice(i, 1);
             }
             todaysMonth.push(arrTodaysDate[i]);
         }
         else if (todaysDay.length < 2) {
-            if (arrTodaysDate[i] == '-') {
+            if (arrTodaysDate[i] === '-') {
                 arrTodaysDate.splice(i, 1);
             }
             todaysDay.push(arrTodaysDate[i]);
@@ -57,13 +57,21 @@ const TimeSincePost = ({ time }) => {
 	const tDate = new Date(`${todaysDate}`);
 	const diffTimeMilliseconds = Math.abs(tDate - cDate);
 	const diffcreatedDays = Math.ceil(diffTimeMilliseconds / (1000 * 60 * 60 * 24));
-    // console.log(cDate)
-    // console.log(tDate);
-    // console.log((diffTimeMilliseconds / (1000 * 60 * 60 * 24)));
 
     return (
-			<div className={website === 'home' ? 'Time' : website === 'userPage/posts' || website === 'userPage/saved' ? 'UsersPublishedPostsTime' : 'PostDetailTime'}>
-				<p>created {diffcreatedDays} day ago</p>
+			<div
+				className={
+					website === 'home'
+						? 'Time'
+						: website === 'userPage/posts' || website === 'userPage/saved'
+						? 'UsersPublishedPostsTime'
+						: 'PostDetailTime'
+				}>
+				{diffcreatedDays === 0 ? (
+					<p>created today</p>
+				) : (
+					<p>created {diffcreatedDays} day ago</p>
+				)}
 			</div>
 		);
 };

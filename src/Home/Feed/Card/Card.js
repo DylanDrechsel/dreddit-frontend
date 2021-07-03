@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { tokenState, upvoteChangeState } from '../../../App';
+import { upvoteChangeState } from '../../../App';
 import { useRecoilState } from 'recoil';
 import { Row, Col, Container } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
@@ -15,15 +15,11 @@ import ShareButton from './Components/ShareButton';
 
 
 const Card = () => {
-    const [token] = useRecoilState(tokenState);
     const [upvoteChange] = useRecoilState(upvoteChangeState);
 	const [postData, setPostData] = useState({});
     const [haveData, setHaveData] = useState(false)
     const [upvoteCountChange, setUpvoteCountChange] = useState(false)
     
-    
-    // console.log(document.cookie)
-
     useEffect(() => {
         axios.get(`http://localhost:4000/posts`, {
             withCredentials: true,  
@@ -38,11 +34,6 @@ const Card = () => {
             setUpvoteCountChange(!upvoteCountChange)
         })
     }, [upvoteChange])
-
-    if (haveData) {
-        // console.log(postData.posts[1])
-    }
-
 
     if (haveData) {
         return (

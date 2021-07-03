@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col, Container } from 'react-bootstrap'
+import { Row } from 'react-bootstrap'
 import GetPosts from './UserChoiceBarComponents/GetPosts'
 import GetSavedPosts from './UserChoiceBarComponents/GetSavedPosts'
 

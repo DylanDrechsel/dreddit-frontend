@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { websiteState, tokenState, upvoteChangeState } from '../App';
+import { websiteState, upvoteChangeState } from '../App';
 import { useRecoilState } from 'recoil';
 import axios from 'axios';
 import { Row, Col, Container } from 'react-bootstrap';
@@ -17,15 +17,12 @@ import DeleteButton from './UserPageGlobalComponents/DeleteButton'
 import EditButton from './UserPageGlobalComponents/EditButton'
 
 const PublishedPost = () => {
-    const [token] = useRecoilState(tokenState);
     const [posts, setPosts] = useState({})
     const [haveData, setHaveData] = useState(false)
     const [upvoteChange] = useRecoilState(upvoteChangeState);
     const [upvoteCountChange, setUpvoteCountChange] = useState(false);
-    const [website, setWebsite] = useRecoilState(websiteState);
+    const [website] = useRecoilState(websiteState);
     const [reload, setReload] = useState(false)
-
-    
 
     const handleReload = () => {
         setReload(!reload)
@@ -33,8 +30,6 @@ const PublishedPost = () => {
 
     useEffect(() => {
         if (website === 'userPage/saved') {
-            console.log('hit')
-
             axios({
             url: 'http://localhost:4000/posts/user/unpublished',
             method: 'GET',
@@ -48,8 +43,6 @@ const PublishedPost = () => {
             setPosts(response)
             setHaveData(true)
             setUpvoteCountChange(!upvoteCountChange)
-
-            console.log(posts)
             })
         } else {
             axios({
@@ -65,14 +58,10 @@ const PublishedPost = () => {
                 setPosts(response)
                 setHaveData(true)
                 setUpvoteCountChange(!upvoteCountChange)
-    
-                console.log(posts)
             })
         }
 
     }, [upvoteChange, reload, website])
-
-    console.log(website)
 
     if (haveData) {
         return (
