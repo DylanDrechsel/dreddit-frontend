@@ -17,16 +17,34 @@ const Home = () => {
         setWebsite('home')
     }, [])
 
-    console.log(website)
-
+    // Stores in cookies
+    document.cookie = `token=${token}`;
+    
+    
+    // console.log(userId)
+    
+    
+    /* useEffect(() => {
+        document.cookie = token
+    }, []) */
+    
+    // console.log(website)
+    
     useEffect(() => {
         axios.get(`http://localhost:4000/users/${userId}`, {
+            withCredentials: true,  
             headers: {
-                Authorization: `Bearer ${token}`
-            }
+                'Content-Type': 'application/json; charset=utf-8',
+                Accept: 'application/json',
+            },    
         })
         .then(({ data }) => {
             setUserData(data)
+            
+            localStorage.setItem("userId", userId)
+            localStorage.setItem('username', data.user.username);
+            
+            console.log(data)
         })
     }, [])
 

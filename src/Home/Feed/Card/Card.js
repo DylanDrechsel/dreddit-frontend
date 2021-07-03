@@ -20,13 +20,17 @@ const Card = () => {
 	const [postData, setPostData] = useState({});
     const [haveData, setHaveData] = useState(false)
     const [upvoteCountChange, setUpvoteCountChange] = useState(false)
-
+    
+    
+    // console.log(document.cookie)
 
     useEffect(() => {
         axios.get(`http://localhost:4000/posts`, {
+            withCredentials: true,  
             headers: {
-                Authorization: `Bearer ${token}`
-            }
+                'Content-Type': 'application/json; charset=utf-8',
+                Accept: 'application/json',
+            },    
         })
         .then(({ data }) => {
             setPostData(data)

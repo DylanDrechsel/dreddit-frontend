@@ -33,8 +33,41 @@ export const websiteState = atom({
   default: 'landing'
 })
 
+let cookie = '';
+
+if (document.cookie !== 'token=' || document.cookie) {
+  if (document.cookie[0] === 't') {
+    let newCookie = document.cookie.split('')
+    newCookie.splice(0, 6);
+    cookie = newCookie.join('')
+  } else {
+    cookie = document.cookie
+  }
+}
+
+console.log(localStorage.getItem('userId'));
+
 function App() {
-  const [token] = useRecoilState(tokenState)
+  const [token, setToken] = useRecoilState(tokenState)
+  const [userName, setUserName] = useRecoilState(userNameState)
+  const [userId, setUserId] = useRecoilState(userIdState)
+
+  if (localStorage.getItem("userId")) {
+    setUserId(localStorage.getItem('userId'));
+  }
+
+  if (localStorage.getItem('username')) {
+		setUserName(localStorage.getItem('username'));
+	}
+
+  if (cookie) {
+    setToken(cookie)
+  }
+
+  console.log(userId)
+  console.log(userName)
+
+  // console.log(token)
 
   if (token === null) {
     return (
