@@ -26,8 +26,7 @@ const Home = () => {
 			})
 			.then(({ data }) => {
 				setUserData(data);
-				console.log(data);
-
+				
 				// Stores UserData in browser storage
 				localStorage.setItem('userId', userId);
 				localStorage.setItem('username', data.user.username);
