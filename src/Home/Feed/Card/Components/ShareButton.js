@@ -9,8 +9,8 @@ const ShareButton = ({ postId }) => {
         event.preventDefault()
 
         navigator.clipboard.writeText(
-					`http://localhost:3000/${postId}`
-		);
+					`http://peaceful-crater-lake-16323.herokuapp.com/${postId}`
+				);
     }
 
     return (
