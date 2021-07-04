@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { upvoteChangeState } from '../../../../../App';
+import { upvoteChangeState, tokenState } from '../../../../../App';
 import { useRecoilState } from 'recoil';
 
 const Downvote = ({ initialLikeValue, postId, likeId }) => {
 	const [upvoteChange, setUpvoteChange] = useRecoilState(upvoteChangeState);
-	const [likedValue, setLikedValue] = useState(null);  
+	const [likedValue, setLikedValue] = useState(null);
 	const [currentLikeId, setCurrentLikeId] = useState(null);
+	const [token] = useRecoilState(tokenState)
 
-	useEffect(() => {		
+	useEffect(() => {
 		setCurrentLikeId(likeId);
-		setLikedValue(initialLikeValue)
+		setLikedValue(initialLikeValue);
 		setUpvoteChange(!upvoteChange);
 	}, [initialLikeValue, likedValue]);
 
@@ -18,73 +19,66 @@ const Downvote = ({ initialLikeValue, postId, likeId }) => {
 		event.preventDefault();
 
 		axios({
-			url: `http://localhost:4000/likes/create/dislike/${postId}`,
+			url: `https://boiling-shelf-57510.herokuapp.com/likes/create/dislike/${postId}`,
 			method: 'POST',
-			withCredentials: true,  
-            headers: {
-                'Content-Type': 'application/json; charset=utf-8',
-                Accept: 'application/json',
-            },   
+			headers: {
+				Authorization: `Bearer ${token}`,
+			},
 		}).then(({ data }) => {
 			setLikedValue(data.like.value);
 			setCurrentLikeId(data.like.id);
 		});
-	}
-	
+	};
+
 	const handleRemoveDownvote = (event) => {
 		event.preventDefault();
 
 		axios({
-			url: `http://localhost:4000/likes/${currentLikeId}`,
+			url: `https://boiling-shelf-57510.herokuapp.com/likes/${currentLikeId}`,
 			method: 'PUT',
 			data: { liked: 'downvoteRemoved' },
-			withCredentials: true,
 			headers: {
-				'Content-Type': 'application/json; charset=utf-8',
-				Accept: 'application/json',
+				Authorization: `Bearer ${token}`,
 			},
 		}).then(({ data }) => {
 			setLikedValue(data.like.value);
 		});
-	}
+	};
 
 	const handleUpvoteToDownvote = (event) => {
 		event.preventDefault();
 
 		axios({
-			url: `http://localhost:4000/likes/${currentLikeId}`,
+			url: `https://boiling-shelf-57510.herokuapp.com/likes/${currentLikeId}`,
 			method: 'PUT',
 			data: { liked: 'upvoteToDownvote' },
-			withCredentials: true,
 			headers: {
-				'Content-Type': 'application/json; charset=utf-8',
-				Accept: 'application/json',
+				Authorization: `Bearer ${token}`,
 			},
 		}).then(({ data }) => {
 			setLikedValue(data.like.value);
 		});
-	}
+	};
 
 	const handleAddDownvote = (event) => {
 		event.preventDefault();
 
 		axios({
-			url: `http://localhost:4000/likes/${currentLikeId}`,
+			url: `https://boiling-shelf-57510.herokuapp.com/likes/${currentLikeId}`,
 			method: 'PUT',
 			data: { liked: 'downvoteAdd' },
-			withCredentials: true,
 			headers: {
-				'Content-Type': 'application/json; charset=utf-8',
-				Accept: 'application/json',
+				Authorization: `Bearer ${token}`,
 			},
 		}).then(({ data }) => {
 			setLikedValue(data.like.value);
 		});
-	}
+	};
 
 	if (likedValue === null) {
 		return (
-			<div className="DownvoteDiv CREATEDOWNVOTE"
+			<div
+				className='DownvoteDiv CREATEDOWNVOTE'
 				onClick={handleCreateDownvote}>
 				<svg
 					xmlns='http://www.w3.org/2000/svg'
@@ -101,9 +95,10 @@ const Downvote = ({ initialLikeValue, postId, likeId }) => {
 				</svg>
 			</div>
 		);
-	} else if (likedValue === - 1) {
+	} else if (likedValue === -1) {
 		return (
-			<div className='DownvoteDiv REMOVEDOWNVOTE'
+			<div
+				className='DownvoteDiv REMOVEDOWNVOTE'
 				onClick={handleRemoveDownvote}>
 				<svg
 					xmlns='http://www.w3.org/2000/svg'
@@ -123,8 +118,7 @@ const Downvote = ({ initialLikeValue, postId, likeId }) => {
 		);
 	} else if (likedValue === 0) {
 		return (
-			<div className='DownvoteDiv ADDDOWNVOTE'
-				onClick={handleAddDownvote}>
+			<div className='DownvoteDiv ADDDOWNVOTE' onClick={handleAddDownvote}>
 				<svg
 					xmlns='http://www.w3.org/2000/svg'
 					width='2.5vw'
@@ -139,12 +133,10 @@ const Downvote = ({ initialLikeValue, postId, likeId }) => {
 					/>
 				</svg>
 			</div>
-		) 
-		} else if (likedValue === 1) {
+		);
+	} else if (likedValue === 1) {
 		return (
-			<div
-				className='DownvoteDiv UPVOTETRUE'
-				onClick={handleUpvoteToDownvote}>
+			<div className='DownvoteDiv UPVOTETRUE' onClick={handleUpvoteToDownvote}>
 				<svg
 					xmlns='http://www.w3.org/2000/svg'
 					width='2.5vw'
@@ -161,9 +153,7 @@ const Downvote = ({ initialLikeValue, postId, likeId }) => {
 			</div>
 		);
 	} else {
-		return (
-			<div>Something Went Wrong</div>
-		)
+		return <div>Something Went Wrong</div>;
 	}
 };
 

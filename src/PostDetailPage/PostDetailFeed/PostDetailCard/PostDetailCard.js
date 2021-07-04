@@ -3,30 +3,27 @@ import axios from 'axios';
 import { userIdState, tokenState, upvoteChangeState } from '../../../App';
 import { useRecoilState } from 'recoil';
 import { Row, Col, Container } from 'react-bootstrap';
-import PostDetailCardCategory from './Components/PostDetailCategory'
-import SideUpvoteDownvoteBar from '../../../Home/Feed/Card/Components/SideUpvoteDownvoteBar'
-import Category from '../../../Home/Feed/Card/Components/Category'
-import PostedBy from '../../../Home/Feed/Card/Components/PostedBy'
-import TimeSincePost from '../../../Home/Feed/Card/Components/TimeSincePost'
-import Title from '../../../Home/Feed/Card/Components/Title'
-import PostImage from '../../../Home/Feed/Card/Components/PostImage'
-
+import PostDetailCardCategory from './Components/PostDetailCategory';
+import SideUpvoteDownvoteBar from '../../../Home/Feed/Card/Components/SideUpvoteDownvoteBar';
+import Category from '../../../Home/Feed/Card/Components/Category';
+import PostedBy from '../../../Home/Feed/Card/Components/PostedBy';
+import TimeSincePost from '../../../Home/Feed/Card/Components/TimeSincePost';
+import Title from '../../../Home/Feed/Card/Components/Title';
+import PostImage from '../../../Home/Feed/Card/Components/PostImage';
 
 const PostDetailCard = ({ id }) => {
-    const [userId] = useRecoilState(userIdState);
-    const [token] = useRecoilState(tokenState);
-    const [data, setData] = useState({})
-    const [haveData, setHaveData] = useState(false)
-    const [upvoteCountChange, setUpvoteCountChange] = useState(false);
-    const [upvoteChange] = useRecoilState(upvoteChangeState);
+	const [userId] = useRecoilState(userIdState);
+	const [token] = useRecoilState(tokenState);
+	const [data, setData] = useState({});
+	const [haveData, setHaveData] = useState(false);
+	const [upvoteCountChange, setUpvoteCountChange] = useState(false);
+	const [upvoteChange] = useRecoilState(upvoteChangeState);
 
 	useEffect(() => {
 		axios
-			.get(`http://localhost:4000/posts/${id}`, {
-				withCredentials: true,
+			.get(`https://boiling-shelf-57510.herokuapp.com/posts/${id}`, {
 				headers: {
-					'Content-Type': 'application/json; charset=utf-8',
-					Accept: 'application/json',
+					Authorization: `Bearer ${token}`,
 				},
 			})
 			.then(({ data }) => {
@@ -43,8 +40,14 @@ const PostDetailCard = ({ id }) => {
 	if (haveData) {
 		return (
 			<div className='PostDetailCard'>
-				<Container style={{ paddingRight: '0px', paddingLeft: '0px', marginLeft: '0px', marginRight: '0px' }}>
-					<Row style={{ marginLeft: '0px', marginRight: '0px'}}>
+				<Container
+					style={{
+						paddingRight: '0px',
+						paddingLeft: '0px',
+						marginLeft: '0px',
+						marginRight: '0px',
+					}}>
+					<Row style={{ marginLeft: '0px', marginRight: '0px' }}>
 						<Col xs={1} className='PostDetailSideUpvoteDownvoteBar'>
 							<SideUpvoteDownvoteBar
 								likes={data.post.likes}
@@ -56,17 +59,17 @@ const PostDetailCard = ({ id }) => {
 						<Col xs={11}>
 							<Row>
 								<Category category={data.post.category} />
-                                <PostedBy username={data.post.author.username} />
-                                <TimeSincePost time={data.post.createdAt} />
+								<PostedBy username={data.post.author.username} />
+								<TimeSincePost time={data.post.createdAt} />
 							</Row>
 
-                            <Row className="justify-content-md-center">
-                                <Title title={data.post.title} />
-                            </Row>
+							<Row className='justify-content-md-center'>
+								<Title title={data.post.title} />
+							</Row>
 
-                            {!data.post.image ? null : <PostImage path={data.post.image.path}/>}
-
-
+							{!data.post.image ? null : (
+								<PostImage path={data.post.image.path} />
+							)}
 						</Col>
 					</Row>
 				</Container>
