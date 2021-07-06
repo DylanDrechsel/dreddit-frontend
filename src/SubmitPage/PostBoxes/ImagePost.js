@@ -47,8 +47,12 @@ const ImagePost = () => {
 		.then((res) => console.log(res))
 
 		const imageUrl = await url.split('?')[0]
-		await console.log(imageUrl)
+		// await console.log(imageUrl)
 		await setImageUrl(imageUrl)
+		await setImagePostData({
+			...imagePostData,
+			imageUrl: imageUrl
+		})
 	}
 
 	const checkInformation = (imagePostData) => {
@@ -85,11 +89,6 @@ const ImagePost = () => {
 	const post =  async (event) => {
 		event.preventDefault();
 
-		await setImagePostData({
-			...imagePostData,
-			published: true,
-			imageUrl: imageUrl
-		})
 
 		if (await checkInformation(imagePostData) !== 0) {
 			setPosted('error');
@@ -105,7 +104,7 @@ const ImagePost = () => {
 		await axios({
 			url: 'http://localhost:4000/posts/create/',
 			method: 'POST',
-			data: imagePostData,
+			data: {...imagePostData, published: true},
 			headers: {
 				Authorization: `Bearer ${token}`,
 			},
@@ -130,14 +129,8 @@ const ImagePost = () => {
 	const saveDraftPost = async (event) => {
 		event.preventDefault();
 
-		await setImagePostData({
-			...imagePostData,
-			published: false,
-			imageUrl: imageUrl,
-		});
-
 		if (await checkInformation(imagePostData) !== 0) {
-			setPosted('serverError');
+			setPosted('error');
 
 			setTimeout(() => {
 				setPosted(false);
@@ -150,12 +143,14 @@ const ImagePost = () => {
 		await axios({
 			url: 'http://localhost:4000/posts/create/',
 			method: 'POST',
-			data: imagePostData,
+			data: { ...imagePostData, published: false},
 			headers: {
 				Authorization: `Bearer ${token}`,
 			},
 		})
-			.then(() => {
+			.then((res) => {
+				console.log(res);
+
 				setPosted('saveImage');
 
 				setTimeout(() => {

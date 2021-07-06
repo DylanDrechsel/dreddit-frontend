@@ -57,6 +57,8 @@ const PublishedPost = () => {
 		}
 	}, [upvoteChange, reload, website]);
 
+	console.log(posts)
+
 	if (haveData) {
 		return (
 			<div className='PublishedPostDiv'>
@@ -78,13 +80,13 @@ const PublishedPost = () => {
 
 										<Row>
 											<Col xs={1}>
-												{!post.image ? (
+												{!post.imageUrl ? (
 													<img
 														className='UsersPublishedPostsImage'
 														src={NoImageAvailable}
 													/>
 												) : (
-													<PostImage path={post.image.path} />
+													<PostImage path={post.imageUrl} />
 												)}
 											</Col>
 										</Row>
