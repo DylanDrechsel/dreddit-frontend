@@ -23,7 +23,7 @@ const PublishedPost = () => {
 	const [upvoteCountChange, setUpvoteCountChange] = useState(false);
 	const [website] = useRecoilState(websiteState);
 	const [reload, setReload] = useState(false);
-	const [token] = useRecoilState(tokenState)
+	const [token] = useRecoilState(tokenState);
 
 	const handleReload = () => {
 		setReload(!reload);
@@ -32,7 +32,7 @@ const PublishedPost = () => {
 	useEffect(() => {
 		if (website === 'userPage/saved') {
 			axios({
-				url: 'https://boiling-shelf-57510.herokuapp.com/posts/user/unpublished',
+				url: 'http://localhost:4000/posts/user/unpublished',
 				method: 'GET',
 				headers: {
 					Authorization: `Bearer ${token}`,
@@ -44,7 +44,7 @@ const PublishedPost = () => {
 			});
 		} else {
 			axios({
-				url: 'https://boiling-shelf-57510.herokuapp.com/posts/user/published',
+				url: 'http://localhost:4000/posts/user/published',
 				method: 'GET',
 				headers: {
 					Authorization: `Bearer ${token}`,
@@ -56,6 +56,8 @@ const PublishedPost = () => {
 			});
 		}
 	}, [upvoteChange, reload, website]);
+
+	console.log(posts)
 
 	if (haveData) {
 		return (
@@ -78,13 +80,13 @@ const PublishedPost = () => {
 
 										<Row>
 											<Col xs={1}>
-												{!post.image ? (
+												{!post.imageUrl ? (
 													<img
 														className='UsersPublishedPostsImage'
 														src={NoImageAvailable}
 													/>
 												) : (
-													<PostImage path={post.image.path} />
+													<PostImage path={post.imageUrl} />
 												)}
 											</Col>
 										</Row>

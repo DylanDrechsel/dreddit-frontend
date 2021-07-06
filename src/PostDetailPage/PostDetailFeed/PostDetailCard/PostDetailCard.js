@@ -21,7 +21,7 @@ const PostDetailCard = ({ id }) => {
 
 	useEffect(() => {
 		axios
-			.get(`https://boiling-shelf-57510.herokuapp.com/posts/${id}`, {
+			.get(`http://localhost:4000/posts/${id}`, {
 				headers: {
 					Authorization: `Bearer ${token}`,
 				},
@@ -67,8 +67,8 @@ const PostDetailCard = ({ id }) => {
 								<Title title={data.post.title} />
 							</Row>
 
-							{!data.post.image ? null : (
-								<PostImage path={data.post.image.path} />
+							{!data.post.imageUrl ? null : (
+								<PostImage path={data.post.imageUrl} />
 							)}
 						</Col>
 					</Row>

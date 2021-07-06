@@ -4,11 +4,11 @@ import { tokenState } from '../../App';
 import { useRecoilState } from 'recoil';
 
 const DeleteButton = ({ postId, handleReload }) => {
-	const [token] = useRecoilState(tokenState)
+	const [token] = useRecoilState(tokenState);
 
 	const handleDeletePost = () => {
 		axios({
-			url: `https://boiling-shelf-57510.herokuapp.com/posts/${postId}`,
+			url: `http://localhost:4000/posts/${postId}`,
 			method: 'DELETE',
 			headers: {
 				Authorization: `Bearer ${token}`,

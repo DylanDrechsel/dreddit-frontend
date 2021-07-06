@@ -19,14 +19,14 @@ const Home = () => {
 
 	useEffect(() => {
 		axios
-			.get(`https://boiling-shelf-57510.herokuapp.com/users/${userId}`, {
+			.get(`http://localhost:4000/users/${userId}`, {
 				headers: {
 					Authorization: `Bearer ${token}`,
 				},
 			})
 			.then(({ data }) => {
 				setUserData(data);
-				
+
 				// Stores UserData in browser storage
 				localStorage.setItem('userId', userId);
 				localStorage.setItem('username', data.user.username);

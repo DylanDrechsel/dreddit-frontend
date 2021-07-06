@@ -49,7 +49,7 @@ const SignUpModal = ({ handleClose, show }) => {
 		}
 
 		axios({
-			url: 'https://boiling-shelf-57510.herokuapp.com/register',
+			url: 'http://localhost:4000/register',
 			method: 'POST',
 			data: userData,
 		}).then((res) => {
