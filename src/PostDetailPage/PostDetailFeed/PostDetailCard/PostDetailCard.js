@@ -67,8 +67,8 @@ const PostDetailCard = ({ id }) => {
 								<Title title={data.post.title} />
 							</Row>
 
-							{!data.post.image ? null : (
-								<PostImage path={data.post.image.path} />
+							{!data.post.imageUrl ? null : (
+								<PostImage path={data.post.imageUrl} />
 							)}
 						</Col>
 					</Row>
