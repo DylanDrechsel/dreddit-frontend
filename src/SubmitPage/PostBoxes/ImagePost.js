@@ -35,8 +35,6 @@ const ImagePost = () => {
 		.then((res) => {
 			url = res.data.url
 		})
-		
-		// await console.log(url)
 
 		await axios({
 			url: url,
@@ -87,20 +85,11 @@ const ImagePost = () => {
 	const post =  async (event) => {
 		event.preventDefault();
 
-
-		// const myForm = document.getElementById('imageForm');
-		// formData = new FormData();
-
 		await setImagePostData({
 			...imagePostData,
 			published: true,
 			imageUrl: imageUrl
 		})
-
-		// formData.append('title', imagePostData.title);
-		// formData.append('category', imagePostData.category);
-		// formData.append('imageUrl', imageUrl)
-		// formData.append('published', 'true');
 
 		if (await checkInformation(imagePostData) !== 0) {
 			setPosted('error');
@@ -138,16 +127,16 @@ const ImagePost = () => {
 			});
 	};
 
-	const saveDraftPost = (event) => {
+	const saveDraftPost = async (event) => {
 		event.preventDefault();
 
-		const myForm = document.getElementById('imageForm');
-		formData = new FormData(myForm);
+		await setImagePostData({
+			...imagePostData,
+			published: false,
+			imageUrl: imageUrl,
+		});
 
-		formData.append('title', imagePostData.title);
-		formData.append('category', imagePostData.category);
-
-		if (checkInformation(imagePostData) !== 0) {
+		if (await checkInformation(imagePostData) !== 0) {
 			setPosted('serverError');
 
 			setTimeout(() => {
@@ -158,10 +147,10 @@ const ImagePost = () => {
 			return;
 		}
 
-		axios({
-			url: 'http://localhost:4000/posts/create/image',
+		await axios({
+			url: 'http://localhost:4000/posts/create/',
 			method: 'POST',
-			data: formData,
+			data: imagePostData,
 			headers: {
 				Authorization: `Bearer ${token}`,
 			},
