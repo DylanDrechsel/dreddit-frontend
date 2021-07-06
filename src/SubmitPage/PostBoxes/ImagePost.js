@@ -7,8 +7,17 @@ import Title from './Components/Title';
 import Category from './Components/Category';
 import SaveDraft from './Components/SaveDraft';
 import PostButton from './Components/Post';
+// import S3FileUpload, { uploadFile } from 'react-s3';
 
 let errorText = '';
+
+// const config = {
+// 	bucketName: 'dreddit-images',
+// 	dirName: 'images' /* optional */,
+// 	region: 'eu-east-2',
+// 	accessKeyId: 'AKIA4ACAPYMWT2HRQED4',
+// 	secretAccessKey: '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',
+// };
 
 const ImagePost = () => {
 	const [posted, setPosted] = useState(false);
@@ -22,6 +31,35 @@ const ImagePost = () => {
 		input[event.target.id] = event.target.value;
 		setImagePostData(input);
 	};
+
+	const s3Post = async (event) => {
+		const file = event.target.files[0]
+		let url;
+
+		await axios({
+			url: 'http://localhost:4000/s3Url',
+			method: "GET"
+		})
+		.then((res) => {
+			url = res.data.url
+		})
+		
+		await console.log(url)
+
+		await axios({
+			url: url,
+			method: "PUT",
+			headers: {
+				"Content-Type": "multipart/form-data"
+			},
+			data: file
+		})
+
+		const imageUrl = await url.split('?')[0]
+		await console.log(imageUrl)
+
+
+	}
 
 	const checkInformation = (imagePostData) => {
 		if (
@@ -178,6 +216,8 @@ const ImagePost = () => {
 									...imagePostData,
 									hasImage: 'yes',
 								});
+
+								s3Post(event)
 							}}
 							className='ImageInput'
 							type='file'
