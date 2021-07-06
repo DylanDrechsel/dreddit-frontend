@@ -7,17 +7,8 @@ import Title from './Components/Title';
 import Category from './Components/Category';
 import SaveDraft from './Components/SaveDraft';
 import PostButton from './Components/Post';
-// import S3FileUpload, { uploadFile } from 'react-s3';
 
 let errorText = '';
-
-// const config = {
-// 	bucketName: 'dreddit-images',
-// 	dirName: 'images' /* optional */,
-// 	region: 'eu-east-2',
-// 	accessKeyId: 'AKIA4ACAPYMWT2HRQED4',
-// 	secretAccessKey: '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',
-// };
 
 const ImagePost = () => {
 	const [posted, setPosted] = useState(false);
@@ -57,8 +48,6 @@ const ImagePost = () => {
 
 		const imageUrl = await url.split('?')[0]
 		await console.log(imageUrl)
-
-
 	}
 
 	const checkInformation = (imagePostData) => {
