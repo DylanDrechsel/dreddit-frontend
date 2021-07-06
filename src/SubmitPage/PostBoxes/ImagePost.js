@@ -31,7 +31,8 @@ const ImagePost = () => {
 			method: "GET"
 		})
 		.then((res) => {
-			url = res.data.url
+			console.log(res)
+			url = res.data.imageInfo.url
 		})
 
 		await axios({
