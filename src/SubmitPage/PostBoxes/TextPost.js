@@ -14,7 +14,7 @@ let errorText = '';
 const TextPost = () => {
 	const [textPostData, setTextPostData] = useState({});
 	const [posted, setPosted] = useState(false);
-	const [token] = useRecoilState(tokenState)
+	const [token] = useRecoilState(tokenState);
 
 	const handlePostDataInput = (event) => {
 		const input = { ...textPostData };
@@ -50,7 +50,7 @@ const TextPost = () => {
 		}
 
 		axios({
-			url: 'https://boiling-shelf-57510.herokuapp.com/posts/create/',
+			url: 'http://localhost:4000/posts/create/',
 			method: 'POST',
 			data: { ...textPostData, published: true },
 			headers: {
@@ -87,7 +87,7 @@ const TextPost = () => {
 		}
 
 		axios({
-			url: 'https://boiling-shelf-57510.herokuapp.com/posts/create/',
+			url: 'http://localhost:4000/posts/create/',
 			method: 'POST',
 			data: { ...textPostData, published: false },
 			headers: {

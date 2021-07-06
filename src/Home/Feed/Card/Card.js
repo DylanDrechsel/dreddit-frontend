@@ -18,11 +18,11 @@ const Card = () => {
 	const [postData, setPostData] = useState({});
 	const [haveData, setHaveData] = useState(false);
 	const [upvoteCountChange, setUpvoteCountChange] = useState(false);
-	const [token] = useRecoilState(tokenState)
+	const [token] = useRecoilState(tokenState);
 
 	useEffect(() => {
 		axios
-			.get(`https://boiling-shelf-57510.herokuapp.com/posts`, {
+			.get(`http://localhost:4000/posts`, {
 				headers: {
 					Authorization: `Bearer ${token}`,
 				},
@@ -31,6 +31,8 @@ const Card = () => {
 				setPostData(data);
 				setHaveData(true);
 				setUpvoteCountChange(!upvoteCountChange);
+
+				console.log(data.imageUrl)
 			});
 	}, [upvoteChange]);
 
@@ -64,9 +66,12 @@ const Card = () => {
 												<Title title={post.title} />
 											</Row>
 
-											{!post.image ? null : (
+											{!post.imageUrl ? null : <PostImage path={`${post.imageUrl}`} />}
+
+											{/* OLD MULTER USE */}
+											{/* {!post.image ? null : (
 												<PostImage path={post.image.path} />
-											)}
+											)} */}
 
 											<Row>
 												<CommentButton comments={post.comments} />

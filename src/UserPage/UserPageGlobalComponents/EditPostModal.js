@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { tokenState } from '../../App'
+import { tokenState } from '../../App';
 import { useRecoilState } from 'recoil';
 import { Modal, Button, Dropdown, DropdownButton } from 'react-bootstrap';
 import Title from '../../SubmitPage/PostBoxes/Components/Title';
@@ -10,7 +10,7 @@ import Content from '../../SubmitPage/PostBoxes/Components/Content';
 const EditPostModal = ({ show, handleClose, post, handleReload }) => {
 	const [editData, setEditData] = useState({});
 	const [newImage, setNewImage] = useState();
-	const [token] = useRecoilState(tokenState)
+	const [token] = useRecoilState(tokenState);
 	let formData = new FormData();
 
 	const handleDataChange = (event) => {
@@ -21,7 +21,7 @@ const EditPostModal = ({ show, handleClose, post, handleReload }) => {
 
 	const handleTextEditPost = () => {
 		axios({
-			url: `https://boiling-shelf-57510.herokuapp.com/posts/${post.id}/`,
+			url: `http://localhost:4000/posts/${post.id}/`,
 			method: 'PUT',
 			data: editData,
 			headers: {
@@ -56,7 +56,7 @@ const EditPostModal = ({ show, handleClose, post, handleReload }) => {
 		}
 
 		axios({
-			url: `https://boiling-shelf-57510.herokuapp.com/posts/${post.id}/${post.image.id}`,
+			url: `http://localhost:4000/posts/${post.id}/${post.image.id}`,
 			method: 'PUT',
 			data: formData,
 			headers: {
@@ -163,7 +163,7 @@ const EditPostModal = ({ show, handleClose, post, handleReload }) => {
 							{!newImage ? (
 								<img
 									className='EditModalImage'
-									src={`https://boiling-shelf-57510.herokuapp.com/${post.image.path}`}
+									src={`http://localhost:4000/${post.image.path}`}
 								/>
 							) : (
 								<img className='EditModalImage' src={newImage} />

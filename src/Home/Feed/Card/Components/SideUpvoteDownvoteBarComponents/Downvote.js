@@ -7,7 +7,7 @@ const Downvote = ({ initialLikeValue, postId, likeId }) => {
 	const [upvoteChange, setUpvoteChange] = useRecoilState(upvoteChangeState);
 	const [likedValue, setLikedValue] = useState(null);
 	const [currentLikeId, setCurrentLikeId] = useState(null);
-	const [token] = useRecoilState(tokenState)
+	const [token] = useRecoilState(tokenState);
 
 	useEffect(() => {
 		setCurrentLikeId(likeId);
@@ -19,7 +19,7 @@ const Downvote = ({ initialLikeValue, postId, likeId }) => {
 		event.preventDefault();
 
 		axios({
-			url: `https://boiling-shelf-57510.herokuapp.com/likes/create/dislike/${postId}`,
+			url: `http://localhost:4000/likes/create/dislike/${postId}`,
 			method: 'POST',
 			headers: {
 				Authorization: `Bearer ${token}`,
@@ -34,7 +34,7 @@ const Downvote = ({ initialLikeValue, postId, likeId }) => {
 		event.preventDefault();
 
 		axios({
-			url: `https://boiling-shelf-57510.herokuapp.com/likes/${currentLikeId}`,
+			url: `http://localhost:4000/likes/${currentLikeId}`,
 			method: 'PUT',
 			data: { liked: 'downvoteRemoved' },
 			headers: {
@@ -49,7 +49,7 @@ const Downvote = ({ initialLikeValue, postId, likeId }) => {
 		event.preventDefault();
 
 		axios({
-			url: `https://boiling-shelf-57510.herokuapp.com/likes/${currentLikeId}`,
+			url: `http://localhost:4000/likes/${currentLikeId}`,
 			method: 'PUT',
 			data: { liked: 'upvoteToDownvote' },
 			headers: {
@@ -64,7 +64,7 @@ const Downvote = ({ initialLikeValue, postId, likeId }) => {
 		event.preventDefault();
 
 		axios({
-			url: `https://boiling-shelf-57510.herokuapp.com/likes/${currentLikeId}`,
+			url: `http://localhost:4000/likes/${currentLikeId}`,
 			method: 'PUT',
 			data: { liked: 'downvoteAdd' },
 			headers: {

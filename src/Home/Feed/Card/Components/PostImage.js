@@ -4,7 +4,7 @@ import { useRecoilState } from 'recoil';
 
 const PostImage = ({ path }) => {
 	const [website] = useRecoilState(websiteState);
-	const url = `https://boiling-shelf-57510.herokuapp.com/${path}`;
+	const url = `${path}`;
 
 	return (
 		<div
