@@ -34,7 +34,6 @@ const PublishedPost = () => {
 			axios({
 				url: 'https://boiling-shelf-57510.herokuapp.com/posts/user/unpublished',
 				method: 'GET',
-				withCredentials: true,
 				headers: {
 					Authorization: `Bearer ${token}`,
 				},
