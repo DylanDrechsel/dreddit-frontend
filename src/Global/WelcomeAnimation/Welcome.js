@@ -57,21 +57,24 @@ const Welcome = () => {
 			return await animateM.start({ x: '50vw', opacity: [1,0,0,0,0,0], transition: { delay: .55, type: "spring" }});
 		};
 
-        const sequenceFinalE = async () => {
+    const sequenceFinalE = async () => {
 			await animateFinalE.start({ x: '-45.8vw', textShadow: '3px 3px 5px #e6498e', transition: { duration: 1.15, delay: .6 } });
 			return await animateFinalE.start({ x: '50vw', opacity: [1,0,0,0,0,0], transition: { delay: .5, type: "spring" }});
 		};
 
+
     useEffect(() => {
-        setTimeout(() => {
-			sequenceW();
-            sequenceE();
-            sequenceL();
-            sequenceC();
-            sequenceO();
-            sequenceM();
-            sequenceFinalE();
-        }, 3000)
+		if (!localStorage.getItem('welcomeAnimation')) {
+			setTimeout(() => {
+					sequenceW();
+					sequenceE();
+					sequenceL();
+					sequenceC();
+					sequenceO();
+					sequenceM();
+					sequenceFinalE();
+				}, 3000)
+			}
 		}, []);
 
      const welcomeText = spots.map(() => {
@@ -94,7 +97,7 @@ const Welcome = () => {
 
     return (
         <div className="Welcome">
-            {welcomeText}
+            {!localStorage.getItem('welcomeAnimation') ? welcomeText : null}
         </div>
     );
 };

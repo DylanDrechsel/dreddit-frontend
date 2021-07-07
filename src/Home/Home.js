@@ -30,6 +30,10 @@ const Home = () => {
 				// Stores UserData in browser storage
 				localStorage.setItem('userId', userId);
 				localStorage.setItem('username', data.user.username);
+
+				setTimeout(() => {
+					localStorage.setItem('welcomeAnimation', 'played');
+				}, 8000)
 			});
 	}, []);
 
