@@ -7,6 +7,7 @@ import Title from './Components/Title';
 import Category from './Components/Category';
 import SaveDraft from './Components/SaveDraft';
 import PostButton from './Components/Post';
+import { useHistory } from 'react-router-dom'
 
 let errorText = '';
 
@@ -15,6 +16,7 @@ const ImagePost = () => {
 	const [imagePostData, setImagePostData] = useState({});
 	const [newImage, setNewImage] = useState();
 	const [token] = useRecoilState(tokenState);
+	let history = useHistory()
 
 	const handlePostDataInput = (event) => {
 		const input = { ...imagePostData };
@@ -112,6 +114,7 @@ const ImagePost = () => {
 
 				setTimeout(() => {
 					setPosted(false);
+					history.push('/');
 				}, 3000);
 			})
 			.catch(() => {
@@ -151,6 +154,7 @@ const ImagePost = () => {
 
 				setTimeout(() => {
 					setPosted(false);
+					history.push(`/`);
 				}, 3000);
 			})
 			.catch(() => {

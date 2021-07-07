@@ -8,6 +8,7 @@ import Category from './Components/Category';
 import Content from './Components/Content';
 import SaveDraft from './Components/SaveDraft';
 import PostButton from './Components/Post';
+import { useHistory } from 'react-router-dom'
 
 let errorText = '';
 
@@ -15,6 +16,7 @@ const TextPost = () => {
 	const [textPostData, setTextPostData] = useState({});
 	const [posted, setPosted] = useState(false);
 	const [token] = useRecoilState(tokenState);
+	let history = useHistory()
 
 	const handlePostDataInput = (event) => {
 		const input = { ...textPostData };
@@ -62,6 +64,7 @@ const TextPost = () => {
 
 				setTimeout(() => {
 					setPosted(false);
+					history.push('/')
 				}, 3000);
 			})
 			.catch(() => {
@@ -99,6 +102,7 @@ const TextPost = () => {
 
 				setTimeout(() => {
 					setPosted(false);
+					history.push('/');
 				}, 3000);
 			})
 			.catch(() => {
