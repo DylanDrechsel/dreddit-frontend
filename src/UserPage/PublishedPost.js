@@ -118,7 +118,7 @@ const PublishedPost = () => {
 										<ShareButton postId={post.id} />
 										<DeleteButton
 											postId={post.id}
-											imageUrl={post.imageUrl}
+											imageKey={post.imageKey}
 											handleReload={handleReload}
 										/>
 										<EditButton

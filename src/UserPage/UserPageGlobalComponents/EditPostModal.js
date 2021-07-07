@@ -11,7 +11,6 @@ const EditPostModal = ({ show, handleClose, post, handleReload }) => {
 	const [editData, setEditData] = useState({});
 	const [newImage, setNewImage] = useState();
 	const [token] = useRecoilState(tokenState);
-	let formData = new FormData();
 
 	const handleDataChange = (event) => {
 		const input = { ...editData };
@@ -33,32 +32,41 @@ const EditPostModal = ({ show, handleClose, post, handleReload }) => {
 		});
 	};
 
-	const handleImageEditPost = () => {
-		const myForm = document.getElementById('imageForm');
-		formData = new FormData(myForm);
+	const s3Post = async (event) => {
+		const file = event.target.files[0];
+		let url;
+		let key;
 
-		if (editData.title) {
-			formData.append('title', editData.title);
-		} else {
-			formData.append('title', post.title);
-		}
+		await axios({
+			url: 'http://localhost:4000/s3Url',
+			method: 'GET',
+		}).then((res) => {
+			url = res.data.imageInfo.url;
+			key = res.data.imageInfo.key;
+		});
 
-		if (editData.category) {
-			formData.append('category', editData.category);
-		} else {
-			formData.append('category', post.category);
-		}
-
-		if (editData.published === false) {
-			formData.append('published', 'false');
-		} else {
-			formData.append('published', 'true');
-		}
-
-		axios({
-			url: `http://localhost:4000/posts/${post.id}/${post.image.id}`,
+		await axios({
+			url: url,
 			method: 'PUT',
-			data: formData,
+			headers: {
+				'Content-Type': 'image/jpeg',
+			},
+			data: file,
+		});
+
+		const imageUrl = await url.split('?')[0];
+		await setEditData({
+			...editData,
+			imageUrl: imageUrl,
+			imageKey: key,
+		});
+	};
+
+	const handleImageEditPost = () => {
+		axios({
+			url: `http://localhost:4000/posts/${post.id}`,
+			method: 'PUT',
+			data: editData,
 			headers: {
 				Authorization: `Bearer ${token}`,
 			},
@@ -176,7 +184,10 @@ const EditPostModal = ({ show, handleClose, post, handleReload }) => {
 							enctype='multipart/form-data'
 							className='EditImageForm'>
 							<input
-								onChange={imageHandler}
+								onChange={(event) => {
+									imageHandler(event)
+									s3Post(event)
+								}}
 								className='EditImageInput'
 								type='file'
 								id='file'
@@ -224,3 +235,41 @@ const EditPostModal = ({ show, handleClose, post, handleReload }) => {
 };
 
 export default EditPostModal;
+
+// MULTER
+/* 
+		const handleImageEditPost = () => {
+		const myForm = document.getElementById('imageForm');
+		formData = new FormData(myForm);
+
+		if (editData.title) {
+			formData.append('title', editData.title);
+		} else {
+			formData.append('title', post.title);
+		}
+
+		if (editData.category) {
+			formData.append('category', editData.category);
+		} else {
+			formData.append('category', post.category);
+		}
+
+		if (editData.published === false) {
+			formData.append('published', 'false');
+		} else {
+			formData.append('published', 'true');
+		}
+
+		axios({
+			url: `http://localhost:4000/posts/${post.id}/${post.image.id}`,
+			method: 'PUT',
+			data: formData,
+			headers: {
+				Authorization: `Bearer ${token}`,
+			},
+		}).then(() => {
+			handleClose();
+			handleReload();
+		});
+	};
+*/

@@ -25,6 +25,7 @@ const ImagePost = () => {
 	const s3Post = async (event) => {
 		const file = event.target.files[0]
 		let url;
+		let key;
 
 		await axios({
 			url: 'http://localhost:4000/s3Url',
@@ -32,6 +33,7 @@ const ImagePost = () => {
 		})
 		.then((res) => {
 			url = res.data.imageInfo.url
+			key = res.data.imageInfo.key
 		})
 
 		await axios({
@@ -46,7 +48,8 @@ const ImagePost = () => {
 		const imageUrl = await url.split('?')[0]
 		await setImagePostData({
 			...imagePostData,
-			imageUrl: imageUrl
+			imageUrl: imageUrl,
+			imageKey: key
 		})
 	}
 
@@ -143,9 +146,7 @@ const ImagePost = () => {
 				Authorization: `Bearer ${token}`,
 			},
 		})
-			.then((res) => {
-				console.log(res);
-
+			.then(() => {
 				setPosted('saveImage');
 
 				setTimeout(() => {

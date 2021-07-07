@@ -4,14 +4,14 @@ import { tokenState } from '../../App';
 import { useRecoilState } from 'recoil';
 import * as AWS from 'aws-sdk'
 
-const DeleteButton = ({ postId, handleReload, imageUrl }) => {
+const DeleteButton = ({ postId, handleReload, imageKey }) => {
 	const [token] = useRecoilState(tokenState);
 	const BUCKET_NAME = 'dreddit-images'
 	const s3 = new AWS.S3()
 
 	const deleteS3Object = async () => {
 		await s3.deleteObject({
-			Key: imageUrl,
+			Key: imageKey,
 			Bucket: BUCKET_NAME,
 		}).promise();
 		return {};
@@ -25,9 +25,9 @@ const DeleteButton = ({ postId, handleReload, imageUrl }) => {
 				Authorization: `Bearer ${token}`,
 			},
 		})
-		.then(() => {
+		/* .then(() => {
 			deleteS3Object()
-		})
+		}) */
 		.then(() => {
 			handleReload();
 		});
