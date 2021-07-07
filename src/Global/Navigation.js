@@ -24,9 +24,7 @@ const Navigation = () => {
 
     return (
 			<div className='Navbar'>
-				<Navbar
-					expand='lg'
-					style={{ backgroundColor: '#201E1D' }}>
+				<Navbar expand='lg' style={{ backgroundColor: '#201E1D' }}>
 					<Navbar.Toggle aria-controls='navbarScroll' />
 					<Navbar.Collapse id='navbarScroll'>
 						<Nav className='mr-auto my-2 my-lg-0' navbarScroll>
@@ -36,7 +34,11 @@ const Navigation = () => {
 									color: 'white',
 								}}>
 								<motion.h5
-									animate={{ opacity: 1, transition: { delay: 6 } }}
+									animate={
+										localStorage.getItem('welcomeAnimation') !== 'played'
+											? { opacity: 1, transition: { delay: 6 } }
+											: { opacity: 1 }
+									}
 									initial={{ opacity: 0 }}>
 									<b>Home</b>
 								</motion.h5>
@@ -44,8 +46,13 @@ const Navigation = () => {
 						</Nav>
 
 						<Link to={`/post/submit`} style={{ color: 'white' }}>
-							<motion.svg className="NavPostAdd"
-								animate={{ opacity: 1, transition: { delay: 9 } }}
+							<motion.svg
+								className='NavPostAdd'
+								animate={
+									localStorage.getItem('welcomeAnimation') !== 'played'
+										? { opacity: 1, transition: { delay: 9 } }
+										: { opacity: 1 }
+								}
 								initial={{ opacity: 0 }}
 								xmlns='http://www.w3.org/2000/svg'
 								width='24'
@@ -66,8 +73,16 @@ const Navigation = () => {
 								}}>
 								{' '}
 								<motion.h3
-									initial={{ x: '-45vw', y: '-.5vh', opacity: 0 }}
-									animate={controls}>
+									initial={
+										localStorage.getItem('welcomeAnimation') !== 'played'
+											? { x: '-45vw', y: '-.5vh', opacity: 0 }
+											: { opacity: 1 }
+									}
+									animate={
+										localStorage.getItem('welcomeAnimation') !== 'played'
+											? controls
+											: null
+									}>
 									<b>{userName}</b>
 								</motion.h3>
 							</Navbar.Brand>
