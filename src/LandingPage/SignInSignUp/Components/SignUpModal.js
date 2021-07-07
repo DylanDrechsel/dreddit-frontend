@@ -74,7 +74,10 @@ const SignUpModal = ({ handleClose, show }) => {
 				setError('UsernameExist');
 				setErrorBackToNone();
 			}
-		});
+		}).catch(() => {
+			setError('NetworkError')
+			setErrorBackToNone();
+		})
 	};
 
 	return (
@@ -164,7 +167,7 @@ const SignUpModal = ({ handleClose, show }) => {
 						<h1 className='SignUpNoUsername'>Please Enter Username</h1>
 					) : error === 'AccountCreated' ? (
 						<h1 className='AccountCreated'>Account Created</h1>
-					) : null}
+					) : error ===  'NetworkError' ? (<h1 className='AccountCreated'>Server Error. Please Try Again</h1>) : null}
 				</div>
 
 				<Modal.Footer style={{ backgroundColor: 'black' }}>

@@ -78,7 +78,7 @@ const EditPostModal = ({ show, handleClose, post, handleReload }) => {
 		reader.readAsDataURL(event.target.files[0]);
 	};
 
-	if (post && !post.image) {
+	if (post && !post.imageUrl) {
 		return (
 			<div>
 				<>
@@ -138,7 +138,7 @@ const EditPostModal = ({ show, handleClose, post, handleReload }) => {
 				</>
 			</div>
 		);
-	} else if (post && post.image) {
+	} else if (post && post.imageUrl) {
 		return (
 			<div>
 				<>
@@ -163,7 +163,7 @@ const EditPostModal = ({ show, handleClose, post, handleReload }) => {
 							{!newImage ? (
 								<img
 									className='EditModalImage'
-									src={`http://localhost:4000/${post.image.path}`}
+									src={`${post.imageUrl}`}
 								/>
 							) : (
 								<img className='EditModalImage' src={newImage} />

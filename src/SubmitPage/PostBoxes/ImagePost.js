@@ -31,7 +31,6 @@ const ImagePost = () => {
 			method: "GET"
 		})
 		.then((res) => {
-			console.log(res)
 			url = res.data.imageInfo.url
 		})
 
