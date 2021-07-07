@@ -14,9 +14,7 @@ const ImagePost = () => {
 	const [posted, setPosted] = useState(false);
 	const [imagePostData, setImagePostData] = useState({});
 	const [newImage, setNewImage] = useState();
-	const [imageUrl, setImageUrl] = useState()
 	const [token] = useRecoilState(tokenState);
-	let formData = new FormData();
 
 	const handlePostDataInput = (event) => {
 		const input = { ...imagePostData };
@@ -33,7 +31,7 @@ const ImagePost = () => {
 			method: "GET"
 		})
 		.then((res) => {
-			url = res.data.url
+			url = res.data.imageInfo.url
 		})
 
 		await axios({
@@ -44,11 +42,8 @@ const ImagePost = () => {
 			},
 			data: file
 		})
-		.then((res) => console.log(res))
 
 		const imageUrl = await url.split('?')[0]
-		// await console.log(imageUrl)
-		await setImageUrl(imageUrl)
 		await setImagePostData({
 			...imagePostData,
 			imageUrl: imageUrl
@@ -59,17 +54,17 @@ const ImagePost = () => {
 		if (
 			!imagePostData.title &&
 			!imagePostData.category &&
-			!imageUrl
+			!imagePostData.imageUrl
 		) {
 			errorText = 'Please enter Title, Category, and Image';
 			return 1;
 		} else if (!imagePostData.title && !imagePostData.category) {
 			errorText = 'Please enter Title and Category';
 			return 1;
-		} else if (!imagePostData.title && !imageUrl) {
+		} else if (!imagePostData.title && !imagePostData.imageUrl) {
 			errorText = 'Please enter Title and upload Image';
 			return 1;
-		} else if (!imagePostData.category && !imageUrl) {
+		} else if (!imagePostData.category && !imagePostData.imageUrl) {
 			errorText = 'Please enter Category and upload Image';
 			return 1;
 		} else if (!imagePostData.title) {
@@ -78,7 +73,7 @@ const ImagePost = () => {
 		} else if (!imagePostData.category) {
 			errorText = 'Please enter Category';
 			return 1;
-		} else if (!imageUrl) {
+		} else if (!imagePostData.imageUrl) {
 			errorText = 'Please upload Image';
 			return 1;
 		}
@@ -195,12 +190,6 @@ const ImagePost = () => {
 						<input
 							onChange={(event) => {
 								imageHandler(event);
-
-								/* setImagePostData({
-									...imagePostData,
-									hasImage: 'yes',
-								}); */
-
 								s3Post(event)
 							}}
 							className='ImageInput'

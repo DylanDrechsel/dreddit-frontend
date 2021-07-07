@@ -57,7 +57,9 @@ const PublishedPost = () => {
 		}
 	}, [upvoteChange, reload, website]);
 
-	console.log(posts)
+	if(haveData) {
+		console.log(posts)
+	}
 
 	if (haveData) {
 		return (
@@ -116,6 +118,7 @@ const PublishedPost = () => {
 										<ShareButton postId={post.id} />
 										<DeleteButton
 											postId={post.id}
+											imageUrl={post.imageUrl}
 											handleReload={handleReload}
 										/>
 										<EditButton
