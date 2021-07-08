@@ -6,7 +6,7 @@
 
 .PostDetailFeed {
     position: relative;
-    height: 89vh !important;
+    height: 60.5vh !important;
     width: 65vw !important;
     margin-top: 5vh;
     left: 17.5vw;
@@ -59,4 +59,37 @@
 .DetailPostImage {
     max-width: 50vw !important;
     max-height: 50vh !important;
+}
+
+.PostDetailsSideBar {
+    height: 62vh;
+    width: 2.5vw;
+    /* background-color: gray; */
+    position: relative;
+    bottom: .1vh;
+    left: 1.1vw !important;
+    border-radius: 20% 0% 0% 20%;
+    /* overflow: hidden; */
+    align-items: center;
+    position: relative;
+    left: .35vw;
+    top: 1vh
+}
+
+.CommentFeed {
+    position: relative;
+    height: 60.5vh !important;
+    width: 65vw !important;
+    /* margin-top: 5vh; */
+    /* left: 17.5vw; */
+    background-color: #201E1D;
+}
+
+.CommentBox {
+    width: 60vw !important;
+}
+
+.CommentPostedBy {
+    position: relative;
+    right: 25vw !important;
 }

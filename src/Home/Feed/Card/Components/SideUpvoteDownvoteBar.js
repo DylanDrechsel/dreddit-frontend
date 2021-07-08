@@ -45,7 +45,7 @@ const SideUpvoteDownvoteBar = ({ likes, postId, upvoteCountChange }) => {
     }, [upvoteCountChange])
 
     return (
-			<div className={website === 'home' ? 'SideUpvoteDownvoteBar' : website === 'userPage/posts' ? 'UserPublishedPostSideUpvoteDownvoteBar' : 'PostSideUpvoteDownvoteBar'}>
+			<div className={website === 'home' ? 'SideUpvoteDownvoteBar' : website === 'userPage/posts' ? 'UserPublishedPostSideUpvoteDownvoteBar' : website === 'postDetails' ? 'PostDetailsSideBar' : 'PostSideUpvoteDownvoteBar'}>
 				<Col>
 					<Row>	
 						<Upvote initialLikeValue={likeValue} postId={postId} likeId={likeId} />
