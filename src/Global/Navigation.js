@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
 import './Global.css'
-import { Nav, Navbar } from 'react-bootstrap'
+import { Nav, Navbar, Dropdown } from 'react-bootstrap'
 import { userIdState, userNameState } from '../App';
 import { useRecoilState } from 'recoil';
 import { Link } from 'react-router-dom'
 import { motion, useAnimation } from 'framer-motion'
 import Welcome from './WelcomeAnimation/Welcome'
+import Logout from './Logout'
 
 const Navigation = () => {
     const [userId] = useRecoilState(userIdState);
@@ -45,12 +46,22 @@ const Navigation = () => {
 							</Link>
 						</Nav>
 
+						<motion.div
+							animate={
+								localStorage.getItem('welcomeAnimation') !== 'played'
+									? { opacity: 1, transition: { delay: 6 } }
+									: { opacity: 1 }
+							}
+							initial={{ opacity: 0 }}>
+							<Logout />
+						</motion.div>
+
 						<Link to={`/post/submit`} style={{ color: 'white' }}>
 							<motion.svg
 								className='NavPostAdd'
 								animate={
 									localStorage.getItem('welcomeAnimation') !== 'played'
-										? { opacity: 1, transition: { delay: 9 } }
+										? { opacity: 1, transition: { delay: 6 } }
 										: { opacity: 1 }
 								}
 								initial={{ opacity: 0 }}
@@ -75,12 +86,12 @@ const Navigation = () => {
 								<motion.h3
 									initial={
 										localStorage.getItem('welcomeAnimation') !== 'played'
-											? { x: '-45vw', y: '-.5vh', opacity: 0 }
+											? { opacity: 0 }
 											: { opacity: 1 }
 									}
 									animate={
 										localStorage.getItem('welcomeAnimation') !== 'played'
-											? controls
+											? { transition: { delay: 6 }, opacity: 1 }
 											: null
 									}>
 									<b>{userName}</b>

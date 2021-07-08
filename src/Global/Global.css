@@ -8,6 +8,13 @@
     overflow: hidden !important;
 }
 
+.DropdownMenu {
+    z-index: -1;
+    /* position: relative !important; */
+    /* z-index: 10000 !important; */
+    /* overflow: visible !important; */
+}
+
 .Welcome {
     color: white;
     /* overflow: hidden !important; */
@@ -74,4 +81,10 @@
     position: relative;
     right: 1.5vw;
     bottom: .5vh;
+}
+
+.LogoutButton {
+    position: relative;
+    right: 75vw;
+    cursor: pointer;
 }
