@@ -6,7 +6,7 @@ import { Row } from 'react-bootstrap'
 import PostedBy from '../../../../Home/Feed/Card/Components/PostedBy'
 import TimeSincePost from '../../../../Home/Feed/Card/Components/TimeSincePost';
 
-const Comments = ({ id }) => {
+const Comments = ({ id, reload }) => {
     const [token] = useRecoilState(tokenState);
     const [commentData, setCommentData] = useState()
 
@@ -19,7 +19,7 @@ const Comments = ({ id }) => {
 			}
         })
         .then(res => setCommentData(res.data.comments))
-    }, [])
+    }, [reload])
 
     console.log(commentData)
 
