@@ -31,8 +31,6 @@ const Card = () => {
 				setPostData(data);
 				setHaveData(true);
 				setUpvoteCountChange(!upvoteCountChange);
-
-				console.log(data.imageUrl)
 			});
 	}, [upvoteChange]);
 

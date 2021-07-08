@@ -23,8 +23,6 @@ const Comments = ({ id, reload }) => {
         }, 200)
     }, [reload])
 
-    console.log(commentData)
-
     if (commentData) {
         return (
             <div className="PostDetailsComments">

@@ -34,9 +34,9 @@ const PostDetailCard = ({ id }) => {
 			});
 	}, [upvoteChange]);
 
-	if (haveData) {
-		console.log(data);
-	}
+	// if (haveData) {
+	// 	console.log(data);
+	// }
 
 	if (haveData) {
 		return (
