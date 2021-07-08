@@ -87,9 +87,21 @@
 
 .CommentBox {
     width: 60vw !important;
+    border: 1px solid white;
+    margin-top: .5vh;
 }
 
 .CommentPostedBy {
     position: relative;
-    right: 25vw !important;
+    /* right: 25vw !important; */
+}
+
+.CommentContent {
+    margin-top: 1vh;
+    position: relative;
+    text-align: left;
+    left: 2vw !important;
+    font-size: 16px;
+
+    width: 55vw;
 }
