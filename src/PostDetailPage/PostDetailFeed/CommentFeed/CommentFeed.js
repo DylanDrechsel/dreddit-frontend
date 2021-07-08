@@ -9,7 +9,7 @@ const CommentFeed = ({ id }) => {
         setReload(!reload);
     }
 
-    console.log(reload)
+    // console.log(reload)
 
     return (
         <div className="CommentFeed">

@@ -57,9 +57,9 @@ const PublishedPost = () => {
 		}
 	}, [upvoteChange, reload, website]);
 
-	if(haveData) {
-		console.log(posts)
-	}
+	// if(haveData) {
+	// 	console.log(posts)
+	// }
 
 	if (haveData) {
 		return (

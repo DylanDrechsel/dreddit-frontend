@@ -35,7 +35,7 @@ const PostDetailCard = ({ id }) => {
 	}, [upvoteChange]);
 
 	if (haveData) {
-		// console.log(data);
+		console.log(data);
 	}
 
 	if (haveData) {
@@ -68,7 +68,7 @@ const PostDetailCard = ({ id }) => {
 								<Title title={data.post.title} />
 							</Row>
 
-							{!data.post.imageUrl ? null : (
+							{!data.post.imageUrl ? <p className='PostContent'>{data.post.content}</p> : (
 								<PostImage path={data.post.imageUrl} />
 							)}
 

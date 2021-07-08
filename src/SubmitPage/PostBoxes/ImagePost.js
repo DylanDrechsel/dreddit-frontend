@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { tokenState } from '../../App';
+import { tokenState, userIdState, websiteState } from '../../App';
 import { useRecoilState } from 'recoil';
 import { Row } from 'react-bootstrap';
 import axios from 'axios';
@@ -16,6 +16,7 @@ const ImagePost = () => {
 	const [imagePostData, setImagePostData] = useState({});
 	const [newImage, setNewImage] = useState();
 	const [token] = useRecoilState(tokenState);
+	const [userId] = useRecoilState(userIdState)
 	let history = useHistory()
 
 	const handlePostDataInput = (event) => {
@@ -109,13 +110,13 @@ const ImagePost = () => {
 				Authorization: `Bearer ${token}`,
 			},
 		})
-			.then(() => {
+			.then((res) => {
 				setPosted('image');
 
 				setTimeout(() => {
 					setPosted(false);
-					history.push('/');
-				}, 3000);
+					history.push(`/${res.data.post.id}`);
+				}, 1000);
 			})
 			.catch(() => {
 				errorText = 'Something went wrong... Please try again!';
@@ -154,8 +155,8 @@ const ImagePost = () => {
 
 				setTimeout(() => {
 					setPosted(false);
-					history.push(`/`);
-				}, 3000);
+					history.push(`/user/${userId}`);
+				}, 1000);
 			})
 			.catch(() => {
 				errorText = 'Something went wrong... Please try again!';

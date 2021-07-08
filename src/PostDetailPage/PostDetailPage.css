@@ -76,6 +76,12 @@
     top: 1vh
 }
 
+.PostContent {
+    text-align: left;
+    height: 48vh;
+    font-size: 12px;
+}
+
 .CommentFeed {
     position: relative;
     height: auto !important;
