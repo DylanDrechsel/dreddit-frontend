@@ -8,7 +8,7 @@ const Feed = ({ id }) => {
 	return (
 		<div className='PostDetailFeed' >
             <PostDetailCard id={id} />
-			<PostComment id={id} />
+			{/* <PostComment id={id} /> */}
 			<CommentFeed id={id} />
 		</div>
 	);
