@@ -29,10 +29,13 @@ const Comments = ({ id }) => {
                 {commentData.map((comment) => {
                     return (
                         <div className="CommentBox">
+
                             <Row className="PostInformation">
                                 <PostedBy username={comment.author.username} />
                                 <TimeSincePost time={comment.createdAt} />
                             </Row>
+
+                            <p className="CommentContent">{comment.content}</p>
                         </div>
                     )
                 })}

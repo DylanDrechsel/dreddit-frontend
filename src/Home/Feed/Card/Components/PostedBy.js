@@ -4,7 +4,6 @@ import { useRecoilState } from 'recoil';
 
 const PostedBy = ({ username }) => {
     const [website] = useRecoilState(websiteState)
-	console.log(website)
 
     return (
 			<div
