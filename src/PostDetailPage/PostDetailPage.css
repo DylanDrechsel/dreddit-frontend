@@ -76,9 +76,15 @@
     top: 1vh
 }
 
+.PostContent {
+    text-align: left;
+    height: 48vh;
+    font-size: 12px;
+}
+
 .CommentFeed {
     position: relative;
-    height: 60.5vh !important;
+    height: auto !important;
     width: 65vw !important;
     /* margin-top: 5vh; */
     /* left: 17.5vw; */
@@ -89,6 +95,7 @@
     width: 60vw !important;
     border: 1px solid white;
     margin-top: .5vh;
+    margin-left: .5vw;
 }
 
 .CommentPostedBy {
@@ -104,4 +111,26 @@
     font-size: 16px;
 
     width: 55vw;
+}
+
+.CommentHead {
+    font-size: 12px;
+    text-align: left;
+    position: relative;
+    left: 1.5vw !important;
+    top: 1.25vh;
+}
+
+.PostCommentButton {
+    background-color: black !important;
+    border: 1px solid grey !important;
+    color: white !important;
+
+    position: relative;
+    bottom: 1vh !important;
+    left: 30vw !important;
+}
+
+.PostCommentButton:hover {
+    background-color: #272525 !important;
 }

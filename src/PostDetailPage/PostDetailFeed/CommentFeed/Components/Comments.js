@@ -6,20 +6,22 @@ import { Row } from 'react-bootstrap'
 import PostedBy from '../../../../Home/Feed/Card/Components/PostedBy'
 import TimeSincePost from '../../../../Home/Feed/Card/Components/TimeSincePost';
 
-const Comments = ({ id }) => {
+const Comments = ({ id, reload }) => {
     const [token] = useRecoilState(tokenState);
     const [commentData, setCommentData] = useState()
 
     useEffect(() => {
-        axios({
-            url: `http://localhost:4000/comments/${id}`,
-            method: 'GET',
-            headers: {
-					Authorization: `Bearer ${token}`,
-			}
-        })
-        .then(res => setCommentData(res.data.comments))
-    }, [])
+        setTimeout(() => {
+            axios({
+                url: `http://localhost:4000/comments/${id}`,
+                method: 'GET',
+                headers: {
+                        Authorization: `Bearer ${token}`,
+                }
+            })
+            .then(res => setCommentData(res.data.comments))
+        }, 200)
+    }, [reload])
 
     console.log(commentData)
 
