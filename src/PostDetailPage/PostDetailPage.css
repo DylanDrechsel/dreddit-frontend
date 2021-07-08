@@ -99,5 +99,9 @@
 .CommentContent {
     margin-top: 1vh;
     position: relative;
-    right: 25vw !important;
+    text-align: left;
+    left: 2vw !important;
+    font-size: 16px;
+
+    width: 55vw;
 }
