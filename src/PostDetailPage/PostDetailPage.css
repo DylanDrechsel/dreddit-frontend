@@ -75,3 +75,12 @@
     left: .35vw;
     top: 1vh
 }
+
+.CommentFeed {
+    position: relative;
+    height: 60.5vh !important;
+    width: 65vw !important;
+    /* margin-top: 5vh; */
+    /* left: 17.5vw; */
+    background-color: #201E1D;
+}
