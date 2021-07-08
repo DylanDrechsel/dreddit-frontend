@@ -1,6 +1,6 @@
 import React from 'react';
 import PostDetailCard from './PostDetailCard/PostDetailCard'
-import CommentFeed from './CommentFeed'
+import CommentFeed from './CommentFeed/CommentFeed'
 
 
 const Feed = ({ id }) => {
