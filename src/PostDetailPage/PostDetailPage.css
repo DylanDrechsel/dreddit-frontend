@@ -91,5 +91,5 @@
 
 .CommentPostedBy {
     position: relative;
-    right: 25vw !important;
+    /* right: 25vw !important; */
 }

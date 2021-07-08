@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { tokenState } from '../../../../App';
 import { useRecoilState } from 'recoil';
+import { Row } from 'react-bootstrap'
 import PostedBy from '../../../../Home/Feed/Card/Components/PostedBy'
+import TimeSincePost from '../../../../Home/Feed/Card/Components/TimeSincePost';
 
 const Comments = ({ id }) => {
     const [token] = useRecoilState(tokenState);
@@ -27,7 +29,10 @@ const Comments = ({ id }) => {
                 {commentData.map((comment) => {
                     return (
                         <div className="CommentBox">
-                            <PostedBy username={comment.author.username} />
+                            <Row className="PostInformation">
+                                <PostedBy username={comment.author.username} />
+                                <TimeSincePost time={comment.createdAt} />
+                            </Row>
                         </div>
                     )
                 })}
