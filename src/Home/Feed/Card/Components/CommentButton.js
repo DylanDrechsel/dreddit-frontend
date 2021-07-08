@@ -17,7 +17,7 @@ const CommentButton = ({ comments }) => {
 				className={
 					website === 'home'
 						? 'CommentButton'
-						: website === 'userPage/posts' || website === 'userPage/saved'
+						: website === 'userPage/posts' || 'userPage/saved' || 'postDetails'
 						? 'UsersPublishedPostsCommentButton'
 						: null
 				}>

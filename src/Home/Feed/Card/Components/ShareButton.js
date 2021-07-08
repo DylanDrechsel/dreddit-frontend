@@ -18,7 +18,8 @@ const ShareButton = ({ postId }) => {
 				className={
 					website === 'home'
 						? 'ShareButtonDiv'
-						: website === 'userPage/posts' || website === 'userPage/saved'
+						: website === 'userPage/posts' ||
+						  'postDetails' || 'userPage/saved'
 						? 'UsersPublishedPostsShareButtonDiv'
 						: null
 				}

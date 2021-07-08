@@ -10,6 +10,7 @@ import PostedBy from '../../../Home/Feed/Card/Components/PostedBy';
 import TimeSincePost from '../../../Home/Feed/Card/Components/TimeSincePost';
 import Title from '../../../Home/Feed/Card/Components/Title';
 import PostImage from '../../../Home/Feed/Card/Components/PostImage';
+import PostDetailChoicesBar from './PostDetailChoicesBar'
 
 const PostDetailCard = ({ id }) => {
 	const [userId] = useRecoilState(userIdState);
@@ -70,6 +71,10 @@ const PostDetailCard = ({ id }) => {
 							{!data.post.imageUrl ? null : (
 								<PostImage path={data.post.imageUrl} />
 							)}
+
+							<Row>
+								<PostDetailChoicesBar comments={data.post.comments} id={data.post.id} />
+							</Row>
 						</Col>
 					</Row>
 				</Container>
