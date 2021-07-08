@@ -78,7 +78,7 @@
 
 .CommentFeed {
     position: relative;
-    height: 60.5vh !important;
+    height: auto !important;
     width: 65vw !important;
     /* margin-top: 5vh; */
     /* left: 17.5vw; */
@@ -89,6 +89,7 @@
     width: 60vw !important;
     border: 1px solid white;
     margin-top: .5vh;
+    margin-left: .5vw;
 }
 
 .CommentPostedBy {

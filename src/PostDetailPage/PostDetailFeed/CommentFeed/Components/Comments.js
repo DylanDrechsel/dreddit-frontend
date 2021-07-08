@@ -21,7 +21,7 @@ const Comments = ({ id, reload }) => {
         .then(res => setCommentData(res.data.comments))
     }, [reload])
 
-    console.log(commentData)
+    // console.log(commentData)
 
     if (commentData) {
         return (

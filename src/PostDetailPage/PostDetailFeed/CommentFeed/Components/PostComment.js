@@ -25,7 +25,6 @@ const PostComment = ({ id, handleReload }) => {
 					Authorization: `Bearer ${token}`,
 			}
         })
-        .then(res => console.log(res))
         .then(handleReload())
         .catch(err => console.log(err))
     }
