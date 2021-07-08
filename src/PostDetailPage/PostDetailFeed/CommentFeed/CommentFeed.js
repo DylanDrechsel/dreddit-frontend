@@ -1,9 +1,10 @@
 import React from 'react';
+import Comments from './Components/Comments'
 
-const CommentFeed = () => {
+const CommentFeed = ({ id }) => {
     return (
         <div className="CommentFeed">
-            TEST
+            <Comments id={id}/>
         </div>
     );
 };

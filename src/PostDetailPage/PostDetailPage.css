@@ -84,3 +84,12 @@
     /* left: 17.5vw; */
     background-color: #201E1D;
 }
+
+.CommentBox {
+    width: 60vw !important;
+}
+
+.CommentPostedBy {
+    position: relative;
+    right: 25vw !important;
+}

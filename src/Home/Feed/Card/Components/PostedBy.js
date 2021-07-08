@@ -4,6 +4,7 @@ import { useRecoilState } from 'recoil';
 
 const PostedBy = ({ username }) => {
     const [website] = useRecoilState(websiteState)
+	console.log(website)
 
     return (
 			<div
@@ -14,7 +15,7 @@ const PostedBy = ({ username }) => {
 						? 'UsersPublishedPostsPostedBy'
 						: 'PostDetailCardPostedBy'
 				}>
-				<p>- Posted By {username}</p>
+				{website !== 'postDetails' ? <p>- Posted By {username}</p> : <p className='CommentPostedBy'>{username}</p>}
 			</div>
 		);
 };
