@@ -59,7 +59,10 @@ const SignIn = () => {
 				setError('PasswordError');
 				setErrorBackToNone();
 			}
-		});
+		}).catch(() => {
+			setError('ServerError');
+			setErrorBackToNone();
+		})
 	};
 
 	return (
@@ -113,7 +116,8 @@ const SignIn = () => {
 				<h1 className='NoEmail'>Please Enter Email</h1>
 			) : error === 'NoPassword' ? (
 				<h1 className='NoPassword'>Please Enter Password</h1>
-			) : null}
+			) : error === 'ServerError' ? (<h1 className='NoPassword'>Server Loading <br /> Please wait a bit and try again</h1>) 
+			  : null}
 		</div>
 	);
 };
