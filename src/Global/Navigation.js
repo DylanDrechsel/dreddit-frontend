@@ -33,6 +33,7 @@ const Navigation = () => {
 								to={`/`}
 								style={{
 									color: 'white',
+									textDecoration: 'none'
 								}}>
 								<motion.h5
 									animate={
