@@ -9,7 +9,7 @@ const ShareButton = ({ postId }) => {
         event.preventDefault()
 
         navigator.clipboard.writeText(
-					`https://peaceful-crater-lake-16323.herokuapp.com/${postId}`
+					`https://master.dvzb15cl8s3db.amplifyapp.com/${postId}`
 				);
     }
 
