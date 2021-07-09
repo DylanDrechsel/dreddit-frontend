@@ -7,7 +7,7 @@ import Title from './Components/Title';
 import Category from './Components/Category';
 import SaveDraft from './Components/SaveDraft';
 import PostButton from './Components/Post';
-import { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom';
 
 let errorText = '';
 
@@ -16,8 +16,8 @@ const ImagePost = () => {
 	const [imagePostData, setImagePostData] = useState({});
 	const [newImage, setNewImage] = useState();
 	const [token] = useRecoilState(tokenState);
-	const [userId] = useRecoilState(userIdState)
-	let history = useHistory()
+	const [userId] = useRecoilState(userIdState);
+	let history = useHistory();
 
 	const handlePostDataInput = (event) => {
 		const input = { ...imagePostData };
@@ -26,35 +26,36 @@ const ImagePost = () => {
 	};
 
 	const s3Post = async (event) => {
-		const file = event.target.files[0]
+		const file = event.target.files[0];
 		let url;
 		let key;
 
 		await axios({
-			url: 'http://localhost:4000/s3Url',
-			method: "GET"
-		})
-		.then((res) => {
-			url = res.data.imageInfo.url
-			key = res.data.imageInfo.key
-		})
+			url: 'https://boiling-shelf-57510.herokuapp.com/s3Url',
+			method: 'GET',
+		}).then((res) => {
+			console.log(res);
+			url = res.data.imageInfo.url;
+			key = res.data.imageInfo.key;
+		});
 
 		await axios({
 			url: url,
-			method: "PUT",
+			method: 'PUT',
 			headers: {
-				"Content-Type": "image/jpeg"
+				'Content-Type': 'image/jpeg',
+				// Authorization: `Bearer ${token}`,
 			},
-			data: file
-		})
+			data: file,
+		}).then((res) => console.log(res));
 
-		const imageUrl = await url.split('?')[0]
+		const imageUrl = await url.split('?')[0];
 		await setImagePostData({
 			...imagePostData,
 			imageUrl: imageUrl,
-			imageKey: key
-		})
-	}
+			imageKey: key,
+		});
+	};
 
 	const checkInformation = (imagePostData) => {
 		if (
@@ -87,11 +88,10 @@ const ImagePost = () => {
 		return 0;
 	};
 
-	const post =  async (event) => {
+	const post = async (event) => {
 		event.preventDefault();
 
-
-		if (await checkInformation(imagePostData) !== 0) {
+		if ((await checkInformation(imagePostData)) !== 0) {
 			setPosted('error');
 
 			setTimeout(() => {
@@ -103,9 +103,9 @@ const ImagePost = () => {
 		}
 
 		await axios({
-			url: 'http://localhost:4000/posts/create/',
+			url: 'https://boiling-shelf-57510.herokuapp.com/posts/create/',
 			method: 'POST',
-			data: {...imagePostData, published: true},
+			data: { ...imagePostData, published: true },
 			headers: {
 				Authorization: `Bearer ${token}`,
 			},
@@ -131,7 +131,7 @@ const ImagePost = () => {
 	const saveDraftPost = async (event) => {
 		event.preventDefault();
 
-		if (await checkInformation(imagePostData) !== 0) {
+		if ((await checkInformation(imagePostData)) !== 0) {
 			setPosted('error');
 
 			setTimeout(() => {
@@ -143,9 +143,9 @@ const ImagePost = () => {
 		}
 
 		await axios({
-			url: 'http://localhost:4000/posts/create/',
+			url: 'https://boiling-shelf-57510.herokuapp.com/posts/create/',
 			method: 'POST',
-			data: { ...imagePostData, published: false},
+			data: { ...imagePostData, published: false },
 			headers: {
 				Authorization: `Bearer ${token}`,
 			},
@@ -196,7 +196,7 @@ const ImagePost = () => {
 						<input
 							onChange={(event) => {
 								imageHandler(event);
-								s3Post(event)
+								s3Post(event);
 							}}
 							className='ImageInput'
 							type='file'
@@ -224,7 +224,6 @@ const ImagePost = () => {
 
 export default ImagePost;
 
-
 // MULTER IMAGE POST REQUEST
 /* const post = (event) => {
 		event.preventDefault();
@@ -249,7 +248,7 @@ export default ImagePost;
 		}
 
 		axios({
-			url: 'http://localhost:4000/posts/create/image',
+			url: 'https://boiling-shelf-57510.herokuapp.com/posts/create/image',
 			method: 'POST',
 			data: formData,
 			headers: {

@@ -13,7 +13,9 @@ const Logout = () => {
         localStorage.removeItem('welcomeAnimation');
         localStorage.removeItem('userId');
 
-        setToken(null)
+		setTimeout(() => {
+			setToken(null)
+		}, 500)
     }
 
     return (

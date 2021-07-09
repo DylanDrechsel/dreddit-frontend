@@ -22,7 +22,7 @@ const Card = () => {
 
 	useEffect(() => {
 		axios
-			.get(`http://localhost:4000/posts`, {
+			.get(`https://boiling-shelf-57510.herokuapp.com/posts`, {
 				headers: {
 					Authorization: `Bearer ${token}`,
 				},
@@ -64,7 +64,9 @@ const Card = () => {
 												<Title title={post.title} />
 											</Row>
 
-											{!post.imageUrl ? null : <PostImage path={`${post.imageUrl}`} />}
+											{!post.imageUrl ? null : (
+												<PostImage path={`${post.imageUrl}`} />
+											)}
 
 											{/* OLD MULTER USE */}
 											{/* {!post.image ? null : (

@@ -32,7 +32,7 @@ const PublishedPost = () => {
 	useEffect(() => {
 		if (website === 'userPage/saved') {
 			axios({
-				url: 'http://localhost:4000/posts/user/unpublished',
+				url: 'https://boiling-shelf-57510.herokuapp.com/posts/user/unpublished',
 				method: 'GET',
 				headers: {
 					Authorization: `Bearer ${token}`,
@@ -44,7 +44,7 @@ const PublishedPost = () => {
 			});
 		} else {
 			axios({
-				url: 'http://localhost:4000/posts/user/published',
+				url: 'https://boiling-shelf-57510.herokuapp.com/posts/user/published',
 				method: 'GET',
 				headers: {
 					Authorization: `Bearer ${token}`,

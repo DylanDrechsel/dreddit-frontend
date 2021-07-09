@@ -19,7 +19,7 @@ const Upvote = ({ initialLikeValue, postId, likeId }) => {
 		event.preventDefault();
 
 		axios({
-			url: `http://localhost:4000/likes/create/${postId}`,
+			url: `https://boiling-shelf-57510.herokuapp.com/likes/create/${postId}`,
 			method: 'POST',
 			headers: {
 				Authorization: `Bearer ${token}`,
@@ -34,7 +34,7 @@ const Upvote = ({ initialLikeValue, postId, likeId }) => {
 		event.preventDefault();
 
 		axios({
-			url: `http://localhost:4000/likes/${currentLikeId}`,
+			url: `https://boiling-shelf-57510.herokuapp.com/likes/${currentLikeId}`,
 			method: 'PUT',
 			data: { liked: 'upvoteTrue' },
 			headers: {
@@ -49,7 +49,7 @@ const Upvote = ({ initialLikeValue, postId, likeId }) => {
 		event.preventDefault();
 
 		axios({
-			url: `http://localhost:4000/likes/${currentLikeId}`,
+			url: `https://boiling-shelf-57510.herokuapp.com/likes/${currentLikeId}`,
 			method: 'PUT',
 			data: { liked: 'upvoteRemoved' },
 			headers: {
@@ -64,7 +64,7 @@ const Upvote = ({ initialLikeValue, postId, likeId }) => {
 		event.preventDefault();
 
 		axios({
-			url: `http://localhost:4000/likes/${currentLikeId}`,
+			url: `https://boiling-shelf-57510.herokuapp.com/likes/${currentLikeId}`,
 			method: 'PUT',
 			data: { liked: 'upvoteRemoved' },
 			headers: {

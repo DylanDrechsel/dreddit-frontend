@@ -49,35 +49,37 @@ const SignUpModal = ({ handleClose, show }) => {
 		}
 
 		axios({
-			url: 'http://localhost:4000/register',
+			url: 'https://boiling-shelf-57510.herokuapp.com/register',
 			method: 'POST',
 			data: userData,
-		}).then((res) => {
-			if (
-				res.data.message !== 'the email address already exists' &&
-				res.data.message !== 'the username already exists'
-			) {
-				setError('AccountCreated');
-				setErrorBackToNone();
-
-				setTimeout(() => {
-					handleClose();
-				}, 3000);
-			}
-
-			if (res.data.message === 'the email address already exists') {
-				setError('EmailExist');
-				setErrorBackToNone();
-			}
-
-			if (res.data.message === 'the username already exists') {
-				setError('UsernameExist');
-				setErrorBackToNone();
-			}
-		}).catch(() => {
-			setError('NetworkError')
-			setErrorBackToNone();
 		})
+			.then((res) => {
+				if (
+					res.data.message !== 'the email address already exists' &&
+					res.data.message !== 'the username already exists'
+				) {
+					setError('AccountCreated');
+					setErrorBackToNone();
+
+					setTimeout(() => {
+						handleClose();
+					}, 3000);
+				}
+
+				if (res.data.message === 'the email address already exists') {
+					setError('EmailExist');
+					setErrorBackToNone();
+				}
+
+				if (res.data.message === 'the username already exists') {
+					setError('UsernameExist');
+					setErrorBackToNone();
+				}
+			})
+			.catch(() => {
+				setError('NetworkError');
+				setErrorBackToNone();
+			});
 	};
 
 	return (
@@ -167,7 +169,9 @@ const SignUpModal = ({ handleClose, show }) => {
 						<h1 className='SignUpNoUsername'>Please Enter Username</h1>
 					) : error === 'AccountCreated' ? (
 						<h1 className='AccountCreated'>Account Created</h1>
-					) : error ===  'NetworkError' ? (<h1 className='AccountCreated'>Server Error. Please Try Again</h1>) : null}
+					) : error === 'NetworkError' ? (
+						<h1 className='AccountCreated'>Server Error. Please Try Again</h1>
+					) : null}
 				</div>
 
 				<Modal.Footer style={{ backgroundColor: 'black' }}>
