@@ -20,7 +20,7 @@ const EditPostModal = ({ show, handleClose, post, handleReload }) => {
 
 	const handleTextEditPost = () => {
 		axios({
-			url: `http://localhost:4000/posts/${post.id}/`,
+			url: `https://boiling-shelf-57510.herokuapp.com/posts/${post.id}/`,
 			method: 'PUT',
 			data: editData,
 			headers: {
@@ -38,7 +38,7 @@ const EditPostModal = ({ show, handleClose, post, handleReload }) => {
 		let key;
 
 		await axios({
-			url: 'http://localhost:4000/s3Url',
+			url: 'https://boiling-shelf-57510.herokuapp.com/s3Url',
 			method: 'GET',
 		}).then((res) => {
 			url = res.data.imageInfo.url;
@@ -64,7 +64,7 @@ const EditPostModal = ({ show, handleClose, post, handleReload }) => {
 
 	const handleImageEditPost = () => {
 		axios({
-			url: `http://localhost:4000/posts/${post.id}`,
+			url: `https://boiling-shelf-57510.herokuapp.com/posts/${post.id}`,
 			method: 'PUT',
 			data: editData,
 			headers: {
@@ -169,10 +169,7 @@ const EditPostModal = ({ show, handleClose, post, handleReload }) => {
 							/>
 
 							{!newImage ? (
-								<img
-									className='EditModalImage'
-									src={`${post.imageUrl}`}
-								/>
+								<img className='EditModalImage' src={`${post.imageUrl}`} />
 							) : (
 								<img className='EditModalImage' src={newImage} />
 							)}
@@ -185,8 +182,8 @@ const EditPostModal = ({ show, handleClose, post, handleReload }) => {
 							className='EditImageForm'>
 							<input
 								onChange={(event) => {
-									imageHandler(event)
-									s3Post(event)
+									imageHandler(event);
+									s3Post(event);
 								}}
 								className='EditImageInput'
 								type='file'
@@ -261,7 +258,7 @@ export default EditPostModal;
 		}
 
 		axios({
-			url: `http://localhost:4000/posts/${post.id}/${post.image.id}`,
+			url: `https://boiling-shelf-57510.herokuapp.com/posts/${post.id}/${post.image.id}`,
 			method: 'PUT',
 			data: formData,
 			headers: {

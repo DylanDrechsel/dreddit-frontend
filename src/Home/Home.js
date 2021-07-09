@@ -19,7 +19,7 @@ const Home = () => {
 
 	useEffect(() => {
 		axios
-			.get(`http://localhost:4000/users/${userId}`, {
+			.get(`https://boiling-shelf-57510.herokuapp.com/users/${userId}`, {
 				headers: {
 					Authorization: `Bearer ${token}`,
 				},
@@ -33,7 +33,7 @@ const Home = () => {
 
 				setTimeout(() => {
 					localStorage.setItem('welcomeAnimation', 'played');
-				}, 8000)
+				}, 8000);
 			});
 	}, []);
 

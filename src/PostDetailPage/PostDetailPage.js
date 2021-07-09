@@ -20,7 +20,7 @@ const PostDetailPage = ({ match }) => {
 	}, []);
 
 	// useEffect(() => {
-	//     axios.get(`http://localhost:4000/posts/${id}`, {
+	//     axios.get(`https://boiling-shelf-57510.herokuapp.com/posts/${id}`, {
 	//         headers: {
 	//             Authorization: `Bearer ${token}`
 	//         }

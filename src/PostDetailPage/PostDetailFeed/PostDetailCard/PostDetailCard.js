@@ -10,7 +10,7 @@ import PostedBy from '../../../Home/Feed/Card/Components/PostedBy';
 import TimeSincePost from '../../../Home/Feed/Card/Components/TimeSincePost';
 import Title from '../../../Home/Feed/Card/Components/Title';
 import PostImage from '../../../Home/Feed/Card/Components/PostImage';
-import PostDetailChoicesBar from './PostDetailChoicesBar'
+import PostDetailChoicesBar from './PostDetailChoicesBar';
 
 const PostDetailCard = ({ id }) => {
 	const [userId] = useRecoilState(userIdState);
@@ -22,7 +22,7 @@ const PostDetailCard = ({ id }) => {
 
 	useEffect(() => {
 		axios
-			.get(`http://localhost:4000/posts/${id}`, {
+			.get(`https://boiling-shelf-57510.herokuapp.com/posts/${id}`, {
 				headers: {
 					Authorization: `Bearer ${token}`,
 				},
@@ -68,12 +68,17 @@ const PostDetailCard = ({ id }) => {
 								<Title title={data.post.title} />
 							</Row>
 
-							{!data.post.imageUrl ? <p className='PostContent'>{data.post.content}</p> : (
+							{!data.post.imageUrl ? (
+								<p className='PostContent'>{data.post.content}</p>
+							) : (
 								<PostImage path={data.post.imageUrl} />
 							)}
 
 							<Row>
-								<PostDetailChoicesBar comments={data.post.comments} id={data.post.id} />
+								<PostDetailChoicesBar
+									comments={data.post.comments}
+									id={data.post.id}
+								/>
 							</Row>
 						</Col>
 					</Row>

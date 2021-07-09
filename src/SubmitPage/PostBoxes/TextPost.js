@@ -8,7 +8,7 @@ import Category from './Components/Category';
 import Content from './Components/Content';
 import SaveDraft from './Components/SaveDraft';
 import PostButton from './Components/Post';
-import { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom';
 
 let errorText = '';
 
@@ -17,7 +17,7 @@ const TextPost = () => {
 	const [posted, setPosted] = useState(false);
 	const [token] = useRecoilState(tokenState);
 	const [userId] = useRecoilState(userIdState);
-	let history = useHistory()
+	let history = useHistory();
 
 	const handlePostDataInput = (event) => {
 		const input = { ...textPostData };
@@ -53,7 +53,7 @@ const TextPost = () => {
 		}
 
 		axios({
-			url: 'http://localhost:4000/posts/create/',
+			url: 'https://boiling-shelf-57510.herokuapp.com/posts/create/',
 			method: 'POST',
 			data: { ...textPostData, published: true },
 			headers: {
@@ -65,7 +65,7 @@ const TextPost = () => {
 
 				setTimeout(() => {
 					setPosted(false);
-					history.push(`/${res.data.post.id}`)
+					history.push(`/${res.data.post.id}`);
 				}, 1000);
 			})
 			.catch(() => {
@@ -91,7 +91,7 @@ const TextPost = () => {
 		}
 
 		axios({
-			url: 'http://localhost:4000/posts/create/',
+			url: 'https://boiling-shelf-57510.herokuapp.com/posts/create/',
 			method: 'POST',
 			data: { ...textPostData, published: false },
 			headers: {
