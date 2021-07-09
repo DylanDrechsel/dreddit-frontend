@@ -10,7 +10,7 @@ const ShareButton = ({ postId }) => {
 
         navigator.clipboard.writeText(
 					`https://master.dvzb15cl8s3db.amplifyapp.com/${postId}`
-				);
+		);
     }
 
     return (
