@@ -14,6 +14,8 @@ Deployed Frontend: <a href="https://master.dvzb15cl8s3db.amplifyapp.com/">Dreddi
 </p>
 
 ## Key Features:
+- Error handling with user feedback on all error frontend and backend
+- Gives user feedback on almost every action on the site
 - Used Framer-Motion and CSS Keyframes for all animations
 - Used Axios for all requests (POST, GET, PUT, DELETE)
 - Used Form-Data to send image from the frontend to Multer
